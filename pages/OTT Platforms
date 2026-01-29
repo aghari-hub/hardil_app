@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OTT Platforms | HarDil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero small">
+  <h1>🎬 OTT Platforms</h1>
+  <p>Movies · Series · Live TV</p>
+</header>
+
+<main class="app">
+  <section class="card">
+    <div class="grid">
+
+      <a class="app-btn" href="https://www.netflix.com" target="_blank">
+        <img src="assets/icons/netflix.png"><span>Netflix</span>
+      </a>
+
+      <a class="app-btn" href="https://www.primevideo.com" target="_blank">
+        <img src="assets/icons/prime.png"><span>Prime Video</span>
+      </a>
+
+      <a class="app-btn" href="https://www.hotstar.com" target="_blank">
+        <img src="assets/icons/hotstar.png"><span>Hotstar</span>
+      </a>
+
+      <a class="app-btn" href="https://www.sonyliv.com" target="_blank">
+        <img src="assets/icons/sonyliv.png"><span>Sony LIV</span>
+      </a>
+
+      <a class="app-btn" href="https://www.zee5.com" target="_blank">
+        <img src="assets/icons/zee5.png"><span>ZEE5</span>
+      </a>
+
+      <a class="app-btn" href="https://www.jiocinema.com" target="_blank">
+        <img src="assets/icons/jiocinema.png"><span>JioCinema</span>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a href="index.html">⬅ Back to Home</a>
+</footer>
+
+</body>
+</html>
