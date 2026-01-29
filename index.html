@@ -1,6 +1,5 @@
 <script>
-  // Always go to splash first
-  if (!location.pathname.includes("splash.html")) {
+  if (!sessionStorage.getItem("harDilOpened")) {
     window.location.replace("splash.html");
   }
 </script>
