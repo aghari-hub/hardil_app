@@ -1,13 +1,18 @@
 /* ===============================
-   APP BUTTON (REAL APP FEEL)
+   APP BUTTON — PLAY STORE QUALITY
 ================================ */
+
 .app-btn {
   display: flex;
   align-items: center;
   gap: 16px;
+
   padding: 14px 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   cursor: pointer;
   user-select: none;
@@ -16,49 +21,85 @@
 
   pointer-events: auto;
 
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+
   transform: translateY(0) scale(1);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    transform 0.22s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.22s cubic-bezier(.2,.8,.2,1),
+    background 0.22s ease;
 }
 
-/* ICON — REAL, NOT BOXED */
+/* ===============================
+   ICON — CLEAN & REAL
+================================ */
+
 .app-btn img {
   width: 42px;
   height: 42px;
   object-fit: contain;
   flex-shrink: 0;
 
-  pointer-events: none;   /* 🔥 IMPORTANT */
+  pointer-events: none;
   user-select: none;
 
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 
   transition: transform 0.25s ease;
 }
 
+/* ===============================
+   TEXT
+================================ */
+
 .app-btn span {
   font-size: 15px;
   font-weight: 500;
+  letter-spacing: 0.2px;
   white-space: nowrap;
 
-  pointer-events: none;   /* 🔥 IMPORTANT */
+  pointer-events: none;
 }
 
-/* HOVER / TAP */
+/* ===============================
+   HOVER (DESKTOP)
+================================ */
+
 .app-btn:hover {
-  transform: translateY(-6px) scale(1.05);
-  background: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.26);
+
+  box-shadow:
+    0 16px 36px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 .app-btn:hover img {
   transform: scale(1.15);
 }
 
+/* ===============================
+   ACTIVE / TAP (MOBILE)
+================================ */
+
 .app-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.22);
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-btn,
+  .app-btn img {
+    transition: none;
+  }
 }
