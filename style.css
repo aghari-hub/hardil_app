@@ -1,6 +1,55 @@
-body{margin:0;font-family:Segoe UI,sans-serif;background:#f4f6fb}
-.hero{text-align:center;padding:25px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:20px}
-.grid div,button{background:#fff;border-radius:15px;padding:18px;font-size:16px;border:none;box-shadow:0 6px 15px rgba(0,0,0,.12);cursor:pointer;text-align:center}
-h2{padding:15px}
-footer{font-size:13px;padding:15px;text-align:center;color:#555}
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6fb;
+}
+
+.hero {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: white;
+  animation: slideDown 0.8s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+.grid div {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  font-size: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,.12);
+  cursor: pointer;
+  text-align: center;
+  animation: fadeUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid div:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,.18);
+}
+
+footer {
+  font-size: 13px;
+  padding: 15px;
+  text-align: center;
+  color: #555;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes slideDown {
+  from { opacity:0; transform: translateY(-20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
