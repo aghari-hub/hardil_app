@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HarDil</title>
+<title>HarDil – HD</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#6c63ff">
 
 <style>
+:root {
+  --bg-start: #f6f8ff;
+  --bg-end: #eef1ff;
+  --primary: #5b6cff;
+  --heart: #ff5c7a;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,150 +20,224 @@
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at top, #eef0ff, #ffffff);
-  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
   overflow: hidden;
 }
 
-/* SCENE */
 .scene {
-  text-align: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
 }
 
-/* CHARACTERS */
-.characters {
-  display: flex;
-  gap: 140px;
-  justify-content: center;
+/* ===============================
+   FRAME 1 – DOTS ENTER
+================================ */
+.dot {
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 120px;
+}
+
+.dot.left {
+  left: -40px;
+  animation: dotLeft 0.5s ease forwards;
+}
+
+.dot.right {
+  right: -40px;
+  animation: dotRight 0.5s ease forwards;
+}
+
+@keyframes dotLeft {
+  to { left: 90px; }
+}
+
+@keyframes dotRight {
+  to { right: 90px; }
+}
+
+/* ===============================
+   FRAME 2 – CHARACTERS + HANDSHAKE
+================================ */
+.person {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 100px;
   opacity: 0;
-  animation: meet 1.8s cubic-bezier(.19,1,.22,1) forwards;
 }
 
-.character {
-  width: 120px;
-  animation: float 3s ease-in-out infinite;
+.person.left {
+  left: 70px;
+  animation: personIn 0.4s ease forwards;
+  animation-delay: 0.5s;
 }
 
-.character.right {
-  animation-delay: .4s;
+.person.right {
+  right: 70px;
+  animation: personIn 0.4s ease forwards;
+  animation-delay: 0.5s;
 }
 
-/* HEART */
-.heart {
-  width: 42px;
-  height: 42px;
-  margin: 18px auto;
-  opacity: 0;
-  animation: heartIn 1.2s ease forwards;
-  animation-delay: 2s;
-}
-
-.heart svg {
-  width: 100%;
-  height: 100%;
-  fill: #ff4d6d;
-  animation: pulse 1.6s infinite ease-in-out;
-}
-
-/* LOGO */
-.logo {
-  font-size: 46px;
-  font-weight: 700;
-  color: #5b5ce6;
-  margin-top: 20px;
-  opacity: 0;
-  animation: logoIn 1s ease forwards;
-  animation-delay: 3.8s;
-}
-
-.sub {
-  font-size: 14px;
-  color: #6b7280;
-  margin-top: 6px;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 4.2s;
-}
-
-/* ANIMATIONS */
-@keyframes meet {
-  to { gap: 24px; opacity: 1; }
-}
-
-@keyframes heartIn {
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes logoIn {
-  from { opacity: 0; transform: scale(.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
+@keyframes personIn {
   to { opacity: 1; }
 }
 
-@keyframes pulse {
-  0%,100% { transform: scale(.95); }
-  50% { transform: scale(1.2); }
+.handshake {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 118px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: shakePop 0.3s ease forwards;
+  animation-delay: 0.9s;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes shakePop {
+  to { transform: translateX(-50%) scale(1); }
 }
 
-/* ACCESSIBILITY */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; }
+/* ===============================
+   FRAME 3 – HUG + HEART
+================================ */
+.hug {
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(91,108,255,0.12);
+  transform: translateX(-50%) scale(0);
+  animation: hugIn 0.4s ease forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes hugIn {
+  to { transform: translateX(-50%) scale(1); }
+}
+
+.heart {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: var(--heart);
+  transform: translateX(-50%) rotate(45deg) scale(0);
+  animation: heartIn 0.4s ease forwards;
+  animation-delay: 1.4s;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--heart);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -9px;
+  left: 0;
+}
+
+.heart::after {
+  left: -9px;
+  top: 0;
+}
+
+@keyframes heartIn {
+  to {
+    transform: translateX(-50%) rotate(45deg) scale(1);
+  }
+}
+
+/* ===============================
+   FRAME 4 – LOGO REVEAL
+================================ */
+.logo {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  animation: logoIn 0.6s ease forwards;
+  animation-delay: 1.8s;
+  text-align: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #1f2a44;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.logo p {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+@keyframes logoIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 </style>
+
+<script>
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 2600);
+</script>
 </head>
 
 <body>
 
 <div class="scene">
 
-  <!-- CHARACTERS -->
-  <div class="characters">
-    <img src="assets/brand/hari.png" class="character left" alt="Hari">
-    <img src="assets/brand/dileep.png" class="character right" alt="Dileep">
-  </div>
+  <!-- FRAME 1 -->
+  <div class="dot left"></div>
+  <div class="dot right"></div>
 
-  <!-- HEART -->
-  <div class="heart">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 21s-7-4.5-9.5-8.3C.5 9.1 2.3 5 6.4 5c2.1 0 3.6 1.3 3.9 2.2.3-.9 1.8-2.2 3.9-2.2 4.1 0 5.9 4.1 3.9 7.7C19 16.5 12 21 12 21z"/>
-    </svg>
-  </div>
+  <!-- FRAME 2 -->
+  <div class="person left"></div>
+  <div class="person right"></div>
+  <div class="handshake"></div>
 
-  <!-- LOGO -->
-  <div class="logo">HarDil</div>
-  <div class="sub">Hari & Dileep · Family First</div>
+  <!-- FRAME 3 -->
+  <div class="hug"></div>
+  <div class="heart"></div>
+
+  <!-- FRAME 4 -->
+  <div class="logo">
+    <h1><span>HD</span> HarDil</h1>
+    <p>Hari & Dileep · Best Friends</p>
+  </div>
 
 </div>
-
-<script>
-/* Skip intro after first launch */
-if (localStorage.getItem("hardil_seen")) {
-  location.replace("index.html");
-}
-
-/* Soft haptic (Android) */
-if (navigator.vibrate) {
-  setTimeout(() => navigator.vibrate(10), 1800);
-  setTimeout(() => navigator.vibrate(15), 2600);
-}
-
-/* Finish intro */
-setTimeout(() => {
-  localStorage.setItem("hardil_seen", "yes");
-  location.replace("index.html");
-}, 6000);
-</script>
 
 </body>
 </html>
