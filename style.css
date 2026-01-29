@@ -194,3 +194,89 @@ body {
   color: #6b7280;
   padding: 26px 12px 32px;
 }
+
+/* ===============================
+   GLOBAL LOGO OVERLAY
+================================ */
+#logo-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,#eef2ff,#ffffff);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scene */
+.logo-scene {
+  position: relative;
+  width: 240px;
+  height: 200px;
+}
+
+/* People */
+.person {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4f46e5;
+  position: absolute;
+  top: 60px;
+  opacity: 0;
+}
+
+.person.left { left: -80px; animation: enterLeft .5s forwards; }
+.person.right { right: -80px; animation: enterRight .5s forwards; animation-delay:.1s; }
+
+@keyframes enterLeft {
+  to { left: 50px; opacity:1; }
+}
+@keyframes enterRight {
+  to { right: 50px; opacity:1; }
+}
+
+/* Heart */
+.logo-scene .heart {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: #ff4d6d;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: heartPop .4s ease forwards;
+  animation-delay: .9s;
+}
+
+@keyframes heartPop {
+  to { transform: translateX(-50%) scale(1.3); }
+}
+
+/* Logo text */
+.logo-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  font-size: 34px;
+  font-weight: 700;
+  animation: logoIn .6s ease forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes logoIn {
+  to { opacity:1; transform:translateX(-50%) translateY(0); }
+}
+
+/* Hide overlay */
+#logo-overlay.hide {
+  animation: fadeOut .5s ease forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity:0; visibility:hidden; }
+}
+
