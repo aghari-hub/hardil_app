@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <title>HarDil</title>
 
-  <!-- Splash control (MUST be here) -->
+  <!-- Splash control (run once per session) -->
   <script>
-    if (sessionStorage.getItem("harDilSplash") !== "done") {
+    if (!sessionStorage.getItem("harDilSplash")) {
+      sessionStorage.setItem("harDilSplash", "done");
       window.location.replace("splash.html");
     }
-  </script></title>
+  </script>
 
-  <!-- Mobile & Play Store Friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="description" content="HarDil – Family First · One Place for Everything" />
@@ -32,121 +32,103 @@
 
 <main class="app">
 
- <!-- 🌐 SOCIAL MEDIA -->
-<section class="card social reveal">
-  <h2>🌐 Social Media</h2>
-  <p class="section-sub">Stay connected with family & friends</p>
+  <!-- 🌐 SOCIAL MEDIA -->
+  <section class="card social reveal">
+    <h2>🌐 Social Media</h2>
+    <p class="section-sub">Stay connected with family & friends</p>
 
-  <div class="grid">
-    <div class="app-btn"><img src="assets/icons/whatsapp.png"><span>WhatsApp</span></div>
-    <div class="app-btn"><img src="assets/icons/instagram.png"><span>Instagram</span></div>
-    <div class="app-btn"><img src="assets/icons/gmail.png"><span>Gmail</span></div>
-    <div class="app-btn"><img src="assets/icons/telegram.png"><span>Telegram</span></div>
-    <div class="app-btn"><img src="assets/icons/facebook.png"><span>Facebook</span></div>
-    <div class="app-btn"><img src="assets/icons/twitter.png"><span>Twitter</span></div>
-  </div>
-</section>
-
-
+    <div class="grid">
+      <div class="app-btn" data-url="https://web.whatsapp.com">
+        <img src="assets/icons/whatsapp.png"><span>WhatsApp</span>
+      </div>
+      <div class="app-btn" data-url="https://www.instagram.com">
+        <img src="assets/icons/instagram.png"><span>Instagram</span>
+      </div>
+      <div class="app-btn" data-url="https://mail.google.com">
+        <img src="assets/icons/gmail.png"><span>Gmail</span>
+      </div>
+      <div class="app-btn" data-url="https://web.telegram.org">
+        <img src="assets/icons/telegram.png"><span>Telegram</span>
+      </div>
+      <div class="app-btn" data-url="https://www.facebook.com">
+        <img src="assets/icons/facebook.png"><span>Facebook</span>
+      </div>
+      <div class="app-btn" data-url="https://twitter.com">
+        <img src="assets/icons/twitter.png"><span>Twitter</span>
+      </div>
+    </div>
+  </section>
 
   <!-- 💼 JOBS -->
-  <section class="card jobs">
+  <section class="card jobs reveal">
     <h2>💼 Jobs & Career</h2>
     <p class="section-sub">Find jobs, internships & career growth</p>
+
     <div class="grid">
-      <div class="app-btn" data-url="https://www.linkedin.com/jobs"><img loading="lazy" src="assets/icons/linkedin.png" alt="LinkedIn"><span>LinkedIn</span></div>
-      <div class="app-btn" data-url="https://www.naukri.com"><img loading="lazy" src="assets/icons/naukri.png" alt="Naukri"><span>Naukri</span></div>
-      <div class="app-btn" data-url="https://www.indeed.com"><img loading="lazy" src="assets/icons/indeed.png" alt="Indeed"><span>Indeed</span></div>
-      <div class="app-btn" data-url="https://www.glassdoor.com"><img loading="lazy" src="assets/icons/glassdoor.png" alt="Glassdoor"><span>Glassdoor</span></div>
-      <div class="app-btn" data-url="https://www.foundit.in"><img loading="lazy" src="assets/icons/foundit.png" alt="Foundit"><span>Foundit</span></div>
-      <div class="app-btn" data-url="https://unstop.com"><img loading="lazy" src="assets/icons/unstop.png" alt="Unstop"><span>Unstop</span></div>
-      <div class="app-btn" data-url="https://www.shine.com"><img loading="lazy" src="assets/icons/shine.png" alt="Shine"><span>Shine</span></div>
-      <div class="app-btn" data-url="https://cutshort.io"><img loading="lazy" src="assets/icons/cutshort.png" alt="CutShort"><span>CutShort</span></div>
-      <div class="app-btn" data-url="https://internshala.com"><img loading="lazy" src="assets/icons/internshala.png" alt="Internshala"><span>Internshala</span></div>
+      <div class="app-btn" data-url="https://www.linkedin.com/jobs"><img src="assets/icons/linkedin.png"><span>LinkedIn</span></div>
+      <div class="app-btn" data-url="https://www.naukri.com"><img src="assets/icons/naukri.png"><span>Naukri</span></div>
+      <div class="app-btn" data-url="https://www.indeed.com"><img src="assets/icons/indeed.png"><span>Indeed</span></div>
+      <div class="app-btn" data-url="https://www.glassdoor.com"><img src="assets/icons/glassdoor.png"><span>Glassdoor</span></div>
+      <div class="app-btn" data-url="https://www.foundit.in"><img src="assets/icons/foundit.png"><span>Foundit</span></div>
+      <div class="app-btn" data-url="https://unstop.com"><img src="assets/icons/unstop.png"><span>Unstop</span></div>
+      <div class="app-btn" data-url="https://www.shine.com"><img src="assets/icons/shine.png"><span>Shine</span></div>
+      <div class="app-btn" data-url="https://cutshort.io"><img src="assets/icons/cutshort.png"><span>CutShort</span></div>
+      <div class="app-btn" data-url="https://internshala.com"><img src="assets/icons/internshala.png"><span>Internshala</span></div>
     </div>
   </section>
 
   <!-- 🎬 OTT -->
-  <section class="card ott">
+  <section class="card ott reveal">
     <h2>🎬 OTT Platforms</h2>
     <p class="section-sub">Movies, series & entertainment</p>
+
     <div class="grid">
-      <div class="app-btn" data-url="https://www.netflix.com"><img loading="lazy" src="assets/icons/netflix.png" alt="Netflix"><span>Netflix</span></div>
-      <div class="app-btn" data-url="https://www.primevideo.com"><img loading="lazy" src="assets/icons/prime.png" alt="Prime Video"><span>Prime Video</span></div>
-      <div class="app-btn" data-url="https://www.hotstar.com"><img loading="lazy" src="assets/icons/hotstar.png" alt="Hotstar"><span>Hotstar</span></div>
-      <div class="app-btn" data-url="https://www.youtube.com"><img loading="lazy" src="assets/icons/youtube.png" alt="YouTube"><span>YouTube</span></div>
-      <div class="app-btn" data-url="https://www.jiocinema.com"><img loading="lazy" src="assets/icons/jiocinema.png" alt="JioCinema"><span>JioCinema</span></div>
+      <div class="app-btn" data-url="https://www.netflix.com"><img src="assets/icons/netflix.png"><span>Netflix</span></div>
+      <div class="app-btn" data-url="https://www.primevideo.com"><img src="assets/icons/prime.png"><span>Prime Video</span></div>
+      <div class="app-btn" data-url="https://www.hotstar.com"><img src="assets/icons/hotstar.png"><span>Hotstar</span></div>
+      <div class="app-btn" data-url="https://www.youtube.com"><img src="assets/icons/youtube.png"><span>YouTube</span></div>
+      <div class="app-btn" data-url="https://www.jiocinema.com"><img src="assets/icons/jiocinema.png"><span>JioCinema</span></div>
     </div>
   </section>
 
   <!-- 🎵 MUSIC -->
-  <section class="card music">
+  <section class="card music reveal">
     <h2>🎵 Music</h2>
     <p class="section-sub">Listen anytime, anywhere</p>
+
     <div class="grid">
-      <div class="app-btn" data-url="https://open.spotify.com"><img loading="lazy" src="assets/icons/spotify.png" alt="Spotify"><span>Spotify</span></div>
-      <div class="app-btn" data-url="https://music.youtube.com"><img loading="lazy" src="assets/icons/youtubemusic.png" alt="YouTube Music"><span>YouTube Music</span></div>
-      <div class="app-btn" data-url="https://gaana.com"><img loading="lazy" src="assets/icons/gaana.png" alt="Gaana"><span>Gaana</span></div>
-      <div class="app-btn" data-url="https://www.jiosaavn.com"><img loading="lazy" src="assets/icons/jiosaavn.png" alt="JioSaavn"><span>JioSaavn</span></div>
+      <div class="app-btn" data-url="https://open.spotify.com"><img src="assets/icons/spotify.png"><span>Spotify</span></div>
+      <div class="app-btn" data-url="https://music.youtube.com"><img src="assets/icons/youtubemusic.png"><span>YouTube Music</span></div>
+      <div class="app-btn" data-url="https://gaana.com"><img src="assets/icons/gaana.png"><span>Gaana</span></div>
+      <div class="app-btn" data-url="https://www.jiosaavn.com"><img src="assets/icons/jiosaavn.png"><span>JioSaavn</span></div>
     </div>
   </section>
 
   <!-- 🛒 SHOPPING -->
-  <section class="card shop">
+  <section class="card shop reveal">
     <h2>🛒 Shopping</h2>
     <p class="section-sub">Fashion, electronics & daily needs</p>
+
     <div class="grid">
-      <div class="app-btn" data-url="https://www.amazon.in"><img loading="lazy" src="assets/icons/amazon.png" alt="Amazon"><span>Amazon</span></div>
-      <div class="app-btn" data-url="https://www.flipkart.com"><img loading="lazy" src="assets/icons/flipkart.png" alt="Flipkart"><span>Flipkart</span></div>
-      <div class="app-btn" data-url="https://www.myntra.com"><img loading="lazy" src="assets/icons/myntra.png" alt="Myntra"><span>Myntra</span></div>
-      <div class="app-btn" data-url="https://www.ajio.com"><img loading="lazy" src="assets/icons/ajio.png" alt="Ajio"><span>Ajio</span></div>
-      <div class="app-btn" data-url="https://www.meesho.com"><img loading="lazy" src="assets/icons/meesho.png" alt="Meesho"><span>Meesho</span></div>
+      <div class="app-btn" data-url="https://www.amazon.in"><img src="assets/icons/amazon.png"><span>Amazon</span></div>
+      <div class="app-btn" data-url="https://www.flipkart.com"><img src="assets/icons/flipkart.png"><span>Flipkart</span></div>
+      <div class="app-btn" data-url="https://www.myntra.com"><img src="assets/icons/myntra.png"><span>Myntra</span></div>
+      <div class="app-btn" data-url="https://www.ajio.com"><img src="assets/icons/ajio.png"><span>Ajio</span></div>
+      <div class="app-btn" data-url="https://www.meesho.com"><img src="assets/icons/meesho.png"><span>Meesho</span></div>
     </div>
   </section>
 
   <!-- ✈️ TRAVEL -->
-  <section class="card travel">
+  <section class="card travel reveal">
     <h2>✈️ Travel & Ride</h2>
     <p class="section-sub">Trains, buses & rides</p>
-    <div class="grid">
-      <div class="app-btn" data-url="https://www.irctc.co.in"><img loading="lazy" src="assets/icons/irctc.png" alt="IRCTC"><span>IRCTC</span></div>
-      <div class="app-btn" data-url="https://www.makemytrip.com"><img loading="lazy" src="assets/icons/makemytrip.png" alt="MakeMyTrip"><span>MakeMyTrip</span></div>
-      <div class="app-btn" data-url="https://www.uber.com"><img loading="lazy" src="assets/icons/uber.png" alt="Uber"><span>Uber</span></div>
-      <div class="app-btn" data-url="https://www.rapido.bike"><img loading="lazy" src="assets/icons/rapido.png" alt="Rapido"><span>Rapido</span></div>
-      <div class="app-btn" data-url="https://www.redbus.in"><img loading="lazy" src="assets/icons/redbus.png" alt="RedBus"><span>RedBus</span></div>
-    </div>
-  </section>
 
-  <!-- 🩺 HEALTH -->
-  <section class="card health">
-    <h2>🩺 Health & Pharmacy</h2>
-    <p class="section-sub">Medicines & online consultation</p>
     <div class="grid">
-      <div class="app-btn" data-url="https://www.1mg.com"><img loading="lazy" src="assets/icons/1mg.png" alt="Tata 1mg"><span>Tata 1mg</span></div>
-      <div class="app-btn" data-url="https://pharmeasy.in"><img loading="lazy" src="assets/icons/pharmeasy.png" alt="PharmEasy"><span>PharmEasy</span></div>
-      <div class="app-btn" data-url="https://www.practo.com"><img loading="lazy" src="assets/icons/practo.png" alt="Practo"><span>Practo</span></div>
-      <div class="app-btn" data-url="https://www.apollo247.com"><img loading="lazy" src="assets/icons/apollo.png" alt="Apollo 24/7"><span>Apollo 24/7</span></div>
-    </div>
-  </section>
-
-  <!-- 🏏 SPORTS -->
-  <section class="card sports">
-    <h2>🏏 Sports</h2>
-    <p class="section-sub">Live scores & sports streaming</p>
-    <div class="grid">
-      <div class="app-btn" data-url="https://www.cricbuzz.com"><img loading="lazy" src="assets/icons/cricbuzz.png" alt="Cricbuzz"><span>Cricbuzz</span></div>
-      <div class="app-btn" data-url="https://www.hotstar.com/in/sports"><img loading="lazy" src="assets/icons/hotstar.png" alt="Hotstar Sports"><span>Hotstar Sports</span></div>
-    </div>
-  </section>
-
-  <!-- 🧠 PERSONALITY -->
-  <section class="card personality">
-    <h2>🧠 Personality</h2>
-    <p class="section-sub">Learning, growth & inspiration</p>
-    <div class="grid">
-      <div class="app-btn" data-url="https://www.ted.com"><img loading="lazy" src="assets/icons/ted.png" alt="TED"><span>TED</span></div>
-      <div class="app-btn" data-url="https://www.coursera.org"><img loading="lazy" src="assets/icons/coursera.png" alt="Coursera"><span>Coursera</span></div>
-      <div class="app-btn" data-url="https://www.udemy.com"><img loading="lazy" src="assets/icons/udemy.png" alt="Udemy"><span>Udemy</span></div>
+      <div class="app-btn" data-url="https://www.irctc.co.in"><img src="assets/icons/irctc.png"><span>IRCTC</span></div>
+      <div class="app-btn" data-url="https://www.makemytrip.com"><img src="assets/icons/makemytrip.png"><span>MakeMyTrip</span></div>
+      <div class="app-btn" data-url="https://www.uber.com"><img src="assets/icons/uber.png"><span>Uber</span></div>
+      <div class="app-btn" data-url="https://www.rapido.bike"><img src="assets/icons/rapido.png"><span>Rapido</span></div>
+      <div class="app-btn" data-url="https://www.redbus.in"><img src="assets/icons/redbus.png"><span>RedBus</span></div>
     </div>
   </section>
 
