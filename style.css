@@ -1,1 +1,141 @@
-body{font-family:Segoe UI;background:#f4f6fb} .app{padding:15px;margin:10px;background:#fff;border-radius:12px}
+/* ===============================
+   GLOBAL RESET & BASE
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HERO / HEADER
+================================ */
+.hero {
+  padding: 32px 16px 22px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.app {
+  padding: 14px;
+}
+
+/* ===============================
+   GLASS CARD
+================================ */
+.card {
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===============================
+   CATEGORY COLOR ACCENTS
+================================ */
+.social { border-left: 6px solid #25d366; }
+.jobs   { border-left: 6px solid #0a66c2; }
+.ott    { border-left: 6px solid #e50914; }
+.music  { border-left: 6px solid #1db954; }
+.shop   { border-left: 6px solid #ff9900; }
+.travel { border-left: 6px solid #00c2ff; }
+.health { border-left: 6px solid #ff4f81; }
+
+/* ===============================
+   GRID LAYOUT
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* ===============================
+   APP BUTTON (ICON + TEXT)
+================================ */
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.app-btn img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.app-btn span {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Hover / Tap effect */
+.app-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  padding: 18px 14px 24px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* ===============================
+   RESPONSIVE (TABLET+)
+================================ */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+}
