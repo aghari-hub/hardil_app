@@ -2,207 +2,158 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HarDil – HD</title>
+<title>HarDil – Welcome</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --bg-start: #f6f8ff;
-  --bg-end: #eef1ff;
-  --primary: #5b6cff;
-  --heart: #ff5c7a;
-}
-
-* {
-  box-sizing: border-box;
+  --bg1: #6a7cff;
+  --bg2: #8f5cff;
 }
 
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI", system-ui, sans-serif;
   overflow: hidden;
+  color: white;
 }
 
 .scene {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 420px;
+  text-align: center;
 }
 
-/* ===============================
-   FRAME 1 – DOTS ENTER
-================================ */
-.dot {
-  width: 18px;
-  height: 18px;
-  background: var(--primary);
-  border-radius: 50%;
-  position: absolute;
-  top: 120px;
-}
-
-.dot.left {
-  left: -40px;
-  animation: dotLeft 0.5s ease forwards;
-}
-
-.dot.right {
-  right: -40px;
-  animation: dotRight 0.5s ease forwards;
-}
-
-@keyframes dotLeft {
-  to { left: 90px; }
-}
-
-@keyframes dotRight {
-  to { right: 90px; }
-}
-
-/* ===============================
-   FRAME 2 – CHARACTERS + HANDSHAKE
-================================ */
+/* PERSONS */
 .person {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   position: absolute;
-  top: 100px;
+  top: 90px;
   opacity: 0;
 }
 
-.person.left {
-  left: 70px;
-  animation: personIn 0.4s ease forwards;
-  animation-delay: 0.5s;
+.left {
+  left: -120px;
+  animation: enterLeft 1s ease forwards;
 }
 
-.person.right {
-  right: 70px;
-  animation: personIn 0.4s ease forwards;
-  animation-delay: 0.5s;
+.right {
+  right: -120px;
+  animation: enterRight 1s ease forwards;
 }
 
-@keyframes personIn {
-  to { opacity: 1; }
+@keyframes enterLeft {
+  to { left: 40px; opacity: 1; }
 }
 
+@keyframes enterRight {
+  to { right: 40px; opacity: 1; }
+}
+
+/* HANDSHAKE */
 .handshake {
   position: absolute;
-  width: 24px;
-  height: 24px;
-  background: var(--primary);
-  border-radius: 50%;
-  top: 118px;
+  top: 115px;
   left: 50%;
+  width: 30px;
+  height: 30px;
+  background: #ffd166;
+  border-radius: 50%;
   transform: translateX(-50%) scale(0);
-  animation: shakePop 0.3s ease forwards;
-  animation-delay: 0.9s;
+  animation: shake 0.6s ease forwards;
+  animation-delay: 1.1s;
 }
 
-@keyframes shakePop {
+@keyframes shake {
   to { transform: translateX(-50%) scale(1); }
 }
 
-/* ===============================
-   FRAME 3 – HUG + HEART
-================================ */
+/* HUG */
 .hug {
   position: absolute;
-  top: 95px;
+  top: 80px;
   left: 50%;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: rgba(91,108,255,0.12);
+  background: rgba(255,255,255,0.15);
   transform: translateX(-50%) scale(0);
-  animation: hugIn 0.4s ease forwards;
-  animation-delay: 1.2s;
+  animation: hug 0.8s ease forwards;
+  animation-delay: 1.8s;
 }
 
-@keyframes hugIn {
+@keyframes hug {
   to { transform: translateX(-50%) scale(1); }
 }
 
-.heart {
+/* APP ORBIT */
+.orbit {
   position: absolute;
   top: 70px;
   left: 50%;
-  width: 18px;
-  height: 18px;
-  background: var(--heart);
-  transform: translateX(-50%) rotate(45deg) scale(0);
-  animation: heartIn 0.4s ease forwards;
-  animation-delay: 1.4s;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: var(--heart);
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: orbitIn 0.8s ease forwards;
+  animation-delay: 2.6s;
 }
 
-.heart::before {
-  top: -9px;
-  left: 0;
+@keyframes orbitIn {
+  to { transform: translateX(-50%) scale(1); }
 }
 
-.heart::after {
-  left: -9px;
-  top: 0;
+.orbit span {
+  position: absolute;
+  font-size: 20px;
+  animation: spin 2.5s linear infinite;
 }
 
-@keyframes heartIn {
-  to {
-    transform: translateX(-50%) rotate(45deg) scale(1);
-  }
+.orbit span:nth-child(1){ top:0; left:50%; transform:translateX(-50%);}
+.orbit span:nth-child(2){ right:0; top:50%; transform:translateY(-50%);}
+.orbit span:nth-child(3){ bottom:0; left:50%; transform:translateX(-50%);}
+.orbit span:nth-child(4){ left:0; top:50%; transform:translateY(-50%);}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-/* ===============================
-   FRAME 4 – LOGO REVEAL
-================================ */
+/* LOGO */
 .logo {
   position: absolute;
   bottom: 40px;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) scale(0.6);
   opacity: 0;
-  animation: logoIn 0.6s ease forwards;
-  animation-delay: 1.8s;
-  text-align: center;
+  animation: logoIn 0.8s ease forwards;
+  animation-delay: 3.8s;
 }
 
 .logo h1 {
   margin: 0;
   font-size: 36px;
-  color: #1f2a44;
   letter-spacing: 1px;
 }
 
-.logo span {
-  color: var(--primary);
-}
-
 .logo p {
-  margin-top: 4px;
-  font-size: 12px;
-  opacity: 0.7;
+  margin: 6px 0 0;
+  font-size: 13px;
+  opacity: 0.85;
 }
 
 @keyframes logoIn {
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) scale(1);
   }
 }
 </style>
@@ -210,7 +161,7 @@ body {
 <script>
 setTimeout(() => {
   window.location.href = "index.html";
-}, 2600);
+}, 5200);
 </script>
 </head>
 
@@ -218,23 +169,28 @@ setTimeout(() => {
 
 <div class="scene">
 
-  <!-- FRAME 1 -->
-  <div class="dot left"></div>
-  <div class="dot right"></div>
-
-  <!-- FRAME 2 -->
+  <!-- PEOPLE -->
   <div class="person left"></div>
   <div class="person right"></div>
+
+  <!-- HANDSHAKE -->
   <div class="handshake"></div>
 
-  <!-- FRAME 3 -->
+  <!-- HUG -->
   <div class="hug"></div>
-  <div class="heart"></div>
 
-  <!-- FRAME 4 -->
+  <!-- ORBITING APPS -->
+  <div class="orbit">
+    <span>💬</span>
+    <span>🎵</span>
+    <span>💼</span>
+    <span>🛒</span>
+  </div>
+
+  <!-- LOGO -->
   <div class="logo">
-    <h1><span>HD</span> HarDil</h1>
-    <p>Hari & Dileep · Best Friends</p>
+    <h1>HarDil</h1>
+    <p>Family First · One Place for Everything</p>
   </div>
 
 </div>
