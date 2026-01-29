@@ -1,97 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>HarDil Intro</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>HarDil</title>
 
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: #0b1220;
-  font-family: "Segoe UI", sans-serif;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
+  <!-- Mobile & Play Store friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
 
-/* CONTAINER */
-.intro {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* GROUPS */
-.group {
-  position: absolute;
-  display: flex;
-  gap: 12px;
-  opacity: 0;
-  transition: all 1.2s ease;
-}
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #141b33, #0b1220 60%);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
 
-.group img {
-  width: 42px;
-  height: 42px;
-}
+    /* MAIN CONTAINER */
+    .splash {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
 
-/* POSITIONS */
-.social  { top: 20%; left: 10%; }
-.jobs    { top: 20%; right: 10%; }
-.music   { bottom: 20%; left: 10%; }
-.ott     { bottom: 20%; right: 10%; }
-.travel  { top: 50%; left: 5%; }
-.health  { top: 50%; right: 5%; }
+    /* FLOATING ICON GROUPS */
+    .group {
+      position: absolute;
+      display: flex;
+      gap: 14px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1.4s cubic-bezier(.19,1,.22,1);
+    }
 
-/* CENTER */
-.center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  opacity: 1;
-}
+    .group img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.6));
+    }
 
-/* LOGO */
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.6);
-  opacity: 0;
-  text-align: center;
-  transition: all 1.2s ease;
-}
+    /* POSITIONS */
+    .social  { top: 18%; left: 10%; }
+    .jobs    { top: 18%; right: 10%; }
+    .music   { bottom: 18%; left: 10%; }
+    .ott     { bottom: 18%; right: 10%; }
+    .travel  { top: 50%; left: 5%; }
+    .health  { top: 50%; right: 5%; }
 
-.logo h1 {
-  font-size: 48px;
-  margin: 0;
-  letter-spacing: 1px;
-}
+    /* MERGE TO CENTER */
+    .center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 1;
+    }
 
-.logo p {
-  font-size: 14px;
-  opacity: 0.85;
-}
+    /* LOGO AREA */
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      text-align: center;
+      opacity: 0;
+      transition: all 1.2s ease;
+    }
 
-.show {
-  opacity: 1;
-}
+    .logo h1 {
+      font-size: 52px;
+      margin: 0;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
 
-.logo.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-</style>
+    .logo p {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.85;
+      letter-spacing: 0.3px;
+    }
+
+    /* LOADING DOTS */
+    .loader {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #ffffffcc;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    .dot:nth-child(2) { animation-delay: .15s; }
+    .dot:nth-child(3) { animation-delay: .3s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    /* SHOW STATES */
+    .show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .logo.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+  </style>
 </head>
 
 <body>
 
-<div class="intro">
+<div class="splash">
 
+  <!-- ICON GROUPS -->
   <div class="group social">
     <img src="assets/icons/whatsapp.png">
     <img src="assets/icons/instagram.png">
@@ -126,38 +167,46 @@ body {
     <img src="assets/icons/pharmeasy.png">
   </div>
 
+  <!-- LOGO -->
   <div class="logo" id="logo">
     <h1>HarDil</h1>
     <p>Family First · One Place for Everything</p>
+
+    <div class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
   </div>
 
 </div>
 
 <script>
-const groups = document.querySelectorAll(".group");
-const logo = document.getElementById("logo");
+  const groups = document.querySelectorAll(".group");
+  const logo = document.getElementById("logo");
 
-/* Show groups */
-setTimeout(() => {
-  groups.forEach(g => g.classList.add("show"));
-}, 300);
+  // Step 1: Fade in icons
+  setTimeout(() => {
+    groups.forEach(g => g.classList.add("show"));
+  }, 400);
 
-/* Move groups to center */
-setTimeout(() => {
-  groups.forEach(g => g.classList.add("center"));
-}, 1800);
+  // Step 2: Pull icons to center
+  setTimeout(() => {
+    groups.forEach(g => g.classList.add("center"));
+  }, 2200);
 
-/* Hide groups, show logo */
-setTimeout(() => {
-  groups.forEach(g => g.style.opacity = "0");
-  logo.classList.add("show");
-}, 3500);
+  // Step 3: Hide icons, show logo
+  setTimeout(() => {
+    groups.forEach(g => g.style.opacity = "0");
+    logo.classList.add("show");
+  }, 4000);
 
-/* Go to main app */
-setTimeout(() => {
-  window.location.href = "index.html";
-}, 5500);
+  // Step 4: Enter app
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 6200);
 </script>
 
 </body>
 </html>
+
