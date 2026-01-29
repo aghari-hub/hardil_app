@@ -1,0 +1,1 @@
+function go(p){location.href=p} function open(u){location.href=u}
