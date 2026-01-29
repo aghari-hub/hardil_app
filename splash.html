@@ -14,41 +14,31 @@ body {
   align-items: center;
   overflow: hidden;
   color: white;
-  transition: background 1.2s ease;
+  transition: background 0.8s ease;
 }
 
-/* BACKGROUND SCENES */
-.space   { background: radial-gradient(circle at top, #1b2735, #090a0f); }
-.desert  { background: linear-gradient(135deg, #f2994a, #f2c94c); }
-.water   { background: linear-gradient(135deg, #2d9cdb, #56ccf2); }
-.ice     { background: linear-gradient(135deg, #b2fefa, #0ed2f7); }
-.final   { background: linear-gradient(135deg, #667eea, #764ba2); }
+/* BACKGROUNDS */
+.space { background: radial-gradient(circle at top, #1b2735, #090a0f); }
+.final { background: linear-gradient(135deg, #667eea, #764ba2); }
 
 .scene {
   text-align: center;
-  animation: fadeIn 1s ease;
 }
 
+/* ELEMENTS */
 .people {
-  font-size: 64px;
-  animation: slideIn 1.5s ease forwards;
+  font-size: 60px;
+  opacity: 0;
+  animation: peopleIn 0.6s ease forwards;
 }
 
 .handshake, .heart {
-  font-size: 44px;
-  opacity: 0;
-}
-
-.resources {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 24px;
+  font-size: 42px;
   opacity: 0;
 }
 
 .logo {
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 700;
   opacity: 0;
 }
@@ -58,17 +48,16 @@ body {
   opacity: 0;
 }
 
-@keyframes slideIn {
-  from { letter-spacing: 60px; opacity: 0; }
-  to { letter-spacing: 10px; opacity: 1; }
+/* ANIMATIONS */
+@keyframes peopleIn {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.show {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
-
-.show { opacity: 1 !important; transition: opacity 1s ease; }
 </style>
 </head>
 
@@ -78,51 +67,40 @@ body {
   <div class="people">🧑 &nbsp; 🧑</div>
   <div class="handshake">🤝</div>
   <div class="heart">❤️</div>
-
-  <div class="resources">
-    <span>💬</span>
-    <span>🎵</span>
-    <span>💼</span>
-    <span>🛒</span>
-    <span>✈️</span>
-  </div>
-
   <div class="logo">HarDil</div>
   <div class="tagline">Family First · One Place for Everything</div>
 </div>
 
 <script>
-const body = document.body;
+/* TIMELINE — TOTAL 3 SECONDS */
 
-setTimeout(() => body.className = "desert", 1200);
-setTimeout(() => document.querySelector(".handshake").classList.add("show"), 1600);
-
-setTimeout(() => body.className = "water", 2400);
-setTimeout(() => document.querySelector(".heart").classList.add("show"), 2800);
-
-setTimeout(() => body.className = "ice", 3600);
-setTimeout(() => document.querySelector(".resources").classList.add("show"), 4000);
-
-setTimeout(() => body.className = "final", 5000);
+// 0.6s → handshake
 setTimeout(() => {
+  document.querySelector(".handshake").classList.add("show");
+}, 600);
+
+// 1.2s → heart
+setTimeout(() => {
+  document.querySelector(".heart").classList.add("show");
+}, 1200);
+
+// 1.8s → background + logo
+setTimeout(() => {
+  document.body.className = "final";
   document.querySelector(".logo").classList.add("show");
-  document.querySelector(".tagline").classList.add("show");
-}, 5400);
+}, 1800);
 
+// 2.2s → tagline
 setTimeout(() => {
-  window.location.href = "index.html";
-}, 7000);
+  document.querySelector(".tagline").classList.add("show");
+}, 2200);
+
+// 3.0s → EXIT SPLASH (CONTROLLED)
+setTimeout(() => {
+  sessionStorage.setItem("harDilSplash", "done");
+  window.location.replace("index.html");
+}, 3000);
 </script>
 
 </body>
 </html>
-
-<script>
-  setTimeout(() => {
-    // Mark splash as completed AFTER animation
-    sessionStorage.setItem("harDilOpened", "true");
-
-    // Go to main app
-    window.location.replace("index.html");
-  }, 3000); // 3 seconds animation
-</script>
