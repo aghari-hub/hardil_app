@@ -1,1 +1,163 @@
-<body style='display:flex;align-items:center;justify-content:center;height:100vh;background:#667eea;color:white;font-size:36px;'>🤝 ❤️ HarDil<script>setTimeout(()=>location.href='index.html',2500)</script></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HarDil Intro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0b1220;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* CONTAINER */
+.intro {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* GROUPS */
+.group {
+  position: absolute;
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transition: all 1.2s ease;
+}
+
+.group img {
+  width: 42px;
+  height: 42px;
+}
+
+/* POSITIONS */
+.social  { top: 20%; left: 10%; }
+.jobs    { top: 20%; right: 10%; }
+.music   { bottom: 20%; left: 10%; }
+.ott     { bottom: 20%; right: 10%; }
+.travel  { top: 50%; left: 5%; }
+.health  { top: 50%; right: 5%; }
+
+/* CENTER */
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 1;
+}
+
+/* LOGO */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  text-align: center;
+  transition: all 1.2s ease;
+}
+
+.logo h1 {
+  font-size: 48px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logo p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.show {
+  opacity: 1;
+}
+
+.logo.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro">
+
+  <div class="group social">
+    <img src="assets/icons/whatsapp.png">
+    <img src="assets/icons/instagram.png">
+    <img src="assets/icons/gmail.png">
+  </div>
+
+  <div class="group jobs">
+    <img src="assets/icons/linkedin.png">
+    <img src="assets/icons/naukri.png">
+    <img src="assets/icons/indeed.png">
+  </div>
+
+  <div class="group music">
+    <img src="assets/icons/spotify.png">
+    <img src="assets/icons/jiosaavn.png">
+    <img src="assets/icons/gaana.png">
+  </div>
+
+  <div class="group ott">
+    <img src="assets/icons/netflix.png">
+    <img src="assets/icons/hotstar.png">
+    <img src="assets/icons/youtube.png">
+  </div>
+
+  <div class="group travel">
+    <img src="assets/icons/irctc.png">
+    <img src="assets/icons/uber.png">
+  </div>
+
+  <div class="group health">
+    <img src="assets/icons/1mg.png">
+    <img src="assets/icons/pharmeasy.png">
+  </div>
+
+  <div class="logo" id="logo">
+    <h1>HarDil</h1>
+    <p>Family First · One Place for Everything</p>
+  </div>
+
+</div>
+
+<script>
+const groups = document.querySelectorAll(".group");
+const logo = document.getElementById("logo");
+
+/* Show groups */
+setTimeout(() => {
+  groups.forEach(g => g.classList.add("show"));
+}, 300);
+
+/* Move groups to center */
+setTimeout(() => {
+  groups.forEach(g => g.classList.add("center"));
+}, 1800);
+
+/* Hide groups, show logo */
+setTimeout(() => {
+  groups.forEach(g => g.style.opacity = "0");
+  logo.classList.add("show");
+}, 3500);
+
+/* Go to main app */
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 5500);
+</script>
+
+</body>
+</html>
