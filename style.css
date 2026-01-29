@@ -54,6 +54,24 @@ body {
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* ENTRY ANIMATION */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.card:nth-of-type(1) { animation-delay: 0.1s; }
+.card:nth-of-type(2) { animation-delay: 0.2s; }
+.card:nth-of-type(3) { animation-delay: 0.3s; }
+.card:nth-of-type(4) { animation-delay: 0.4s; }
+.card:nth-of-type(5) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card h2 {
@@ -63,15 +81,15 @@ body {
 }
 
 /* ===============================
-   CATEGORY COLOR ACCENTS
+   CATEGORY COLOR ACCENTS + GLOW
 ================================ */
-.social { border-left: 6px solid #25d366; }
-.jobs   { border-left: 6px solid #0a66c2; }
-.ott    { border-left: 6px solid #e50914; }
-.music  { border-left: 6px solid #1db954; }
-.shop   { border-left: 6px solid #ff9900; }
-.travel { border-left: 6px solid #00c2ff; }
-.health { border-left: 6px solid #ff4f81; }
+.social { border-left: 6px solid #25d366; box-shadow: 0 0 35px rgba(37,211,102,.25); }
+.jobs   { border-left: 6px solid #0a66c2; box-shadow: 0 0 35px rgba(10,102,194,.25); }
+.ott    { border-left: 6px solid #e50914; box-shadow: 0 0 35px rgba(229,9,20,.25); }
+.music  { border-left: 6px solid #1db954; box-shadow: 0 0 35px rgba(29,185,84,.25); }
+.shop   { border-left: 6px solid #ff9900; box-shadow: 0 0 35px rgba(255,153,0,.25); }
+.travel { border-left: 6px solid #00c2ff; box-shadow: 0 0 35px rgba(0,194,255,.25); }
+.health { border-left: 6px solid #ff4f81; box-shadow: 0 0 35px rgba(255,79,129,.25); }
 
 /* ===============================
    GRID LAYOUT
@@ -83,24 +101,36 @@ body {
 }
 
 /* ===============================
-   APP BUTTON (ICON + TEXT)
+   APP BUTTON (REAL APP FEEL)
 ================================ */
 .app-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 16px;
+  padding: 14px 18px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.18);
   cursor: pointer;
-  transition: all 0.25s ease;
+
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
+/* ICON — REAL, NOT BOXED */
 .app-btn img {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   flex-shrink: 0;
+
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  transition: transform 0.25s ease;
 }
 
 .app-btn span {
@@ -109,11 +139,19 @@ body {
   white-space: nowrap;
 }
 
-/* Hover / Tap effect */
+/* HOVER / TAP */
 .app-btn:hover {
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-6px) scale(1.05);
   background: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+}
+
+.app-btn:hover img {
+  transform: scale(1.15);
+}
+
+.app-btn:active {
+  transform: scale(0.96);
 }
 
 /* ===============================
@@ -128,7 +166,7 @@ body {
 }
 
 /* ===============================
-   RESPONSIVE (TABLET+)
+   RESPONSIVE
 ================================ */
 @media (min-width: 768px) {
   .grid {
