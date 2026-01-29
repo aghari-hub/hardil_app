@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<script>
+if (!sessionStorage.getItem("visited")) {
+  sessionStorage.setItem("visited", "true");
+  window.location.replace("splash.html");
+}
+</script>
 <html>
 <head>
   <title>HarDil</title>
