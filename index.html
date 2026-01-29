@@ -1,8 +1,10 @@
 <script>
-  if (!localStorage.getItem("hardil_splash_done")) {
+  // Always go to splash first
+  if (!location.pathname.includes("splash.html")) {
     window.location.replace("splash.html");
   }
 </script>
+
 <!-- APP LOGO OVERLAY -->
 
 
