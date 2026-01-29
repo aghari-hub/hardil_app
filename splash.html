@@ -4,30 +4,9 @@
 <meta charset="UTF-8">
 <title>HarDil</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#4f46e5">
+<meta name="theme-color" content="#6c63ff">
 
 <style>
-/* ===============================
-   THEME (AUTO DARK / LIGHT)
-================================ */
-:root {
-  --bg: #0b1220;
-  --card: #121a33;
-  --text: #ffffff;
-  --sub: rgba(255,255,255,0.75);
-  --accent: #ff4d6d;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f7fb;
-    --card: #ffffff;
-    --text: #1a1a1a;
-    --sub: #555;
-    --accent: #e11d48;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -35,134 +14,103 @@
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at top, var(--card), var(--bg));
+  background: radial-gradient(circle at top, #eef0ff, #ffffff);
   font-family: "Segoe UI", system-ui, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text);
   overflow: hidden;
 }
 
-/* ===============================
-   SCENE
-================================ */
+/* SCENE */
 .scene {
   text-align: center;
 }
 
-/* ===============================
-   PEOPLE (SVG)
-================================ */
-.people {
+/* CHARACTERS */
+.characters {
   display: flex;
-  gap: 120px;
+  gap: 140px;
   justify-content: center;
   opacity: 0;
   animation: meet 1.8s cubic-bezier(.19,1,.22,1) forwards;
 }
 
-.person {
-  width: 56px;
-  height: 56px;
-  fill: var(--text);
+.character {
+  width: 120px;
+  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes meet {
-  to { gap: 24px; opacity: 1; }
+.character.right {
+  animation-delay: .4s;
 }
 
-/* ===============================
-   HEART LOGO (HarDil MARK)
-================================ */
+/* HEART */
 .heart {
-  margin: 14px auto;
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
+  margin: 18px auto;
   opacity: 0;
   animation: heartIn 1.2s ease forwards;
-  animation-delay: 1.9s;
+  animation-delay: 2s;
 }
 
 .heart svg {
   width: 100%;
   height: 100%;
-  fill: var(--accent);
+  fill: #ff4d6d;
   animation: pulse 1.6s infinite ease-in-out;
+}
+
+/* LOGO */
+.logo {
+  font-size: 46px;
+  font-weight: 700;
+  color: #5b5ce6;
+  margin-top: 20px;
+  opacity: 0;
+  animation: logoIn 1s ease forwards;
+  animation-delay: 3.8s;
+}
+
+.sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 6px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 4.2s;
+}
+
+/* ANIMATIONS */
+@keyframes meet {
+  to { gap: 24px; opacity: 1; }
 }
 
 @keyframes heartIn {
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes pulse {
-  0%,100% { transform: scale(0.95); }
-  50% { transform: scale(1.15); }
-}
-
-/* ===============================
-   SERVICES (SVG ICONS)
-================================ */
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 18px;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 3.2s;
-}
-
-.services svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--text);
-  opacity: 0.85;
-  animation: float 3s ease-in-out infinite;
-}
-
-.services svg:nth-child(2){animation-delay:.3s}
-.services svg:nth-child(3){animation-delay:.6s}
-.services svg:nth-child(4){animation-delay:.9s}
-.services svg:nth-child(5){animation-delay:1.2s}
-
-@keyframes float {
-  50% { transform: translateY(-6px); }
-}
-
-/* ===============================
-   LOGO
-================================ */
-.logo {
-  margin-top: 28px;
-  font-size: 48px;
-  font-weight: 700;
-  opacity: 0;
-  animation: reveal 1s ease forwards;
-  animation-delay: 4.4s;
-}
-
-.tagline {
-  font-size: 14px;
-  color: var(--sub);
-  margin-top: 6px;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 4.9s;
-}
-
-@keyframes reveal {
-  from { opacity:0; transform: scale(0.9); filter: blur(4px); }
-  to { opacity:1; transform: scale(1); filter: blur(0); }
+@keyframes logoIn {
+  from { opacity: 0; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeIn {
-  to { opacity:1; }
+  to { opacity: 1; }
 }
 
-/* ===============================
-   ACCESSIBILITY
-================================ */
+@keyframes pulse {
+  0%,100% { transform: scale(.95); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; }
 }
@@ -173,51 +121,42 @@ body {
 
 <div class="scene">
 
-  <!-- PEOPLE -->
-  <div class="people">
-    <svg class="person" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22c0-4 4-7 8-7s8 3 8 7"/></svg>
-    <svg class="person" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22c0-4 4-7 8-7s8 3 8 7"/></svg>
+  <!-- CHARACTERS -->
+  <div class="characters">
+    <img src="assets/brand/hari.png" class="character left" alt="Hari">
+    <img src="assets/brand/dileep.png" class="character right" alt="Dileep">
   </div>
 
-  <!-- HEART LOGO -->
+  <!-- HEART -->
   <div class="heart">
     <svg viewBox="0 0 24 24">
-      <path d="M12 21s-6.7-4.4-9.3-8.2C.6 9.2 2.3 5 6.3 5c2 0 3.4 1.2 3.7 2.1.3-.9 1.7-2.1 3.7-2.1 4 0 5.7 4.2 3.6 7.8C18.7 16.6 12 21 12 21z"/>
+      <path d="M12 21s-7-4.5-9.5-8.3C.5 9.1 2.3 5 6.4 5c2.1 0 3.6 1.3 3.9 2.2.3-.9 1.8-2.2 3.9-2.2 4.1 0 5.9 4.1 3.9 7.7C19 16.5 12 21 12 21z"/>
     </svg>
-  </div>
-
-  <!-- SERVICES -->
-  <div class="services">
-    <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 18z"/></svg>
-    <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
-    <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/></svg>
-    <svg viewBox="0 0 24 24"><path d="M6 6h12l-1 12H7z"/></svg>
-    <svg viewBox="0 0 24 24"><path d="M3 12l18-9-6 18-3-6z"/></svg>
   </div>
 
   <!-- LOGO -->
   <div class="logo">HarDil</div>
-  <div class="tagline">Family First · One Place for Everything</div>
+  <div class="sub">Hari & Dileep · Family First</div>
 
 </div>
 
 <script>
-/* Skip splash after first launch */
-if (localStorage.getItem("hardil_launched")) {
-  window.location.replace("index.html");
+/* Skip intro after first launch */
+if (localStorage.getItem("hardil_seen")) {
+  location.replace("index.html");
 }
 
-/* Haptic feedback (Android) */
+/* Soft haptic (Android) */
 if (navigator.vibrate) {
-  setTimeout(() => navigator.vibrate(10), 1900);
-  setTimeout(() => navigator.vibrate(15), 3200);
+  setTimeout(() => navigator.vibrate(10), 1800);
+  setTimeout(() => navigator.vibrate(15), 2600);
 }
 
-/* Mark launched & redirect */
+/* Finish intro */
 setTimeout(() => {
-  localStorage.setItem("hardil_launched", "yes");
-  window.location.replace("index.html");
-}, 6500);
+  localStorage.setItem("hardil_seen", "yes");
+  location.replace("index.html");
+}, 6000);
 </script>
 
 </body>
