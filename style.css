@@ -1,106 +1,4 @@
 /* ===============================
-   GLOBAL RESET & BASE
-================================ */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-  min-height: 100vh;
-}
-
-/* ===============================
-   HERO / HEADER
-================================ */
-.hero {
-  padding: 32px 16px 22px;
-  text-align: center;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.hero p {
-  margin-top: 6px;
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-/* ===============================
-   MAIN CONTAINER
-================================ */
-.app {
-  padding: 14px;
-}
-
-/* ===============================
-   GLASS CARD
-================================ */
-.card {
-  border-radius: 22px;
-  padding: 18px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-  /* ENTRY ANIMATION */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.card:nth-of-type(1) { animation-delay: 0.1s; }
-.card:nth-of-type(2) { animation-delay: 0.2s; }
-.card:nth-of-type(3) { animation-delay: 0.3s; }
-.card:nth-of-type(4) { animation-delay: 0.4s; }
-.card:nth-of-type(5) { animation-delay: 0.5s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card h2 {
-  margin: 0 0 16px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* ===============================
-   CATEGORY COLOR ACCENTS + GLOW
-================================ */
-.social { border-left: 6px solid #25d366; box-shadow: 0 0 35px rgba(37,211,102,.25); }
-.jobs   { border-left: 6px solid #0a66c2; box-shadow: 0 0 35px rgba(10,102,194,.25); }
-.ott    { border-left: 6px solid #e50914; box-shadow: 0 0 35px rgba(229,9,20,.25); }
-.music  { border-left: 6px solid #1db954; box-shadow: 0 0 35px rgba(29,185,84,.25); }
-.shop   { border-left: 6px solid #ff9900; box-shadow: 0 0 35px rgba(255,153,0,.25); }
-.travel { border-left: 6px solid #00c2ff; box-shadow: 0 0 35px rgba(0,194,255,.25); }
-.health { border-left: 6px solid #ff4f81; box-shadow: 0 0 35px rgba(255,79,129,.25); }
-
-/* ===============================
-   GRID LAYOUT
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-/* ===============================
    APP BUTTON (REAL APP FEEL)
 ================================ */
 .app-btn {
@@ -110,7 +8,13 @@ body {
   padding: 14px 18px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.18);
+
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  pointer-events: auto;
 
   transform: translateY(0) scale(1);
   transition:
@@ -126,6 +30,9 @@ body {
   object-fit: contain;
   flex-shrink: 0;
 
+  pointer-events: none;   /* 🔥 IMPORTANT */
+  user-select: none;
+
   background: none;
   border-radius: 0;
   box-shadow: none;
@@ -137,6 +44,8 @@ body {
   font-size: 15px;
   font-weight: 500;
   white-space: nowrap;
+
+  pointer-events: none;   /* 🔥 IMPORTANT */
 }
 
 /* HOVER / TAP */
@@ -152,28 +61,4 @@ body {
 
 .app-btn:active {
   transform: scale(0.96);
-}
-
-/* ===============================
-   FOOTER
-================================ */
-.footer {
-  padding: 18px 14px 24px;
-  text-align: center;
-  font-size: 13px;
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero h1 {
-    font-size: 46px;
-  }
 }
