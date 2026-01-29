@@ -10,35 +10,37 @@ body {
   background: #f4f6fb;
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
   color: #1f2937;
+  overflow-x: hidden;
 }
 
 /* ===============================
    HEADER
 ================================ */
 .hero {
-  padding: 22px 16px 14px;
+  padding: 26px 16px 18px;
   text-align: center;
 }
 
 .brand {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
 }
 
 .brand h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
+/* Heart = logo life */
 .heart {
-  width: 12px;
-  height: 12px;
-  background: #ff4d6d;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg,#ff4d6d,#ff758f);
   border-radius: 50%;
-  animation: pulse 1.6s infinite ease-in-out;
+  animation: pulse 1.8s infinite ease-in-out;
 }
 
 .hero p {
@@ -48,58 +50,60 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(.8); opacity:.6; }
+  0% { transform: scale(.9); opacity:.7; }
   50% { transform: scale(1.4); opacity:1; }
-  100% { transform: scale(.8); opacity:.6; }
+  100% { transform: scale(.9); opacity:.7; }
 }
 
 /* ===============================
    APP WRAPPER
 ================================ */
 .app {
-  padding: 12px 14px 90px;
+  padding: 14px 14px 90px;
 }
 
 /* ===============================
-   SECTION CARD (KEY CHANGE)
+   SECTION CARD (PREMIUM)
 ================================ */
 .card {
-  border-radius: 22px;
-  padding: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  animation: fadeUp .6s ease both;
+  border-radius: 26px;
+  padding: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  background-size: 200% 200%;
+  animation: fadeUp .8s cubic-bezier(.22,1,.36,1) both;
 }
 
 .card h2 {
   margin: 0;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .section-sub {
-  margin: 4px 0 14px;
+  margin: 6px 0 16px;
   font-size: 13px;
   color: #6b7280;
 }
 
-/* SECTION COLORS */
-.social { background: linear-gradient(135deg,#eef2ff,#f8f9ff); }
-.jobs { background: linear-gradient(135deg,#ecfdf5,#f7fffb); }
-.ott { background: linear-gradient(135deg,#fdf2f8,#fff7fb); }
-.music { background: linear-gradient(135deg,#f3f0ff,#faf8ff); }
-.shop { background: linear-gradient(135deg,#fff7ed,#fffaf5); }
-.travel { background: linear-gradient(135deg,#eef6ff,#f7fbff); }
-.health { background: linear-gradient(135deg,#ecfeff,#f7ffff); }
-.sports { background: linear-gradient(135deg,#f0fdf4,#f8fffb); }
-.personality { background: linear-gradient(135deg,#fef3c7,#fff9e6); }
+/* SECTION GRADIENTS (SOFT & PREMIUM) */
+.social { background: linear-gradient(135deg,#eef2ff,#ffffff); }
+.jobs { background: linear-gradient(135deg,#ecfdf5,#ffffff); }
+.ott { background: linear-gradient(135deg,#fdf2f8,#ffffff); }
+.music { background: linear-gradient(135deg,#f3f0ff,#ffffff); }
+.shop { background: linear-gradient(135deg,#fff7ed,#ffffff); }
+.travel { background: linear-gradient(135deg,#eef6ff,#ffffff); }
+.health { background: linear-gradient(135deg,#ecfeff,#ffffff); }
+.sports { background: linear-gradient(135deg,#f0fdf4,#ffffff); }
+.personality { background: linear-gradient(135deg,#fef3c7,#ffffff); }
 
 /* ===============================
-   GRID (ICON BOARD)
+   GRID (APP ICON BOARD)
 ================================ */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
 @media (max-width: 480px) {
@@ -109,11 +113,11 @@ body {
 }
 
 /* ===============================
-   APP TILE (VERY IMPORTANT)
+   APP TILE (THIS IS KEY)
 ================================ */
 .app-btn {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 14px 8px 12px;
 
   display: flex;
@@ -121,24 +125,15 @@ body {
   align-items: center;
   gap: 6px;
 
-  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
   cursor: pointer;
 
-  animation: popIn .45s ease both;
+  opacity: 0;
+  transform: translateY(14px) scale(.95);
+  animation: appIn .6s cubic-bezier(.22,1,.36,1) forwards;
 }
 
-.app-btn img {
-  width: 44px;
-  height: 44px;
-}
-
-.app-btn span {
-  font-size: 12px;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* STAGGERED ENTRY */
+/* STAGGER (REAL APP FEEL) */
 .app-btn:nth-child(1){animation-delay:.05s}
 .app-btn:nth-child(2){animation-delay:.1s}
 .app-btn:nth-child(3){animation-delay:.15s}
@@ -148,29 +143,41 @@ body {
 .app-btn:nth-child(7){animation-delay:.35s}
 .app-btn:nth-child(8){animation-delay:.4s}
 
-/* TAP FEEDBACK */
+.app-btn img {
+  width: 46px;
+  height: 46px;
+  transition: transform .35s ease;
+}
+
+.app-btn span {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* MICRO INTERACTIONS */
+.app-btn:hover img {
+  transform: scale(1.15);
+}
+
 .app-btn:active {
-  transform: scale(.94);
+  transform: scale(.92);
 }
 
 /* ===============================
    ANIMATIONS
 ================================ */
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(.9) translateY(10px);
-  }
+@keyframes appIn {
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -185,45 +192,5 @@ body {
   text-align: center;
   font-size: 12px;
   color: #6b7280;
-  padding: 24px 12px 30px;
+  padding: 26px 12px 32px;
 }
-/* =========================
-   SCROLL REVEAL (VISIBLE)
-========================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px) scale(0.96);
-  transition: all 0.8s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* =========================
-   ICON FLOAT ANIMATION
-========================= */
-.hub-app img {
-  animation: float 3.5s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-
-/* =========================
-   SECTION GRADIENT MOTION
-========================= */
-.hub-card {
-  background-size: 200% 200%;
-  animation: bgMove 8s ease infinite;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
