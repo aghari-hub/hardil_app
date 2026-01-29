@@ -1,42 +1,42 @@
-// Click handling
-document.querySelectorAll(".hub-app, .app-btn").forEach(el => {
-  el.addEventListener("click", () => {
-    const url = el.dataset?.url;
-    el.animate(
-      [{ transform: "scale(1)" }, { transform: "scale(0.95)" }, { transform: "scale(1)" }],
-      { duration: 200 }
+/* ===============================
+   HarDil App Logic
+   Clean • Safe • Production Ready
+================================ */
+
+/* Handle app tile clicks */
+document.querySelectorAll(".app-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const url = btn.getAttribute("data-url");
+    if (!url) return;
+
+    // Subtle tap feedback (native feel)
+    btn.animate(
+      [
+        { transform: "scale(1)" },
+        { transform: "scale(0.92)" },
+        { transform: "scale(1)" }
+      ],
+      { duration: 180, easing: "ease-out" }
     );
-    if (url) setTimeout(() => window.open(url, "_blank"), 120);
+
+    // Open link (safe delay)
+    setTimeout(() => {
+      window.open(url, "_blank", "noopener");
+    }, 120);
   });
 });
 
-// Scroll reveal (THIS IS WHAT YOU WERE MISSING)
-const revealElements = document.querySelectorAll(".hub-card");
+/* Prevent accidental text/image selection */
+document.addEventListener("selectstart", e => e.preventDefault());
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-revealElements.forEach(el => {
-  el.classList.add("reveal");
-  observer.observe(el);
+/* Disable long-press image drag */
+document.querySelectorAll("img").forEach(img => {
+  img.setAttribute("draggable", "false");
 });
 
-// Auto horizontal movement (SuperHub feel)
-document.querySelectorAll(".hub-scroll").forEach(scroll => {
-  let dir = 1;
-  setInterval(() => {
-    scroll.scrollBy({ left: 120 * dir, behavior: "smooth" });
-    if (
-      scroll.scrollLeft + scroll.clientWidth >= scroll.scrollWidth ||
-      scroll.scrollLeft <= 0
-    ) dir *= -1;
-  }, 2800);
-});
+/* (Optional) Future Android WebView hook */
+if (window.Android && typeof Android.haptic === "function") {
+  document.querySelectorAll(".app-btn").forEach(btn => {
+    btn.addEventListener("click", () => Android.haptic());
+  });
+}
