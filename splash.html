@@ -2,122 +2,117 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HarDil Intro</title>
+<title>HarDil Journey</title>
 
 <style>
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg,#667eea,#764ba2);
+  font-family: "Segoe UI", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Segoe UI", sans-serif;
   overflow: hidden;
   color: white;
+  transition: background 1.2s ease;
 }
 
-/* container */
+/* BACKGROUND SCENES */
+.space   { background: radial-gradient(circle at top, #1b2735, #090a0f); }
+.desert  { background: linear-gradient(135deg, #f2994a, #f2c94c); }
+.water   { background: linear-gradient(135deg, #2d9cdb, #56ccf2); }
+.ice     { background: linear-gradient(135deg, #b2fefa, #0ed2f7); }
+.final   { background: linear-gradient(135deg, #667eea, #764ba2); }
+
 .scene {
   text-align: center;
+  animation: fadeIn 1s ease;
 }
 
-/* people */
 .people {
   font-size: 64px;
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  animation: meet 1.6s ease forwards;
+  animation: slideIn 1.5s ease forwards;
 }
 
-@keyframes meet {
-  from { gap: 200px; opacity: 0; }
-  to { gap: 20px; opacity: 1; }
-}
-
-/* heart */
-.heart {
-  font-size: 42px;
+.handshake, .heart {
+  font-size: 44px;
   opacity: 0;
-  animation: hug 0.8s ease forwards;
-  animation-delay: 1.6s;
 }
 
-@keyframes hug {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* icons */
 .resources {
   display: flex;
   justify-content: center;
-  gap: 18px;
-  margin-top: 18px;
+  gap: 20px;
+  font-size: 24px;
   opacity: 0;
-  animation: spinIn 1.2s ease forwards;
-  animation-delay: 2.4s;
 }
 
-.resources span {
-  font-size: 22px;
-  animation: spin 1.2s linear infinite;
-}
-
-@keyframes spinIn {
-  to { opacity: 1; }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* logo */
 .logo {
-  font-size: 44px;
-  font-weight: bold;
-  margin-top: 22px;
+  font-size: 48px;
+  font-weight: 700;
   opacity: 0;
-  animation: showLogo 0.8s ease forwards;
-  animation-delay: 3.8s;
 }
 
 .tagline {
   font-size: 14px;
   opacity: 0;
-  animation: showLogo 0.8s ease forwards;
-  animation-delay: 4.2s;
 }
 
-@keyframes showLogo {
+@keyframes slideIn {
+  from { letter-spacing: 60px; opacity: 0; }
+  to { letter-spacing: 10px; opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
   to { opacity: 1; }
 }
-</style>
 
-<script>
-setTimeout(() => {
-  window.location.href = "index.html";
-}, 5200);
-</script>
+.show { opacity: 1 !important; transition: opacity 1s ease; }
+</style>
 </head>
 
-<body>
-  <div class="scene">
-    <div class="people">🧑 🤝 🧑</div>
-    <div class="heart">❤️</div>
+<body class="space">
 
-    <div class="resources">
-      <span>💬</span>
-      <span>🎵</span>
-      <span>💼</span>
-      <span>🛒</span>
-      <span>✈️</span>
-    </div>
+<div class="scene">
+  <div class="people">🧑 &nbsp; 🧑</div>
+  <div class="handshake">🤝</div>
+  <div class="heart">❤️</div>
 
-    <div class="logo">HarDil</div>
-    <div class="tagline">Family First · One Place for Everything</div>
+  <div class="resources">
+    <span>💬</span>
+    <span>🎵</span>
+    <span>💼</span>
+    <span>🛒</span>
+    <span>✈️</span>
   </div>
+
+  <div class="logo">HarDil</div>
+  <div class="tagline">Family First · One Place for Everything</div>
+</div>
+
+<script>
+const body = document.body;
+
+setTimeout(() => body.className = "desert", 1200);
+setTimeout(() => document.querySelector(".handshake").classList.add("show"), 1600);
+
+setTimeout(() => body.className = "water", 2400);
+setTimeout(() => document.querySelector(".heart").classList.add("show"), 2800);
+
+setTimeout(() => body.className = "ice", 3600);
+setTimeout(() => document.querySelector(".resources").classList.add("show"), 4000);
+
+setTimeout(() => body.className = "final", 5000);
+setTimeout(() => {
+  document.querySelector(".logo").classList.add("show");
+  document.querySelector(".tagline").classList.add("show");
+}, 5400);
+
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 7000);
+</script>
+
 </body>
 </html>
