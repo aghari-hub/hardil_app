@@ -5,37 +5,58 @@ if (!sessionStorage.getItem("visited")) {
   window.location.replace("splash.html");
 }
 </script>
-<html>
+
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HarDil</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<header class="hero">
+
+<header class="app-header">
   <h1>HarDil ❤️</h1>
   <p>Family First · One Place for Everything</p>
 </header>
 
-<section class="grid">
-  <div onclick="go('pages/social.html')">🌐 Social</div>
-  <div onclick="go('pages/jobs.html')">💼 Jobs</div>
-  <div onclick="go('pages/music.html')">🎵 Music</div>
-  <div onclick="go('pages/shopping.html')">🛒 Shopping</div>
-  <div onclick="go('pages/travel.html')">✈️ Travel</div>
-  <div onclick="go('pages/ride.html')">🚕 Ride</div>
-  <div onclick="go('pages/sports.html')">🏏 Sports</div>
-  <div onclick="go('pages/personality.html')">🧠 Personality</div>
-  <div onclick="go('pages/health.html')">🏥 Health & Care</div>
+<section class="section social">
+  <h2>Social Media</h2>
+  <div class="apps">
+    <div class="app" onclick="open('https://web.whatsapp.com')">💬<span>WhatsApp</span></div>
+    <div class="app" onclick="open('https://www.instagram.com')">📸<span>Instagram</span></div>
+    <div class="app" onclick="open('https://mail.google.com')">📧<span>Gmail</span></div>
+    <div class="app" onclick="open('https://web.telegram.org')">✈️<span>Telegram</span></div>
+  </div>
 </section>
 
-<footer>
-  <p>
-    HarDil strictly redirects users to official websites only.<br>
-    No logins stored · No payments · No betting
-  </p>
+<section class="section jobs">
+  <h2>Job Portals</h2>
+  <div class="apps">
+    <div class="app" onclick="open('https://www.linkedin.com')">💼<span>LinkedIn</span></div>
+    <div class="app" onclick="open('https://www.naukri.com')">📄<span>Naukri</span></div>
+    <div class="app" onclick="open('https://www.glassdoor.com')">🏢<span>Glassdoor</span></div>
+    <div class="app" onclick="open('https://www.indeed.com')">🔍<span>Indeed</span></div>
+  </div>
+</section>
+
+<section class="section ott">
+  <h2>OTT Platforms</h2>
+  <div class="apps">
+    <div class="app" onclick="open('https://www.netflix.com')">🎬<span>Netflix</span></div>
+    <div class="app" onclick="open('https://primevideo.com')">🎥<span>Prime</span></div>
+    <div class="app" onclick="open('https://www.hotstar.com')">⭐<span>Hotstar</span></div>
+    <div class="app" onclick="open('https://www.youtube.com')">▶️<span>YouTube</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  HarDil strictly redirects users to official websites only.<br>
+  No logins stored · No payments · No betting
 </footer>
 
 <script src="app.js"></script>
 </body>
 </html>
+
