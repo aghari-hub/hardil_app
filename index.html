@@ -1,19 +1,15 @@
-<script>
-  // If splash not shown in this session, go to splash
-  if (sessionStorage.getItem("harDilSplash") !== "done") {
-    window.location.href = "splash.html";
-  }
-</script>
-
-
-<!-- APP LOGO OVERLAY -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>HarDil</title>
+
+  <!-- Splash control (MUST be here) -->
+  <script>
+    if (sessionStorage.getItem("harDilSplash") !== "done") {
+      window.location.replace("splash.html");
+    }
+  </script></title>
 
   <!-- Mobile & Play Store Friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
