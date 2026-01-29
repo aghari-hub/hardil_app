@@ -116,3 +116,14 @@ setTimeout(() => {
 
 </body>
 </html>
+
+<script>
+  // Total animation duration (match your storyboard)
+  const TOTAL_TIME = 2500;
+
+  setTimeout(() => {
+    localStorage.setItem("hardil_splash_done", "true");
+    window.location.replace("index.html");
+  }, TOTAL_TIME);
+</script>
+
