@@ -1,3 +1,12 @@
+// Always show logo animation on load
+window.addEventListener("load", () => {
+  const overlay = document.getElementById("logo-overlay");
+
+  setTimeout(() => {
+    overlay.classList.add("hide");
+  }, 2000); // total animation time
+});
+
 /* ===============================
    HarDil App Logic
    Clean • Safe • Production Ready
