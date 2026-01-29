@@ -1,8 +1,15 @@
+// HarDil App Launcher
+// Handles click on app buttons using data-url
+
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".app-btn").forEach(btn => {
+  const buttons = document.querySelectorAll(".app-btn");
+
+  buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const url = btn.dataset.url;
-      if (url) window.location.assign(url);
+      const url = btn.getAttribute("data-url");
+      if (url) {
+        window.open(url, "_blank");
+      }
     });
   });
 });
