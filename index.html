@@ -1,8 +1,10 @@
 <script>
-  if (!sessionStorage.getItem("harDilOpened")) {
-    window.location.replace("splash.html");
+  // If splash not shown in this session, go to splash
+  if (sessionStorage.getItem("harDilSplash") !== "done") {
+    window.location.href = "splash.html";
   }
 </script>
+
 
 <!-- APP LOGO OVERLAY -->
 
