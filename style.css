@@ -1,16 +1,25 @@
-
-/* =====================
-   ROOT
-===================== */
+/* =========================
+   ROOT THEME
+========================= */
 :root {
-  --bg1: #0f172a;
-  --bg2: #1e293b;
-  --accent1: #ec4899;
-  --accent2: #f43f5e;
+  --bg-dark: #020617;
+  --bg-mid: #0f172a;
+  --bg-light: #1e293b;
+
+  --primary: #4f46e5;
+  --secondary: #ec4899;
+  --accent: #22d3ee;
+
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.2);
+
   --text-main: #f8fafc;
-  --text-muted: #cbd5f5;
+  --text-soft: #cbd5f5;
 }
 
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,61 +27,50 @@
   font-family: "Inter", system-ui, -apple-system;
 }
 
-/* =====================
-   BODY – ANIMATED GRADIENT
-===================== */
 body {
   min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #1e293b, #020617),
+    linear-gradient(-45deg, #020617, #0f172a, #1e293b);
+  background-size: cover, 400% 400%;
+  animation: bgMove 18s ease infinite;
   color: var(--text-main);
-  background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
-  background-size: 400% 400%;
-  animation: bgFlow 18s ease infinite;
 }
 
-@keyframes bgFlow {
+@keyframes bgMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* =====================
-   HEADER
-===================== */
+/* =========================
+   HEADER / BRAND
+========================= */
 .hero {
+  padding: 3.5rem 1.5rem 2.2rem;
   text-align: center;
-  padding: 3.5rem 1.5rem 2rem;
-  animation: heroFade 1.2s ease forwards;
-}
-
-@keyframes heroFade {
-  from { opacity: 0; transform: translateY(-30px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 .brand {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 14px;
 }
 
-/* =====================
-   LOGO – HEART + PULSE
-===================== */
 .heart {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
   transform: rotate(45deg);
-  border-radius: 6px;
-  position: relative;
-  box-shadow: 0 0 25px rgba(244,63,94,0.7);
-  animation: heartBeat 1.8s infinite ease-in-out;
+  border-radius: 7px;
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.9);
+  animation: pulse 1.6s infinite ease-in-out;
 }
 
-@keyframes heartBeat {
-  0%, 100% { transform: rotate(45deg) scale(1); }
-  50% { transform: rotate(45deg) scale(1.12); }
+@keyframes pulse {
+  0%,100% { transform: rotate(45deg) scale(1); }
+  50% { transform: rotate(45deg) scale(1.15); }
 }
 
 .hero h1 {
@@ -82,30 +80,47 @@ body {
 
 .hero p {
   margin-top: 10px;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 
-/* =====================
+/* =========================
    APP LAYOUT
-===================== */
+========================= */
 .app {
   max-width: 1200px;
   margin: auto;
   padding: 1.5rem;
   display: grid;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
-/* =====================
-   CARDS – GLASS EFFECT
-===================== */
+/* =========================
+   GLASS CARDS
+========================= */
 .card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
   border-radius: 22px;
   padding: 1.8rem;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle gradient glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 60%);
+  pointer-events: none;
 }
 
 .card h2 {
@@ -113,55 +128,57 @@ body {
 }
 
 .section-sub {
-  color: var(--text-muted);
   font-size: 0.95rem;
+  color: var(--text-soft);
   margin: 6px 0 1.3rem;
 }
 
-/* =====================
-   REVEAL ANIMATION
-===================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =====================
+/* =========================
    GRID BUTTONS
-===================== */
+========================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 1.1rem;
 }
 
 .app-btn {
   background: linear-gradient(
     145deg,
-    rgba(255,255,255,0.14),
-    rgba(255,255,255,0.05)
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.06)
   );
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 18px;
   padding: 1.1rem 0.8rem;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow on hover */
+.app-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.app-btn:hover::after {
+  opacity: 1;
 }
 
 .app-btn:hover {
   transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.5);
 }
 
 .app-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 .app-btn img {
@@ -175,21 +192,50 @@ body {
   font-weight: 500;
 }
 
-/* =====================
+/* =========================
+   REVEAL ANIMATION
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
    FOOTER
-===================== */
+========================= */
 .footer {
+  padding: 2.2rem 1rem;
   text-align: center;
-  padding: 2rem 1rem;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-soft);
   line-height: 1.6;
 }
 
-/* =====================
+/* =========================
+   SECTION COLOR ACCENTS
+========================= */
+.social { border-left: 5px solid #22d3ee; }
+.jobs { border-left: 5px solid #4f46e5; }
+.ott { border-left: 5px solid #ec4899; }
+.music { border-left: 5px solid #a855f7; }
+.shop { border-left: 5px solid #f59e0b; }
+.travel { border-left: 5px solid #38bdf8; }
+.rides { border-left: 5px solid #10b981; }
+.food { border-left: 5px solid #f97316; }
+.health { border-left: 5px solid #ef4444; }
+.sports { border-left: 5px solid #22c55e; }
+.personality { border-left: 5px solid #8b5cf6; }
+
+/* =========================
    RESPONSIVE
-===================== */
+========================= */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.1rem; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  .hero h1 { font-size: 2.2rem; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); }
 }
