@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------- DRAWER ELEMENTS ---------- */
-  const menuBtn = document.querySelector(".top-app-menu");
+  const menuBtn = document.querySelector(".menu-icon");
   const drawer = document.getElementById("drawer");
   const closeBtn = document.getElementById("closeMenu");
   const backdrop = document.getElementById("backdrop");
