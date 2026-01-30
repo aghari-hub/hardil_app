@@ -20,10 +20,11 @@ body {
   background: #000;
 }
 
+/* ================= BACKGROUND ================= */
 .splash-bg {
   position: fixed;
   inset: 0;
-  background-image: url("/hardil_app/assets/images/splash-bg.jpg");
+  background-image: url("assets/images/splash-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -42,12 +43,14 @@ body {
   );
 }
 
+/* ================= CENTER ================= */
 .center {
   position: relative;
   width: 320px;
   height: 320px;
 }
 
+/* ================= LOGO ================= */
 .logo-wrap {
   position: absolute;
   inset: 0;
@@ -69,8 +72,8 @@ body {
     0 0 22px rgba(236,72,153,0.9),
     0 0 52px rgba(236,72,153,0.6),
     0 0 95px rgba(236,72,153,0.4);
-  animation: logoReveal 1.4s ease forwards;
-  animation-delay: 1.1s;
+  animation: logoReveal 1.2s ease forwards;
+  animation-delay: 1.4s;
 }
 
 .tagline {
@@ -80,17 +83,18 @@ body {
   color: #ffffff;
   opacity: 0;
   text-align: center;
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 2.5s;
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: 2.4s;
 }
 
+/* ================= ICON ORBITS ================= */
 .orbits {
   position: absolute;
   inset: 0;
   opacity: 0;
   animation:
-    showIcons 0.8s ease forwards 3.1s,
-    orbitSpin 18s linear infinite 3.1s;
+    showIcons 0.6s ease forwards 3.2s,
+    orbitSpin 18s linear infinite 3.2s;
 }
 
 .orbit {
@@ -109,9 +113,10 @@ body {
   text-shadow:
     0 0 12px rgba(236,72,153,0.9),
     0 0 30px rgba(236,72,153,0.6);
-  animation: counterSpin 18s linear infinite 3.1s;
+  animation: counterSpin 18s linear infinite 3.2s;
 }
 
+/* ================= ANIMATIONS ================= */
 @keyframes logoReveal {
   0% { opacity: 0; transform: scale(0.45); }
   70% { opacity: 1; transform: scale(1.08); }
@@ -146,6 +151,7 @@ body {
 
   <div class="center">
 
+    <!-- ICONS -->
     <div class="orbits">
       <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
       <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
@@ -158,6 +164,7 @@ body {
       <div class="orbit" style="--i:8"><span class="icon">🍔</span></div>
     </div>
 
+    <!-- LOGO -->
     <div class="logo-wrap">
       <div class="logo">HD</div>
       <div class="tagline">Family First · One Place for Everything</div>
@@ -167,6 +174,18 @@ body {
 </div>
 
 <script>
+/* Stop animation before exit */
 setTimeout(() => {
   document.querySelectorAll(".orbits, .icon").forEach(el => {
-    el.style.animationPlayState = "paused
+    el.style.animationPlayState = "paused";
+  });
+}, 8500);
+
+/* Redirect to app */
+setTimeout(() => {
+  window.location.replace("index.html");
+}, 9200);
+</script>
+
+</body>
+</html>
