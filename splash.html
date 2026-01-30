@@ -1,215 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>HarDil</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>HD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#4f46e5" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg-dark: #020617;
-  --bg-mid: #0f172a;
-  --accent: #f43f5e;
-  --text-main: #f8fafc;
-  --text-soft: #cbd5f5;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: Inter, system-ui, -apple-system;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Inter,sans-serif; }
 
 body {
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #1e293b, var(--bg-dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: var(--text-main);
-  transition: background 0.8s ease;
+  height:100vh;
+  background: url("assets/splash/bg.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
 
-body.final {
-  background: linear-gradient(-45deg, #020617, #0f172a, #1e293b);
-  background-size: 400% 400%;
-  animation: bgFlow 12s ease infinite;
+/* overlay for readability */
+.overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(2,6,23,.7), rgba(15,23,42,.85));
 }
 
-@keyframes bgFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* SCENE */
+/* main scene */
 .scene {
-  text-align: center;
-  position: relative;
+  position:relative;
+  z-index:2;
+  text-align:center;
+  color:#fff;
 }
 
-/* PEOPLE */
+/* characters */
 .people {
-  font-size: 3.2rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
+  font-size:96px;
+  opacity:0;
+  transform:scale(.8);
+  animation:peopleIn .8s ease forwards;
 }
 
-/* HANDSHAKE */
-.handshake,
+@keyframes peopleIn {
+  to { opacity:1; transform:scale(1); }
+}
+
+/* handshake */
+.handshake {
+  font-size:72px;
+  opacity:0;
+  animation:fadeIn .6s ease forwards;
+  animation-delay:.8s;
+}
+
+/* hug heart */
 .heart {
-  font-size: 3rem;
-  margin-top: 10px;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: all 0.45s cubic-bezier(.4,0,.2,1);
+  font-size:64px;
+  opacity:0;
+  animation:fadeIn .6s ease forwards;
+  animation-delay:1.4s;
 }
 
-.handshake.show,
-.heart.show {
-  opacity: 1;
-  transform: scale(1);
+/* category icons */
+.icons {
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin:20px 0;
+  opacity:0;
+  animation:fadeIn .6s ease forwards;
+  animation-delay:2s;
 }
 
-/* CATEGORY ICONS */
-.categories {
-  position: relative;
-  width: 220px;
-  height: 220px;
-  margin: 18px auto 0;
-  opacity: 0;
-  transform: scale(0.85);
-  transition: all 0.8s cubic-bezier(.4,0,.2,1);
-  z-index: 1;
+.icons span {
+  font-size:26px;
 }
 
-.categories.show {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.categories.fade {
-  opacity: 0.35;
-  transform: scale(0.92);
-}
-
-.categories span {
-  position: absolute;
-  font-size: 28px;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
-  animation: float 3.5s ease-in-out infinite;
-}
-
-.categories span:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
-.categories span:nth-child(2) { top: 22%; right: 0; }
-.categories span:nth-child(3) { bottom: 22%; right: 0; }
-.categories span:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
-.categories span:nth-child(5) { bottom: 22%; left: 0; }
-.categories span:nth-child(6) { top: 22%; left: 0; }
-.categories span:nth-child(7) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* LOGO */
+/* logo */
 .logo {
-  margin-top: 18px;
-  font-size: 2.6rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  opacity: 0;
-  transform: translateY(16px) scale(0.95);
-  transition: all 0.7s cubic-bezier(.4,0,.2,1);
-  z-index: 2;
-  position: relative;
+  font-size:56px;
+  font-weight:700;
+  margin-top:10px;
+  opacity:0;
+  transform:scale(.6);
+  animation:logoIn .7s ease forwards;
+  animation-delay:2.4s;
 }
 
-.logo.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+@keyframes logoIn {
+  to { opacity:1; transform:scale(1); }
 }
 
 .tagline {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.6s ease;
+  margin-top:8px;
+  font-size:14px;
+  opacity:0;
+  animation:fadeIn .6s ease forwards;
+  animation-delay:2.9s;
 }
 
-.tagline.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* UTILS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  to { opacity:1; }
 }
 </style>
 </head>
 
 <body>
+<div class="overlay"></div>
 
 <div class="scene">
-  <div class="people">🧑 &nbsp; 🧑</div>
+
+  <div class="people">🧑‍🤝‍🧑</div>
   <div class="handshake">🤝</div>
   <div class="heart">❤️</div>
 
-  <div class="categories">
+  <div class="icons">
     <span>🌐</span>
     <span>💼</span>
     <span>🎬</span>
     <span>🎵</span>
+    <span>🚕</span>
+    <span>🍔</span>
     <span>🩺</span>
-    <span>🏏</span>
     <span>🧠</span>
   </div>
 
-  <div class="logo">HarDil</div>
+  <div class="logo">HD</div>
   <div class="tagline">Family First · One Place for Everything</div>
+
 </div>
 
 <script>
-/* PREMIUM TIMELINE */
-
-// handshake
 setTimeout(() => {
-  document.querySelector(".handshake").classList.add("show");
-}, 600);
-
-// heart
-setTimeout(() => {
-  document.querySelector(".heart").classList.add("show");
-}, 1200);
-
-// categories appear clearly
-setTimeout(() => {
-  document.querySelector(".categories").classList.add("show");
-}, 1600);
-
-// logo reveal, categories soften
-setTimeout(() => {
-  document.body.classList.add("final");
-  document.querySelector(".categories").classList.add("fade");
-  document.querySelector(".logo").classList.add("show");
-}, 2300);
-
-// tagline
-setTimeout(() => {
-  document.querySelector(".tagline").classList.add("show");
-}, 2700);
-
-// exit splash
-setTimeout(() => {
-  sessionStorage.setItem("harDilSplash", "done");
+  sessionStorage.setItem("harDilSplash","done");
   window.location.replace("index.html");
-}, 3400);
+}, 3500);
 </script>
 
 </body>
