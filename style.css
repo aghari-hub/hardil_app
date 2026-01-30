@@ -1,170 +1,266 @@
 /* ===============================
-   RESET
+   GLOBAL RESET
 ================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* IMPORTANT: allow app scrolling */
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  color: #f8fafc;
 }
 
 /* ===============================
-   BACKGROUND
+   TOP APP BAR
 ================================ */
-.splash-bg {
+.top-app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 56px;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.top-app-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ===============================
+   SIDE DRAWER
+================================ */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  z-index: 2000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.drawer-header h2 {
+  font-size: 16px;
+}
+
+.drawer-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.drawer-content {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.drawer-content h4 {
+  margin: 16px 0 6px;
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.drawer-content a {
+  display: block;
+  padding: 10px 0;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.drawer-content a:hover {
+  color: #ffffff;
+}
+
+/* BACKDROP */
+.backdrop {
   position: fixed;
   inset: 0;
-  background: url("assets/images/hd-bg.jpg") center / cover no-repeat;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.backdrop.show {
+  display: block;
+}
+
+/* ===============================
+   HERO BRAND
+================================ */
+.hero {
+  text-align: center;
+  padding: 48px 16px 32px;
+}
+
+.brand {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: exitFade 0.6s ease forwards;
-  animation-delay: 3s; /* transition into app */
+  gap: 12px;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle,
-    rgba(0,0,0,0.15),
-    rgba(0,0,0,0.65)
-  );
+.heart {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  transform: rotate(45deg);
+  border-radius: 6px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.hero p {
+  margin-top: 8px;
+  color: #cbd5f5;
+  font-size: 14px;
 }
 
 /* ===============================
-   LOGO BLOCK
+   MAIN APP LAYOUT
 ================================ */
-.logo-wrap {
-  position: relative;
-  z-index: 5;
-  text-align: center;
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px 16px 48px;
+  display: grid;
+  gap: 28px;
 }
 
 /* ===============================
-   HD LOGO WITH GLOW
+   SECTION CARDS
 ================================ */
-.logo {
-  font-size: 4.8rem;
-  font-weight: 900;
-  letter-spacing: 4px;
+.card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 22px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
 
+.card h2 {
+  font-size: 18px;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: #cbd5f5;
+  margin: 6px 0 16px;
+}
+
+/* ===============================
+   APP GRID
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+/* ===============================
+   APP BUTTONS
+================================ */
+.app-btn {
   background: linear-gradient(
-    135deg,
-    #60a5fa,
-    #a78bfa,
-    #f472b6,
-    #22d3ee
+    180deg,
+    rgba(255,255,255,0.14),
+    rgba(255,255,255,0.06)
   );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 14px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  opacity: 0;
-  transform: scale(0.6);
+.app-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
 
-  animation:
-    logoPop 1.2s ease forwards,
-    gradientMove 4s ease infinite,
-    glowPulse 2s ease-in-out infinite;
+.app-btn img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
+}
 
-  animation-delay: 0.6s, 0.6s, 1.8s;
+.app-btn span {
+  font-size: 13px;
+  display: block;
 }
 
 /* ===============================
-   TAGLINE
+   FOOTER
 ================================ */
-.tagline {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: #e5e7eb;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 1.8s;
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 12px;
+  color: #cbd5f5;
+  line-height: 1.6;
 }
 
 /* ===============================
-   FLOATING ICONS (SYNCED)
+   REVEAL ANIMATION
 ================================ */
-.icons {
-  position: absolute;
-  width: 280px;
-  height: 280px;
+.reveal {
   opacity: 0;
-  animation: showIcons 0.6s ease forwards;
-  animation-delay: 2.2s;
+  transform: translateY(16px);
+  animation: reveal 0.6s ease forwards;
 }
 
-.icon {
-  position: absolute;
-  font-size: 1.6rem;
-  animation: orbit 8s linear infinite;
-}
-
-/* evenly distributed */
-.icon:nth-child(1) { transform: rotate(0deg) translate(140px); }
-.icon:nth-child(2) { transform: rotate(45deg) translate(140px); }
-.icon:nth-child(3) { transform: rotate(90deg) translate(140px); }
-.icon:nth-child(4) { transform: rotate(135deg) translate(140px); }
-.icon:nth-child(5) { transform: rotate(180deg) translate(140px); }
-.icon:nth-child(6) { transform: rotate(225deg) translate(140px); }
-.icon:nth-child(7) { transform: rotate(270deg) translate(140px); }
-.icon:nth-child(8) { transform: rotate(315deg) translate(140px); }
-
-/* ===============================
-   ANIMATIONS
-================================ */
-@keyframes logoPop {
-  0% { opacity: 0; transform: scale(0.6); }
-  60% { opacity: 1; transform: scale(1.08); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 🔥 GLOW EFFECT */
-@keyframes glowPulse {
-  0%, 100% {
-    text-shadow:
-      0 0 12px rgba(167,139,250,0.35),
-      0 0 24px rgba(96,165,250,0.25);
-  }
-  50% {
-    text-shadow:
-      0 0 18px rgba(236,72,153,0.45),
-      0 0 32px rgba(34,211,238,0.35);
-  }
-}
-
-@keyframes showIcons {
-  to { opacity: 1; }
-}
-
-@keyframes orbit {
-  from { transform: rotate(0deg) translate(140px) rotate(0deg); }
-  to { transform: rotate(360deg) translate(140px) rotate(-360deg); }
-}
-
-/* 🌊 EXIT TRANSITION */
-@keyframes exitFade {
+@keyframes reveal {
   to {
-    opacity: 0;
-    transform: scale(1.05);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -172,6 +268,11 @@ body {
    MOBILE TUNING
 ================================ */
 @media (max-width: 600px) {
-  .logo { font-size: 3.8rem; }
-  .icons { width: 240px; height: 240px; }
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
