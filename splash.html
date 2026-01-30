@@ -116,11 +116,11 @@ body {
 }
 
 .start-orbit {
-  animation: orbitSpin 6s linear infinite;
+  animation: orbitSpin 6s linear;
 }
 
 .start-counter {
-  animation: counterSpin 6s linear infinite;
+  animation: counterSpin 6s linear;
 }
 
 @keyframes logoReveal {
@@ -153,7 +153,6 @@ body {
 
   <div class="center">
 
-    <!-- ICONS -->
     <div class="orbits" id="orbits">
       <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
       <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
@@ -166,7 +165,6 @@ body {
       <div class="orbit" style="--i:8"><span class="icon">🍔</span></div>
     </div>
 
-    <!-- LOGO -->
     <div class="logo-wrap" id="logoWrap">
       <div class="logo">HD</div>
       <div class="tagline" id="tagline">Family First · One Place for Everything</div>
@@ -176,15 +174,15 @@ body {
 </div>
 
 <script>
-/* 1️⃣ Logo + caption */
+/* STEP 1: Logo */
 setTimeout(() => {
   const logoWrap = document.getElementById("logoWrap");
-  logoWrap.classList.add("show-logo");
   logoWrap.style.opacity = 1;
+  logoWrap.classList.add("show-logo");
   document.getElementById("tagline").classList.add("show-tagline");
 }, 1400);
 
-/* 2️⃣ Faster icon revolution */
+/* STEP 2: Icons */
 setTimeout(() => {
   const orbits = document.getElementById("orbits");
   orbits.style.opacity = 1;
@@ -194,9 +192,9 @@ setTimeout(() => {
   );
 }, 3000);
 
-/* 3️⃣ Redirect */
+/* STEP 3: HARD REDIRECT (guaranteed) */
 setTimeout(() => {
-  window.location.replace("index.html");
+  window.location.href = "index.html";
 }, 6800);
 </script>
 
