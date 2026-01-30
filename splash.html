@@ -6,11 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
+/* ===============================
+   RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 body {
@@ -19,11 +22,13 @@ body {
   overflow: hidden;
 }
 
-/* ===== BACKGROUND ===== */
+/* ===============================
+   BACKGROUND
+================================ */
 .splash-bg {
   position: fixed;
   inset: 0;
-  background: url("assets/images/hd-bg.jpg") center / cover no-repeat;
+  background: url("assets/images/hd-bg.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,11 +37,14 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.65));
+  background: radial-gradient(circle at center,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.65));
 }
 
-/* ===== LOGO BLOCK ===== */
+/* ===============================
+   LOGO CONTAINER
+================================ */
 .logo-wrap {
   position: relative;
   z-index: 5;
@@ -47,79 +55,76 @@ body {
 .logo {
   font-size: 4.8rem;
   font-weight: 900;
-  letter-spacing: 4px;
-
-  background: linear-gradient(
-    135deg,
-    #60a5fa,
-    #a78bfa,
-    #f472b6,
-    #22d3ee
-  );
-  background-size: 300% 300%;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   opacity: 0;
-  transform: scale(0.6);
-  animation:
-    logoPop 1.6s ease forwards,
-    gradientMove 5s ease infinite;
+  transform: scale(0.5);
+  filter: drop-shadow(0 0 30px rgba(167,139,250,0.6));
+  animation: logoPop 1.6s cubic-bezier(.22,1,.36,1) forwards;
   animation-delay: 0.6s;
 }
 
 /* TAGLINE */
 .tagline {
   margin-top: 12px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #e5e7eb;
   opacity: 0;
-  animation: fadeUp 1.2s ease forwards;
-  animation-delay: 1.9s;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 2s;
 }
 
-/* ===== FLOATING ICON RING ===== */
+/* ===============================
+   FLOATING CATEGORY ICONS
+================================ */
 .icons {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   opacity: 0;
-  animation: showIcons 1s ease forwards;
-  animation-delay: 2.5s;
+  animation: showIcons 0.6s ease forwards;
+  animation-delay: 2.4s;
 }
 
-.icon {
+/* icon wrapper = position */
+.icon-wrap {
   position: absolute;
-  font-size: 1.6rem;
-  animation: orbit 10s linear infinite;
+  inset: 0;
 }
 
-/* evenly distributed */
-.icon:nth-child(1) { transform: rotate(0deg) translate(140px); }
-.icon:nth-child(2) { transform: rotate(45deg) translate(140px); }
-.icon:nth-child(3) { transform: rotate(90deg) translate(140px); }
-.icon:nth-child(4) { transform: rotate(135deg) translate(140px); }
-.icon:nth-child(5) { transform: rotate(180deg) translate(140px); }
-.icon:nth-child(6) { transform: rotate(225deg) translate(140px); }
-.icon:nth-child(7) { transform: rotate(270deg) translate(140px); }
-.icon:nth-child(8) { transform: rotate(315deg) translate(140px); }
+.icon-wrap:nth-child(1) { transform: rotate(0deg); }
+.icon-wrap:nth-child(2) { transform: rotate(45deg); }
+.icon-wrap:nth-child(3) { transform: rotate(90deg); }
+.icon-wrap:nth-child(4) { transform: rotate(135deg); }
+.icon-wrap:nth-child(5) { transform: rotate(180deg); }
+.icon-wrap:nth-child(6) { transform: rotate(225deg); }
+.icon-wrap:nth-child(7) { transform: rotate(270deg); }
+.icon-wrap:nth-child(8) { transform: rotate(315deg); }
 
-/* ===== ANIMATIONS ===== */
+/* actual icon */
+.icon {
+  display: block;
+  font-size: 1.7rem;
+  transform: translate(150px);
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
+  animation: orbit 6s linear infinite;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
 @keyframes logoPop {
-  0% { opacity: 0; transform: scale(0.6); }
-  60% { opacity: 1; transform: scale(1.08); }
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.12); }
   100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes showIcons {
@@ -127,14 +132,8 @@ body {
 }
 
 @keyframes orbit {
-  from { transform: rotate(0deg) translate(140px) rotate(0deg); }
-  to { transform: rotate(360deg) translate(140px) rotate(-360deg); }
-}
-
-/* MOBILE TUNING */
-@media (max-width: 600px) {
-  .logo { font-size: 3.8rem; }
-  .icons { width: 240px; height: 240px; }
+  from { transform: translate(150px) rotate(0deg); }
+  to   { transform: translate(150px) rotate(360deg); }
 }
 </style>
 </head>
@@ -144,16 +143,16 @@ body {
 <div class="splash-bg">
   <div class="overlay"></div>
 
-  <!-- FLOATING ICONS -->
+  <!-- FLOATING CATEGORY ICONS -->
   <div class="icons">
-    <div class="icon">🌐</div>
-    <div class="icon">💼</div>
-    <div class="icon">🎬</div>
-    <div class="icon">🎵</div>
-    <div class="icon">🩺</div>
-    <div class="icon">🏏</div>
-    <div class="icon">🧠</div>
-    <div class="icon">🍔</div>
+    <div class="icon-wrap"><span class="icon">🌐</span></div>
+    <div class="icon-wrap"><span class="icon">💼</span></div>
+    <div class="icon-wrap"><span class="icon">🎬</span></div>
+    <div class="icon-wrap"><span class="icon">🎵</span></div>
+    <div class="icon-wrap"><span class="icon">🩺</span></div>
+    <div class="icon-wrap"><span class="icon">🏏</span></div>
+    <div class="icon-wrap"><span class="icon">🧠</span></div>
+    <div class="icon-wrap"><span class="icon">🍔</span></div>
   </div>
 
   <!-- LOGO -->
@@ -164,11 +163,13 @@ body {
 </div>
 
 <script>
+/* TOTAL SPLASH TIME = 3.5 SECONDS */
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
-}, 4000);
+}, 3500);
 </script>
 
 </body>
 </html>
+
