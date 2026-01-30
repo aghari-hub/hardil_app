@@ -187,3 +187,49 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   }
 }
+/* =====================
+   PREMIUM LOGO
+===================== */
+.logo {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-heart {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  transform: rotate(45deg);
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 0 25px rgba(244,63,94,0.7);
+}
+
+/* Heart pulse rings */
+.pulse {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(244,63,94,0.45);
+  animation: pulse 2.4s infinite ease-out;
+}
+
+.pulse.delay {
+  animation-delay: 1.2s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
