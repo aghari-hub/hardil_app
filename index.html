@@ -42,46 +42,9 @@
     </nav>
   </div>
 
-  <span class="menu-icon" id="openMenu">☰</span>
+  <!-- Dark / Light Toggle -->
+  <button onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
 </header>
-
-<!-- ===== SIDE DRAWER ===== -->
-<aside class="drawer" id="drawer">
-  <div class="drawer-header">
-    <h2>HarDil</h2>
-    <button id="closeMenu">✕</button>
-  </div>
-
-  <div class="drawer-content">
-    <h4>Navigate</h4>
-    <a href="#social">🌐 Social</a>
-    <a href="#jobs">💼 Jobs</a>
-    <a href="#ott">🎬 OTT</a>
-    <a href="#music">🎵 Music</a>
-    <a href="#shop">🛒 Shopping</a>
-    <a href="#travel">✈️ Travel</a>
-    <a href="#rides">🚕 Rides</a>
-    <a href="#food">🍔 Food</a>
-    <a href="#health">🩺 Health</a>
-    <a href="#sports">🏏 Sports</a>
-    <a href="#learning">🧠 Learning</a>
-
-    <h4>About</h4>
-    <a href="about.html">ℹ️ About HarDil</a>
-    <a href="about.html#story">❤️ Our Story</a>
-    <a href="about.html#motive">🎯 Motive & Vision</a>
-
-    <h4>Legal</h4>
-    <a href="privacy.html">🔒 Privacy Policy</a>
-    <a href="terms.html">📜 Terms & Conditions</a>
-    <a href="legal.html">⚖️ Legal Disclaimer</a>
-
-    <h4>Support</h4>
-    <a href="mailto:aghari128@gmail.com">📩 Contact Us</a>
-  </div>
-</aside>
-
-<div class="backdrop" id="backdrop"></div>
 
 <!-- ===== HERO ===== -->
 <header class="hero">
@@ -229,35 +192,25 @@
 
 </main>
 
+<!-- ===== BOTTOM NAV ===== -->
+<nav class="bottom-nav">
+  <button onclick="location.href='#social'">Home</button>
+  <button onclick="location.href='#jobs'">Jobs</button>
+  <button onclick="location.href='#ott'">OTT</button>
+  <button onclick="location.href='#music'">Music</button>
+</nav>
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <strong>HarDil</strong> — Family First · One Place for Everything<br><br>
-  <a href="about.html">About</a> ·
-  <a href="privacy.html">Privacy</a> ·
-  <a href="terms.html">Terms</a> ·
-  <a href="legal.html">Legal</a> ·
-  <a href="mailto:aghari128@gmail.com">Contact</a>
-  <br><br>
   HarDil strictly redirects users to official websites only.<br>
   No logins stored · No payments · No betting.
 </footer>
 
-<!-- ===== DRAWER SCRIPT ===== -->
+<!-- ===== THEME TOGGLE ===== -->
 <script>
-  const drawer = document.getElementById("drawer");
-  const backdrop = document.getElementById("backdrop");
-
-  document.getElementById("openMenu").onclick = () => {
-    drawer.classList.add("open");
-    backdrop.classList.add("show");
-  };
-
-  document.getElementById("closeMenu").onclick = closeDrawer;
-  backdrop.onclick = closeDrawer;
-
-  function closeDrawer() {
-    drawer.classList.remove("open");
-    backdrop.classList.remove("show");
+  function toggleTheme() {
+    document.body.classList.toggle("light");
   }
 </script>
 
