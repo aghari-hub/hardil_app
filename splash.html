@@ -89,7 +89,7 @@ body {
   animation-delay: 2.6s;
 }
 
-/* ========= ICONS ========= */
+/* ========= ICON ORBITS ========= */
 .orbits {
   position: absolute;
   inset: 0;
@@ -101,24 +101,25 @@ body {
 .orbit {
   position: absolute;
   inset: 0;
-  animation: spin 3s linear infinite;
+  animation: spin 6s linear infinite;
 }
 
-.orbit:nth-child(1) { animation-delay: 0s; }
-.orbit:nth-child(2) { animation-delay: -0.4s; }
-.orbit:nth-child(3) { animation-delay: -0.8s; }
-.orbit:nth-child(4) { animation-delay: -1.2s; }
-.orbit:nth-child(5) { animation-delay: -1.6s; }
-.orbit:nth-child(6) { animation-delay: -2s; }
-.orbit:nth-child(7) { animation-delay: -2.4s; }
-.orbit:nth-child(8) { animation-delay: -2.8s; }
+/* FIXED ANGULAR POSITIONS */
+.orbit:nth-child(1) { transform: rotate(0deg); }
+.orbit:nth-child(2) { transform: rotate(45deg); }
+.orbit:nth-child(3) { transform: rotate(90deg); }
+.orbit:nth-child(4) { transform: rotate(135deg); }
+.orbit:nth-child(5) { transform: rotate(180deg); }
+.orbit:nth-child(6) { transform: rotate(225deg); }
+.orbit:nth-child(7) { transform: rotate(270deg); }
+.orbit:nth-child(8) { transform: rotate(315deg); }
 
 .icon {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 2.9rem;
-  transform: translate(190px, -50%); /* ORBIT DISTANCE INCREASED */
+  transform: translate(190px, -50%);
   color: #ffffff;
   text-shadow:
     0 0 14px rgba(236,72,153,0.9),
