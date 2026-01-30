@@ -38,7 +38,7 @@ body {
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.15),
     rgba(0,0,0,0.85)
   );
 }
@@ -59,6 +59,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
 }
 
 .logo {
@@ -66,14 +67,10 @@ body {
   font-weight: 900;
   letter-spacing: 6px;
   color: #ffffff;
-  opacity: 0;
-  transform: scale(0.45);
   text-shadow:
     0 0 22px rgba(236,72,153,0.9),
     0 0 52px rgba(236,72,153,0.6),
     0 0 95px rgba(236,72,153,0.4);
-  animation: logoReveal 1.2s ease forwards;
-  animation-delay: 1.4s;
 }
 
 .tagline {
@@ -81,10 +78,7 @@ body {
   font-size: 1.35rem;
   font-weight: 600;
   color: #ffffff;
-  opacity: 0;
   text-align: center;
-  animation: fadeUp 0.9s ease forwards;
-  animation-delay: 2.4s;
 }
 
 /* ================= ICON ORBITS ================= */
@@ -92,9 +86,6 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation:
-    showIcons 0.6s ease forwards 3.2s,
-    orbitSpin 18s linear infinite 3.2s;
 }
 
 .orbit {
@@ -113,12 +104,27 @@ body {
   text-shadow:
     0 0 12px rgba(236,72,153,0.9),
     0 0 30px rgba(236,72,153,0.6);
-  animation: counterSpin 18s linear infinite 3.2s;
 }
 
 /* ================= ANIMATIONS ================= */
+.show-logo {
+  animation: logoReveal 1s ease forwards;
+}
+
+.show-tagline {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.start-orbit {
+  animation: orbitSpin 4s linear infinite;
+}
+
+.start-counter {
+  animation: counterSpin 4s linear infinite;
+}
+
 @keyframes logoReveal {
-  0% { opacity: 0; transform: scale(0.45); }
+  0% { opacity: 0; transform: scale(0.5); }
   70% { opacity: 1; transform: scale(1.08); }
   100% { opacity: 1; transform: scale(1); }
 }
@@ -126,10 +132,6 @@ body {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes showIcons {
-  to { opacity: 1; }
 }
 
 @keyframes orbitSpin {
@@ -152,7 +154,7 @@ body {
   <div class="center">
 
     <!-- ICONS -->
-    <div class="orbits">
+    <div class="orbits" id="orbits">
       <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
       <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
       <div class="orbit" style="--i:2"><span class="icon">🎬</span></div>
@@ -165,26 +167,39 @@ body {
     </div>
 
     <!-- LOGO -->
-    <div class="logo-wrap">
+    <div class="logo-wrap" id="logoWrap">
       <div class="logo">HD</div>
-      <div class="tagline">Family First · One Place for Everything</div>
+      <div class="tagline" id="tagline">
+        Family First · One Place for Everything
+      </div>
     </div>
 
   </div>
 </div>
 
 <script>
-/* Stop animation before exit */
+/* 0–1.2s → background only */
 setTimeout(() => {
-  document.querySelectorAll(".orbits, .icon").forEach(el => {
-    el.style.animationPlayState = "paused";
-  });
-}, 8500);
+  const logoWrap = document.getElementById("logoWrap");
+  logoWrap.style.opacity = 1;
+  logoWrap.classList.add("show-logo");
+  document.getElementById("tagline").classList.add("show-tagline");
+}, 1200);
 
-/* Redirect to app */
+/* 2.6s → icons start */
 setTimeout(() => {
-  window.location.replace("index.html");
-}, 9200);
+  const orbits = document.getElementById("orbits");
+  orbits.style.opacity = 1;
+  orbits.classList.add("start-orbit");
+  document.querySelectorAll(".icon").forEach(icon =>
+    icon.classList.add("start-counter")
+  );
+}, 2600);
+
+/* ✅ 5.5s → redirect */
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 5500);
 </script>
 
 </body>
