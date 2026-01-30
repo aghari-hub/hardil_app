@@ -1,3 +1,34 @@
+/* ===== FIXED APP TOP BAR ===== */
+.app-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* App title */
+.app-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Menu icon (NOT clickable now) */
+.menu-icon {
+  font-size: 22px;
+  color: #ffffff;
+  opacity: 0.9;
+  pointer-events: none; /* IMPORTANT: disables clicking */
+}
+
 /* ===== BASIC RESET ===== */
 * {
   margin: 0;
@@ -9,9 +40,13 @@
 /* ===== BODY ===== */
 body {
   min-height: 100vh;
+  padding-top: 56px; /* space for fixed top bar */
   background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
   color: #f8fafc;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
 
 /* ===== HEADER ===== */
 .hero {
