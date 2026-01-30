@@ -1,55 +1,58 @@
 /* ===============================
-   RESET & BASE
-   =============================== */
+   GLOBAL RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html, body {
-  height: 100%;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  width: 100%;
+  min-height: 100%;
   background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
   color: #f8fafc;
 }
 
 /* ===============================
    TOP APP BAR
-   =============================== */
+================================ */
 .top-app-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 56px;
+  z-index: 1000;
   background: linear-gradient(180deg, #020617, #0f172a);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .top-app-title {
   font-size: 18px;
   font-weight: 600;
+  color: #fff;
 }
 
 .menu-icon {
   font-size: 22px;
+  color: #fff;
   cursor: pointer;
 }
 
-/* Push content below top bar */
+/* Push content below bar */
 body {
   padding-top: 56px;
 }
 
 /* ===============================
-   DRAWER MENU
-   =============================== */
+   SIDE DRAWER
+================================ */
 .drawer {
   position: fixed;
   top: 0;
@@ -76,7 +79,7 @@ body {
 }
 
 .drawer-header h2 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .drawer-header button {
@@ -84,7 +87,6 @@ body {
   border: none;
   color: #fff;
   font-size: 20px;
-  cursor: pointer;
 }
 
 .drawer-content {
@@ -93,10 +95,11 @@ body {
 }
 
 .drawer-content h4 {
-  margin: 16px 0 8px;
-  font-size: 12px;
-  color: #94a3b8;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 11px;
   text-transform: uppercase;
+  color: #94a3b8;
 }
 
 .drawer-content a {
@@ -104,20 +107,19 @@ body {
   padding: 8px 0;
   color: #e5e7eb;
   text-decoration: none;
-  cursor: pointer;
+  font-size: 14px;
 }
 
 .drawer-content a:hover {
   color: #fff;
 }
 
-/* Backdrop */
 .backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
-  display: none;
   z-index: 1500;
+  display: none;
 }
 
 .backdrop.show {
@@ -126,93 +128,93 @@ body {
 
 /* ===============================
    HERO
-   =============================== */
+================================ */
 .hero {
   text-align: center;
-  padding: 48px 16px 32px;
+  padding: 48px 16px 24px;
 }
 
 .brand {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 12px;
 }
 
 .heart {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: linear-gradient(135deg, #ec4899, #f43f5e);
   transform: rotate(45deg);
   border-radius: 6px;
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
 .hero p {
   margin-top: 8px;
+  font-size: 0.95rem;
   color: #cbd5f5;
 }
 
 /* ===============================
    MAIN APP LAYOUT
-   =============================== */
+================================ */
 .app {
   max-width: 1200px;
   margin: auto;
-  padding: 16px;
+  padding: 24px 16px;
   display: grid;
-  gap: 24px;
+  gap: 28px;
 }
 
 /* ===============================
    CARDS
-   =============================== */
+================================ */
 .card {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 20px;
+  backdrop-filter: blur(12px);
 }
 
 .card h2 {
-  font-size: 20px;
+  font-size: 1.35rem;
 }
 
 .section-sub {
-  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
   color: #cbd5f5;
-  margin: 6px 0 16px;
 }
 
 /* ===============================
-   GRID
-   =============================== */
+   GRID & APP BUTTONS
+================================ */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 14px;
 }
 
-/* ===============================
-   APP BUTTONS
-   =============================== */
 .app-btn {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: 16px;
-  padding: 14px 8px;
+  padding: 14px 10px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
 .app-btn:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.2);
 }
 
 .app-btn img {
@@ -222,106 +224,41 @@ body {
 }
 
 .app-btn span {
-  font-size: 13px;
+  display: block;
+  font-size: 0.82rem;
 }
 
 /* ===============================
    FOOTER
-   =============================== */
+================================ */
 .footer {
   text-align: center;
-  padding: 32px 16px;
-  font-size: 13px;
+  padding: 28px 16px 40px;
+  font-size: 0.82rem;
   color: #cbd5f5;
 }
 
-/*/* ===============================
-   SPLASH SCREEN LAYOUT
-   =============================== */
-.splash-container {
-  height: 100vh;
-  background: url("assets/images/splash-bg.jpg") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* ===============================
+   SPLASH SUPPORT
+   (works with your splash.html)
+================================ */
+.splash-bg {
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
 }
 
-/* Push logo slightly BELOW center */
-.splash-content {
-  position: absolute;
-  top: 62%;              /* 🔥 THIS is the key */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-/* HD LOGO */
 .logo {
-  font-size: 72px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  background: linear-gradient(
-    135deg,
-    #60a5fa,
-    #a78bfa,
-    #f472b6,
-    #22d3ee
-  );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  opacity: 0;
-  transform: scale(0.6);
-  animation:
-    logoReveal 1.2s ease-out forwards,
-    gradientShift 4s ease-in-out infinite;
-  animation-delay: 1s, 1.2s;
-}
-
-/* Glow behind logo */
-.logo::after {
-  content: "";
-  position: absolute;
-  inset: -35px;
-  background: radial-gradient(
-    circle,
-    rgba(167,139,250,0.35),
-    rgba(0,0,0,0) 70%
-  );
-  filter: blur(22px);
-  z-index: -1;
-}
-
-/* Animations */
-@keyframes logoReveal {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Mobile tuning */
-@media (max-width: 600px) {
-  .logo {
-    font-size: 60px;
-  }
-  .splash-content {
-    top: 64%;
-  }
+  font-weight: 900;
+  letter-spacing: 4px;
 }
 
 /* ===============================
-   MOBILE TWEAKS
-   =============================== */
+   MOBILE OPTIMIZATION
+================================ */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 28px; }
-  .logo { font-size: 64px; }
+  .hero h1 { font-size: 2rem; }
+  .card { padding: 18px; }
+  .grid { gap: 12px; }
 }
