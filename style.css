@@ -235,21 +235,32 @@ body {
   color: #cbd5f5;
 }
 
-/* ===============================
-   SPLASH – HD LOGO ANIMATION
+/*/* ===============================
+   SPLASH SCREEN LAYOUT
    =============================== */
 .splash-container {
   height: 100vh;
-  background: url("assets/images/splash-bg.jpg") center/cover no-repeat;
+  background: url("assets/images/splash-bg.jpg") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
+/* Push logo slightly BELOW center */
+.splash-content {
+  position: absolute;
+  top: 62%;              /* 🔥 THIS is the key */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* HD LOGO */
 .logo {
   font-size: 72px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   background: linear-gradient(
     135deg,
     #60a5fa,
@@ -260,27 +271,30 @@ body {
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   opacity: 0;
   transform: scale(0.6);
   animation:
     logoReveal 1.2s ease-out forwards,
     gradientShift 4s ease-in-out infinite;
-  animation-delay: 1.2s, 1.4s;
+  animation-delay: 1s, 1.2s;
 }
 
+/* Glow behind logo */
 .logo::after {
   content: "";
   position: absolute;
-  inset: -30px;
+  inset: -35px;
   background: radial-gradient(
     circle,
     rgba(167,139,250,0.35),
     rgba(0,0,0,0) 70%
   );
-  filter: blur(18px);
+  filter: blur(22px);
   z-index: -1;
 }
 
+/* Animations */
 @keyframes logoReveal {
   to {
     opacity: 1;
@@ -292,6 +306,16 @@ body {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Mobile tuning */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 60px;
+  }
+  .splash-content {
+    top: 64%;
+  }
 }
 
 /* ===============================
