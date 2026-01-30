@@ -25,7 +25,7 @@ body {
 .splash-bg {
   position: fixed;
   inset: 0;
-  background: url("assets/images/splash-bg.jpg") center/cover no-repeat;
+  background: url("assets/images/splash-bg.jpg") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,11 +52,11 @@ body {
 .logo-wrap {
   position: absolute;
   inset: 0;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 5;
 }
 
 .logo {
@@ -89,7 +89,7 @@ body {
   animation-delay: 2.6s;
 }
 
-/* ========= ICON ORBITS ========= */
+/* ========= ICON ORBITS (CORRECT FIX) ========= */
 .orbits {
   position: absolute;
   inset: 0;
@@ -98,28 +98,21 @@ body {
   animation-delay: 3.2s;
 }
 
+/* static angular position */
 .orbit {
   position: absolute;
   inset: 0;
-  animation: spin 6s linear infinite;
+  transform: rotate(calc(var(--i) * 45deg)); /* 360 / 8 */
 }
 
-/* FIXED ANGULAR POSITIONS */
-.orbit:nth-child(1) { transform: rotate(0deg); }
-.orbit:nth-child(2) { transform: rotate(45deg); }
-.orbit:nth-child(3) { transform: rotate(90deg); }
-.orbit:nth-child(4) { transform: rotate(135deg); }
-.orbit:nth-child(5) { transform: rotate(180deg); }
-.orbit:nth-child(6) { transform: rotate(225deg); }
-.orbit:nth-child(7) { transform: rotate(270deg); }
-.orbit:nth-child(8) { transform: rotate(315deg); }
-
+/* animated circular motion */
 .icon {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 2.9rem;
   transform: translate(190px, -50%);
+  animation: spin 6s linear infinite;
   color: #ffffff;
   text-shadow:
     0 0 14px rgba(236,72,153,0.9),
@@ -143,8 +136,8 @@ body {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: translate(190px, -50%) rotate(0deg); }
+  to   { transform: translate(190px, -50%) rotate(360deg); }
 }
 </style>
 </head>
@@ -156,16 +149,16 @@ body {
 
   <div class="center">
 
-    <!-- ICONS -->
+    <!-- ICON ORBITS -->
     <div class="orbits">
-      <div class="orbit"><span class="icon">🌐</span></div>
-      <div class="orbit"><span class="icon">💼</span></div>
-      <div class="orbit"><span class="icon">🎬</span></div>
-      <div class="orbit"><span class="icon">🎵</span></div>
-      <div class="orbit"><span class="icon">🩺</span></div>
-      <div class="orbit"><span class="icon">🏏</span></div>
-      <div class="orbit"><span class="icon">🧠</span></div>
-      <div class="orbit"><span class="icon">🍔</span></div>
+      <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
+      <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
+      <div class="orbit" style="--i:2"><span class="icon">🎬</span></div>
+      <div class="orbit" style="--i:3"><span class="icon">🎵</span></div>
+      <div class="orbit" style="--i:4"><span class="icon">🩺</span></div>
+      <div class="orbit" style="--i:5"><span class="icon">🏏</span></div>
+      <div class="orbit" style="--i:6"><span class="icon">🧠</span></div>
+      <div class="orbit" style="--i:7"><span class="icon">🍔</span></div>
     </div>
 
     <!-- LOGO -->
@@ -179,8 +172,8 @@ body {
 
 <script>
 setTimeout(() => {
-  document.querySelectorAll(".orbit").forEach(o => {
-    o.style.animationPlayState = "paused";
+  document.querySelectorAll(".icon").forEach(i => {
+    i.style.animationPlayState = "paused";
   });
 }, 9200);
 
