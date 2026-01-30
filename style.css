@@ -1,241 +1,114 @@
-/* =========================
-   ROOT THEME
-========================= */
-:root {
-  --bg-dark: #020617;
-  --bg-mid: #0f172a;
-  --bg-light: #1e293b;
-
-  --primary: #4f46e5;
-  --secondary: #ec4899;
-  --accent: #22d3ee;
-
-  --glass-bg: rgba(255, 255, 255, 0.12);
-  --glass-border: rgba(255, 255, 255, 0.2);
-
-  --text-main: #f8fafc;
-  --text-soft: #cbd5f5;
-}
-
-/* =========================
-   RESET
-========================= */
+/* ===== BASIC RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, -apple-system;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
 }
 
+/* ===== BODY ===== */
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, #1e293b, #020617),
-    linear-gradient(-45deg, #020617, #0f172a, #1e293b);
-  background-size: cover, 400% 400%;
-  animation: bgMove 18s ease infinite;
-  color: var(--text-main);
+  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  color: #f8fafc;
 }
 
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* =========================
-   HEADER / BRAND
-========================= */
+/* ===== HEADER ===== */
 .hero {
-  padding: 3.5rem 1.5rem 2.2rem;
   text-align: center;
+  padding: 3rem 1rem 2rem;
 }
 
 .brand {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .heart {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
   transform: rotate(45deg);
-  border-radius: 7px;
-  box-shadow: 0 0 35px rgba(236, 72, 153, 0.9);
-  animation: pulse 1.6s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%,100% { transform: rotate(45deg) scale(1); }
-  50% { transform: rotate(45deg) scale(1.15); }
+  border-radius: 6px;
 }
 
 .hero h1 {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
 .hero p {
-  margin-top: 10px;
-  color: var(--text-soft);
+  margin-top: 8px;
+  color: #cbd5f5;
 }
 
-/* =========================
-   APP LAYOUT
-========================= */
+/* ===== MAIN APP ===== */
 .app {
   max-width: 1200px;
   margin: auto;
   padding: 1.5rem;
   display: grid;
-  gap: 2.2rem;
+  gap: 2rem;
 }
 
-/* =========================
-   GLASS CARDS
-========================= */
+/* ===== CARDS ===== */
 .card {
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.18),
-    rgba(255,255,255,0.05)
-  );
-  backdrop-filter: blur(18px);
-  border: 1px solid var(--glass-border);
-  border-radius: 22px;
-  padding: 1.8rem;
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-  position: relative;
-  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
 }
 
-/* subtle gradient glow */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 60%);
-  pointer-events: none;
-}
-
+/* ===== TITLES ===== */
 .card h2 {
   font-size: 1.4rem;
 }
 
 .section-sub {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  margin: 6px 0 1.3rem;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  margin: 6px 0 1.2rem;
 }
 
-/* =========================
-   GRID BUTTONS
-========================= */
+/* ===== GRID ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1.1rem;
+  gap: 1rem;
 }
 
+/* ===== APP BUTTONS ===== */
 .app-btn {
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.22),
-    rgba(255,255,255,0.06)
-  );
+  background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 18px;
-  padding: 1.1rem 0.8rem;
+  border-radius: 16px;
+  padding: 1rem 0.6rem;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* glow on hover */
-.app-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.app-btn:hover::after {
-  opacity: 1;
-}
-
-.app-btn:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.5);
-}
-
-.app-btn:active {
-  transform: scale(0.96);
 }
 
 .app-btn img {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 8px;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
 }
 
 .app-btn span {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* =========================
-   REVEAL ANIMATION
-========================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  padding: 2.2rem 1rem;
-  text-align: center;
+  display: block;
   font-size: 0.85rem;
-  color: var(--text-soft);
-  line-height: 1.6;
 }
 
-/* =========================
-   SECTION COLOR ACCENTS
-========================= */
-.social { border-left: 5px solid #22d3ee; }
-.jobs { border-left: 5px solid #4f46e5; }
-.ott { border-left: 5px solid #ec4899; }
-.music { border-left: 5px solid #a855f7; }
-.shop { border-left: 5px solid #f59e0b; }
-.travel { border-left: 5px solid #38bdf8; }
-.rides { border-left: 5px solid #10b981; }
-.food { border-left: 5px solid #f97316; }
-.health { border-left: 5px solid #ef4444; }
-.sports { border-left: 5px solid #22c55e; }
-.personality { border-left: 5px solid #8b5cf6; }
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.2rem; }
-  .grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); }
+  .hero h1 { font-size: 2rem; }
 }
