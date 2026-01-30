@@ -60,15 +60,16 @@ body {
 }
 
 .logo {
-  font-size: 6.5rem; /* INCREASED (was 4.8rem) */
+  font-size: 7.6rem;
   font-weight: 900;
   letter-spacing: 6px;
-  background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 40px rgba(167,139,250,0.9));
+  color: #ffffff;                 /* FULL WHITE */
+  text-shadow:
+    0 0 18px rgba(236,72,153,0.8),
+    0 0 40px rgba(236,72,153,0.6),
+    0 0 70px rgba(236,72,153,0.45); /* PINK GLOW */
   opacity: 0;
-  transform: scale(0.55); /* slightly smaller start for stronger reveal */
+  transform: scale(0.5);
   animation: logoReveal 1.4s ease forwards;
   animation-delay: 1.2s;
 }
@@ -117,7 +118,9 @@ body {
 
 /* ========= ANIMATIONS ========= */
 @keyframes logoReveal {
-  to { opacity: 1; transform: scale(1); }
+  0%   { opacity: 0; transform: scale(0.5); }
+  70%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
@@ -165,14 +168,12 @@ body {
 </div>
 
 <script>
-/* STOP ICON ROTATION AFTER 6 SECONDS */
 setTimeout(() => {
   document.querySelectorAll(".orbit").forEach(o => {
     o.style.animationPlayState = "paused";
   });
 }, 9200);
 
-/* MOVE TO APP */
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
