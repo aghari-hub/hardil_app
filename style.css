@@ -1,128 +1,154 @@
 /* ===============================
-   APP BACKGROUND (SOFT)
+   GLOBAL
 ================================ */
-body {
-  background: #f4f2ff;
-  color: #1f2937;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
 }
 
+body {
+  background: #f2f3fb;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
 /* ===============================
-   TOP BAR (APP STYLE)
+   TOP BAR
 ================================ */
 .top-app-bar {
-  background: transparent;
-  border-bottom: none;
   height: 64px;
   padding: 0 16px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .top-app-title {
   font-size: 20px;
   font-weight: 700;
-  color: #1f2937;
 }
 
 .menu-icon {
-  color: #1f2937;
+  font-size: 22px;
 }
 
 /* ===============================
-   HERO → GREETING CARD
+   HERO
 ================================ */
 .hero {
-  padding: 16px;
-}
-
-.hero .brand {
-  justify-content: flex-start;
+  padding: 20px 16px 8px;
 }
 
 .hero h1 {
   font-size: 22px;
-  color: #1f2937;
 }
 
 .hero p {
+  font-size: 14px;
   color: #6b7280;
 }
 
 /* ===============================
-   APP CONTAINER
+   APP LAYOUT
 ================================ */
 .app {
-  padding: 16px;
-  gap: 20px;
+  padding: 12px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px; /* THIS IS CRITICAL */
 }
 
 /* ===============================
-   PREMIUM CARDS
+   SECTION CARD (VISIBILITY FIX)
 ================================ */
 .card {
   background: #ffffff;
-  border-radius: 26px;
-  padding: 18px;
-  border: none;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
 }
 
+/* section header emphasis */
 .card h2 {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 /* ===============================
-   GRID → SOFT TILES
+   GRID (RESPONSIVE FIX)
 ================================ */
 .grid {
-  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 
+/* tablets */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* phones */
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* ===============================
-   APP BUTTON (TILE)
+   APP BUTTON
 ================================ */
 .app-btn {
-  background: #f1f5ff;
-  border-radius: 20px;
+  background: #f4f6ff;
+  border-radius: 22px;
   padding: 14px 10px;
-  box-shadow: none;
-  border: none;
+  text-align: center;
   transition: transform 0.15s ease;
 }
 
 .app-btn:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .app-btn img {
   width: 40px;
+  height: 40px;
   margin-bottom: 8px;
 }
 
 .app-btn span {
   font-size: 12px;
   font-weight: 500;
-  color: #374151;
 }
 
 /* ===============================
-   SECTION COLOR VARIANTS
+   SECTION COLOR IDENTITY
+   (THIS MAKES SECTIONS OBVIOUS)
 ================================ */
-#social .app-btn { background:#eef2ff; }
-#jobs .app-btn { background:#ecfeff; }
-#travel .app-btn { background:#fff7ed; }
-#food .app-btn { background:#fef2f2; }
-#health .app-btn { background:#ecfdf5; }
-#learning .app-btn { background:#fdf4ff; }
+#social    { background: linear-gradient(#ffffff, #eef2ff); }
+#jobs      { background: linear-gradient(#ffffff, #ecfeff); }
+#ott       { background: linear-gradient(#ffffff, #fff7ed); }
+#music     { background: linear-gradient(#ffffff, #fdf4ff); }
+#shop      { background: linear-gradient(#ffffff, #f1f5f9); }
+#travel    { background: linear-gradient(#ffffff, #ecfeff); }
+#rides     { background: linear-gradient(#ffffff, #f0fdf4); }
+#food      { background: linear-gradient(#ffffff, #fef2f2); }
+#health    { background: linear-gradient(#ffffff, #ecfdf5); }
+#sports    { background: linear-gradient(#ffffff, #eef2ff); }
+#learning  { background: linear-gradient(#ffffff, #faf5ff); }
 
 /* ===============================
-   DRAWER (BOTTOM-SHEET FEEL)
+   DRAWER
 ================================ */
 .drawer {
   background: #ffffff;
-  border-radius: 28px 28px 0 0;
 }
 
 .drawer-content a {
@@ -130,9 +156,11 @@ body {
 }
 
 /* ===============================
-   FOOTER (MINIMAL)
+   FOOTER
 ================================ */
 .footer {
-  background: transparent;
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 12px;
   color: #6b7280;
 }
