@@ -1,51 +1,26 @@
-// Always show logo animation on load
-window.addEventListener("load", () => {
-  const overlay = document.getElementById("logo-overlay");
-
-  setTimeout(() => {
-    overlay.classList.add("hide");
-  }, 2000); // total animation time
-});
-
-/* ===============================
-   HarDil App Logic
-   Clean • Safe • Production Ready
-================================ */
-
-/* Handle app tile clicks */
+// CLICK HANDLING
 document.querySelectorAll(".app-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    const url = btn.getAttribute("data-url");
-    if (!url) return;
-
-    // Subtle tap feedback (native feel)
-    btn.animate(
-      [
-        { transform: "scale(1)" },
-        { transform: "scale(0.92)" },
-        { transform: "scale(1)" }
-      ],
-      { duration: 180, easing: "ease-out" }
-    );
-
-    // Open link (safe delay)
-    setTimeout(() => {
-      window.open(url, "_blank", "noopener");
-    }, 120);
+    const url = btn.dataset.url;
+    if (url) {
+      window.open(url, "_blank");
+    }
   });
 });
 
-/* Prevent accidental text/image selection */
-document.addEventListener("selectstart", e => e.preventDefault());
+// REVEAL ANIMATION FIX (IMPORTANT)
+const revealElements = document.querySelectorAll(".reveal");
 
-/* Disable long-press image drag */
-document.querySelectorAll("img").forEach(img => {
-  img.setAttribute("draggable", "false");
-});
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
 
-/* (Optional) Future Android WebView hook */
-if (window.Android && typeof Android.haptic === "function") {
-  document.querySelectorAll(".app-btn").forEach(btn => {
-    btn.addEventListener("click", () => Android.haptic());
-  });
-}
+revealElements.forEach(el => observer.observe(el));
