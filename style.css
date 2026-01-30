@@ -8,23 +8,22 @@
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html, body {
-  width: 100%;
+html {
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
-/* ===============================
-   BACKGROUND (CALM)
-================================ */
 body {
+  width: 100%;
   background:
     linear-gradient(rgba(10,15,30,0.85), rgba(10,15,30,0.85)),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
   color: #f1f5f9;
+  line-height: 1.75;
 }
 
 /* ===============================
-   TOP BAR (MINIMAL)
+   TOP APP BAR
 ================================ */
 .top-app-bar {
   position: sticky;
@@ -40,38 +39,31 @@ body {
 }
 
 .top-app-title {
-  font-size: 18px;
+  font-size: 1.15rem;
   font-weight: 600;
 }
 
 .menu-icon {
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
 }
 
 /* ===============================
-   HERO (CLEAN)
+   HERO
 ================================ */
 .hero {
   text-align: center;
-  padding: 44px 16px 30px;
-}
-
-.brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  padding: 48px 16px 32px;
 }
 
 .hero h1 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 
 .hero p {
-  margin-top: 8px;
-  font-size: 15px;
+  margin-top: 10px;
+  font-size: 1.1rem;
   color: #cbd5f5;
 }
 
@@ -81,29 +73,29 @@ body {
 .app {
   max-width: 1200px;
   margin: auto;
-  padding: 20px 14px 56px;
+  padding: 22px 14px 56px;
   display: grid;
-  gap: 32px;
+  gap: 34px;
 }
 
 /* ===============================
-   SECTIONS (CLEAN / LIGHT)
+   SECTION CARDS
 ================================ */
 .card {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 22px;
-  padding: 26px 22px;
+  padding: 28px 24px;
 }
 
 .card h2 {
-  font-size: 19px;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 /* ===============================
-   GRID (SPACED)
+   GRID
 ================================ */
 .grid {
   display: grid;
@@ -112,12 +104,12 @@ body {
 }
 
 /* ===============================
-   APP BUTTONS (PREMIUM & BIGGER)
+   APP BUTTONS
 ================================ */
 .app-btn {
   background: rgba(255,255,255,0.14);
   border-radius: 20px;
-  padding: 26px 12px;
+  padding: 28px 12px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
@@ -135,13 +127,13 @@ body {
 }
 
 .app-btn span {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: #f8fafc;
 }
 
 /* ===============================
-   DRAWER (READABLE)
+   DRAWER
 ================================ */
 .drawer {
   position: fixed;
@@ -162,30 +154,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 18px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.drawer-header h2 {
-  font-size: 16px;
+.drawer-header strong {
+  font-size: 1.2rem;
 }
 
 .drawer-content {
-  padding: 16px;
+  padding: 18px;
 }
 
 .drawer-content h4 {
-  margin-top: 20px;
-  font-size: 12px;
+  margin-top: 24px;
+  font-size: 0.85rem;
   color: #94a3b8;
   text-transform: uppercase;
 }
 
 .drawer-content a {
   display: block;
-  padding: 10px 0;
+  padding: 12px 0;
   color: #e5e7eb;
-  font-size: 15px;
+  font-size: 1.05rem;
   text-decoration: none;
 }
 
@@ -213,8 +205,9 @@ body {
 ================================ */
 .footer {
   text-align: center;
-  padding: 32px 16px;
-  font-size: 13px;
+  padding: 36px 16px;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #cbd5f5;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
@@ -228,15 +221,19 @@ body {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .app-btn {
-    padding: 24px 10px;
+    padding: 26px 12px;
   }
 
   .app-btn img {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .app-btn span {
+    font-size: 0.95rem;
   }
 }
