@@ -112,105 +112,35 @@ body {
 @media (max-width: 600px) {
   .hero h1 { font-size: 2rem; }
 }
-/* ===== TOP BAR ===== */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(2,6,23,0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(2,6,23,0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.7rem 1rem;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
+/* Left menu */
 .menu-btn {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
 }
 
+/* Center title */
 .top-title {
   font-weight: 600;
-}
-
-/* ===== DRAWER ===== */
-.drawer {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 260px;
-  height: 100vh;
-  background: linear-gradient(180deg, #020617, #0f172a);
-  color: #fff;
-  z-index: 2000;
-  transition: left 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.drawer.open {
-  left: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.drawer-header button {
-  background: none;
-  border: none;
-  color: #fff;
   font-size: 1.1rem;
-  cursor: pointer;
 }
 
-.drawer-content {
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-.drawer-content h4 {
-  margin: 1rem 0 0.5rem;
-  font-size: 0.85rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-}
-
-.drawer-content a {
-  display: block;
-  padding: 0.6rem 0;
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.drawer-content a:hover {
-  color: #fff;
-}
-
-/* ===== BACKDROP ===== */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 1500;
-  display: none;
-}
-
-.backdrop.show {
-  display: block;
-}
-/* ===== THREE DOT MENU ===== */
+/* Right dots */
 .overflow {
   position: relative;
 }
@@ -221,25 +151,24 @@ body {
   font-size: 1.4rem;
   color: #fff;
   cursor: pointer;
-  padding: 0 0.5rem;
 }
 
+/* Dropdown */
 .dots-menu {
   position: absolute;
   right: 0;
-  top: 120%;
+  top: 130%;
   background: linear-gradient(180deg, #020617, #0f172a);
-  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
-  min-width: 220px;
+  min-width: 230px;
+  border: 1px solid rgba(255,255,255,0.2);
   display: none;
-  z-index: 3000;
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 .dots-menu a {
   display: block;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 0.9rem;
   color: #e5e7eb;
   text-decoration: none;
@@ -253,10 +182,10 @@ body {
 .dots-menu hr {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.15);
-  margin: 0.3rem 0;
 }
 
 .dots-menu.show {
   display: block;
 }
+
 
