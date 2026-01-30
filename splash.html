@@ -115,15 +115,92 @@ body {
   animation: fadeUp 0.8s ease forwards;
 }
 
-/* 🔥 FASTER ROTATION */
 .start-orbit {
-  animation: orbitSpin 5s linear infinite;
+  animation: orbitSpin 18s linear infinite;
 }
 
 .start-counter {
-  animation: counterSpin 5s linear infinite;
+  animation: counterSpin 18s linear infinite;
 }
 
 @keyframes logoReveal {
   0% { opacity: 0; transform: scale(0.5); }
-  70% { opacity: 1; tra
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes counterSpin {
+  from { transform: translate(185px, -50%) rotate(0deg); }
+  to { transform: translate(185px, -50%) rotate(-360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="splash-bg">
+  <div class="overlay"></div>
+
+  <div class="center">
+
+    <!-- ICONS -->
+    <div class="orbits" id="orbits">
+      <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
+      <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
+      <div class="orbit" style="--i:2"><span class="icon">🎬</span></div>
+      <div class="orbit" style="--i:3"><span class="icon">🎵</span></div>
+      <div class="orbit" style="--i:4"><span class="icon">🩺</span></div>
+      <div class="orbit" style="--i:5"><span class="icon">🏏</span></div>
+      <div class="orbit" style="--i:6"><span class="icon">🧠</span></div>
+      <div class="orbit" style="--i:7"><span class="icon">🛒</span></div>
+      <div class="orbit" style="--i:8"><span class="icon">🍔</span></div>
+    </div>
+
+    <!-- LOGO -->
+    <div class="logo-wrap" id="logoWrap">
+      <div class="logo">HD</div>
+      <div class="tagline" id="tagline">Family First · One Place for Everything</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* 1️⃣ Show logo after background */
+setTimeout(() => {
+  const logoWrap = document.getElementById("logoWrap");
+  logoWrap.classList.add("show-logo");
+  logoWrap.style.opacity = 1;
+
+  document.getElementById("tagline").classList.add("show-tagline");
+}, 1400);
+
+/* 2️⃣ Start icon revolution */
+setTimeout(() => {
+  const orbits = document.getElementById("orbits");
+  orbits.style.opacity = 1;
+  orbits.classList.add("start-orbit");
+
+  document.querySelectorAll(".icon").forEach(icon => {
+    icon.classList.add("start-counter");
+  });
+}, 3000);
+
+/* 3️⃣ Redirect to app */
+setTimeout(() => {
+  window.location.replace("index.html");
+}, 9200);
+</script>
+
+</body>
+</html>
