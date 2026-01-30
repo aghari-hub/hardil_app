@@ -171,12 +171,33 @@ body {
 }
 
 .heart {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg,#ec4899,#f43f5e);
-  transform: rotate(45deg);
-  border-radius: 7px;
-  box-shadow: 0 0 18px rgba(244,63,94,0.6);
+  position: relative;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #ff4d8d, #ff6b6b);
+  transform: rotate(-45deg);
+  border-radius: 6px;
+  box-shadow: 0 0 14px rgba(255,77,141,0.6);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -13px;
+  left: 0;
+}
+
+.heart::after {
+  left: 13px;
+  top: 0;
 }
 
 .hero h1 {
