@@ -7,7 +7,6 @@
   <!-- Splash control (run once per session) -->
   <script>
     if (!sessionStorage.getItem("harDilSplash")) {
-      sessionStorage.setItem("harDilSplash", "done");
       window.location.replace("splash.html");
     }
   </script>
@@ -17,10 +16,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Mobile & PWA -->
+  <!-- Mobile & Play Store -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="description" content="HarDil – Family First · One Place for Everything" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -53,7 +55,7 @@
 </section>
 
 <!-- 💼 JOBS -->
-<section class="card jobs">
+<section class="card jobs reveal">
   <h2>💼 Jobs & Career</h2>
   <p class="section-sub">Find jobs, internships & career growth</p>
   <div class="grid">
@@ -70,9 +72,9 @@
 </section>
 
 <!-- 🎬 OTT -->
-<section class="card ott">
+<section class="card ott reveal">
   <h2>🎬 OTT Platforms</h2>
-  <p class="section-sub">Movies, series & entertainment</p>
+  <p class="section-sub">Movies & entertainment</p>
   <div class="grid">
     <div class="app-btn" data-url="https://www.netflix.com"><img src="assets/icons/netflix.png"><span>Netflix</span></div>
     <div class="app-btn" data-url="https://www.primevideo.com"><img src="assets/icons/prime.png"><span>Prime Video</span></div>
@@ -83,9 +85,9 @@
 </section>
 
 <!-- 🎵 MUSIC -->
-<section class="card music">
+<section class="card music reveal">
   <h2>🎵 Music</h2>
-  <p class="section-sub">Listen anytime, anywhere</p>
+  <p class="section-sub">Listen anytime</p>
   <div class="grid">
     <div class="app-btn" data-url="https://open.spotify.com"><img src="assets/icons/spotify.png"><span>Spotify</span></div>
     <div class="app-btn" data-url="https://music.youtube.com"><img src="assets/icons/youtubemusic.png"><span>YouTube Music</span></div>
@@ -94,10 +96,58 @@
   </div>
 </section>
 
+<!-- 🛒 SHOPPING -->
+<section class="card shop reveal">
+  <h2>🛒 Shopping</h2>
+  <p class="section-sub">Online shopping</p>
+  <div class="grid">
+    <div class="app-btn" data-url="https://www.amazon.in"><img src="assets/icons/amazon.png"><span>Amazon</span></div>
+    <div class="app-btn" data-url="https://www.flipkart.com"><img src="assets/icons/flipkart.png"><span>Flipkart</span></div>
+    <div class="app-btn" data-url="https://www.myntra.com"><img src="assets/icons/myntra.png"><span>Myntra</span></div>
+    <div class="app-btn" data-url="https://www.ajio.com"><img src="assets/icons/ajio.png"><span>Ajio</span></div>
+    <div class="app-btn" data-url="https://www.meesho.com"><img src="assets/icons/meesho.png"><span>Meesho</span></div>
+  </div>
+</section>
+
+<!-- ✈️ TRAVEL -->
+<section class="card travel reveal">
+  <h2>✈️ Travel</h2>
+  <p class="section-sub">Trains & buses</p>
+  <div class="grid">
+    <div class="app-btn" data-url="https://www.irctc.co.in"><img src="assets/icons/irctc.png"><span>IRCTC</span></div>
+    <div class="app-btn" data-url="https://www.makemytrip.com"><img src="assets/icons/makemytrip.png"><span>MakeMyTrip</span></div>
+    <div class="app-btn" data-url="https://www.redbus.in"><img src="assets/icons/redbus.png"><span>RedBus</span></div>
+  </div>
+</section>
+
+<!-- 🚕 RIDES -->
+<section class="card rides reveal">
+  <h2>🚕 Rides</h2>
+  <p class="section-sub">Cab & bike rides</p>
+  <div class="grid">
+    <div class="app-btn" data-url="https://www.uber.com"><img src="assets/icons/uber.png"><span>Uber</span></div>
+    <div class="app-btn" data-url="https://www.olacabs.com"><img src="assets/icons/ola.png"><span>Ola</span></div>
+    <div class="app-btn" data-url="https://www.rapido.bike"><img src="assets/icons/rapido.png"><span>Rapido</span></div>
+    <div class="app-btn" data-url="https://www.nammayatri.in"><img src="assets/icons/nammayatri.png"><span>Namma Yatri</span></div>
+  </div>
+</section>
+
+<!-- 🍔 FOOD DELIVERY -->
+<section class="card food reveal">
+  <h2>🍔 Food Delivery</h2>
+  <p class="section-sub">Order food online</p>
+  <div class="grid">
+    <div class="app-btn" data-url="https://www.zomato.com"><img src="assets/icons/zomato.png"><span>Zomato</span></div>
+    <div class="app-btn" data-url="https://www.swiggy.com"><img src="assets/icons/swiggy.png"><span>Swiggy</span></div>
+    <div class="app-btn" data-url="https://www.dominos.co.in"><img src="assets/icons/dominos.png"><span>Domino’s</span></div>
+    <div class="app-btn" data-url="https://www.pizzahut.co.in"><img src="assets/icons/pizzahut.png"><span>Pizza Hut</span></div>
+  </div>
+</section>
+
 <!-- 🩺 HEALTH -->
-<section class="card health">
+<section class="card health reveal">
   <h2>🩺 Health & Pharmacy</h2>
-  <p class="section-sub">Medicines & online consultation</p>
+  <p class="section-sub">Medicines & consultation</p>
   <div class="grid">
     <div class="app-btn" data-url="https://www.1mg.com"><img src="assets/icons/1mg.png"><span>Tata 1mg</span></div>
     <div class="app-btn" data-url="https://pharmeasy.in"><img src="assets/icons/pharmeasy.png"><span>PharmEasy</span></div>
@@ -107,9 +157,9 @@
 </section>
 
 <!-- 🏏 SPORTS -->
-<section class="card sports">
+<section class="card sports reveal">
   <h2>🏏 Sports</h2>
-  <p class="section-sub">Live scores & sports streaming</p>
+  <p class="section-sub">Scores & streaming</p>
   <div class="grid">
     <div class="app-btn" data-url="https://www.cricbuzz.com"><img src="assets/icons/cricbuzz.png"><span>Cricbuzz</span></div>
     <div class="app-btn" data-url="https://www.hotstar.com/in/sports"><img src="assets/icons/hotstar.png"><span>Hotstar Sports</span></div>
@@ -117,9 +167,9 @@
 </section>
 
 <!-- 🧠 PERSONALITY -->
-<section class="card personality">
-  <h2>🧠 Personality</h2>
-  <p class="section-sub">Learning, growth & inspiration</p>
+<section class="card personality reveal">
+  <h2>🧠 Learning & Growth</h2>
+  <p class="section-sub">Education & inspiration</p>
   <div class="grid">
     <div class="app-btn" data-url="https://www.ted.com"><img src="assets/icons/ted.png"><span>TED</span></div>
     <div class="app-btn" data-url="https://www.coursera.org"><img src="assets/icons/coursera.png"><span>Coursera</span></div>
@@ -136,6 +186,12 @@
 </footer>
 
 <script src="app.js"></script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
 
 </body>
 </html>
