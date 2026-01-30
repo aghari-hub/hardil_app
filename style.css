@@ -22,24 +22,27 @@ body {
   line-height: 1.85;
 }
 /* ===============================
-   TOP BAR ACTIONS
+   TOP TAB ACTIONS (FINAL)
 ================================ */
 .top-actions {
   display: flex;
-  gap: 14px;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .top-actions a {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #e5e7eb;
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 .top-actions a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.18);
 }
 
 
@@ -274,4 +277,69 @@ body {
     font-size: 1.2rem;
     padding: 16px 0;
   }
+}/* ===============================
+   MOBILE OPTIMIZATION (FINAL)
+================================ */
+@media (max-width: 600px) {
+
+  /* =========================
+     TOP TAB BAR (CRITICAL FIX)
+  ========================== */
+  .top-actions {
+    gap: 6px;
+    flex-wrap: wrap;              /* allows wrapping */
+    justify-content: center;      /* keeps it clean */
+  }
+
+  .top-actions a {
+    font-size: 0.85rem;           /* slightly smaller to fit 5 tabs */
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  /* =========================
+     GRID (EASY TAPS)
+  ========================== */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+  }
+
+  /* =========================
+     HERO READABILITY
+  ========================== */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+  }
+
+  /* =========================
+     APP BUTTONS (THUMB FRIENDLY)
+  ========================== */
+  .app-btn {
+    padding: 36px 16px;
+    border-radius: 28px;
+  }
+
+  .app-btn img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .app-btn span {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* =========================
+     DRAWER TEXT
+  ========================== */
+  .drawer-content a {
+    font-size: 1.2rem;
+    padding: 16px 0;
+  }
 }
+
