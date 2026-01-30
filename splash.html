@@ -60,35 +60,32 @@ body {
 }
 
 .logo {
-  font-size: 7.6rem;
+  font-size: 9.2rem;
   font-weight: 900;
-  letter-spacing: 6px;
-  color: #ffffff;
+  color: #fff;
   text-shadow:
-    0 0 18px rgba(236,72,153,0.85),
-    0 0 40px rgba(236,72,153,0.6),
-    0 0 70px rgba(236,72,153,0.45);
+    0 0 25px rgba(236,72,153,0.9),
+    0 0 55px rgba(236,72,153,0.7),
+    0 0 95px rgba(236,72,153,0.5);
   opacity: 0;
-  transform: scale(0.5);
+  transform: scale(0.45);
   animation: logoReveal 1.4s ease forwards;
   animation-delay: 1.2s;
 }
 
 .tagline {
-  margin-top: 16px;
-  font-size: 1.35rem; /* INCREASED */
-  font-weight: 500;
-  color: #ffffff;
-  text-align: center;
+  margin-top: 20px;
+  font-size: 1.75rem;
+  color: #fff;
   text-shadow:
-    0 0 12px rgba(236,72,153,0.7),
-    0 0 28px rgba(236,72,153,0.5);
+    0 0 16px rgba(236,72,153,0.8),
+    0 0 40px rgba(236,72,153,0.6);
   opacity: 0;
   animation: fadeUp 1s ease forwards;
   animation-delay: 2.6s;
 }
 
-/* ========= ICONS ========= */
+/* ========= ORBITS ========= */
 .orbits {
   position: absolute;
   inset: 0;
@@ -103,36 +100,51 @@ body {
   animation: spin 3s linear infinite;
 }
 
-.orbit:nth-child(1) { animation-delay: 0s; }
-.orbit:nth-child(2) { animation-delay: -0.4s; }
-.orbit:nth-child(3) { animation-delay: -0.8s; }
-.orbit:nth-child(4) { animation-delay: -1.2s; }
-.orbit:nth-child(5) { animation-delay: -1.6s; }
-.orbit:nth-child(6) { animation-delay: -2s; }
-.orbit:nth-child(7) { animation-delay: -2.4s; }
-.orbit:nth-child(8) { animation-delay: -2.8s; }
+/* Glow trail */
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(236,72,153,0.35),
+    inset 0 0 30px rgba(236,72,153,0.25);
+  opacity: 0.6;
+}
 
+/* ========= ICON ========= */
 .icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 2.2rem; /* INCREASED */
-  transform: translate(135px, -50%);
-  color: #ffffff;
+  font-size: 2.9rem;
+  transform: translate(190px, -50%);
+  color: #fff;
   text-shadow:
-    0 0 10px rgba(236,72,153,0.75),
-    0 0 22px rgba(236,72,153,0.55);
+    0 0 14px rgba(236,72,153,0.9),
+    0 0 34px rgba(236,72,153,0.6);
+  transition: transform 0.6s cubic-bezier(.2,1.4,.4,1);
 }
+
+/* SNAP POSITIONS */
+.snap .orbit:nth-child(1) .icon { transform: translate(0,-220px); }
+.snap .orbit:nth-child(2) .icon { transform: translate(155px,-155px); }
+.snap .orbit:nth-child(3) .icon { transform: translate(220px,0); }
+.snap .orbit:nth-child(4) .icon { transform: translate(155px,155px); }
+.snap .orbit:nth-child(5) .icon { transform: translate(0,220px); }
+.snap .orbit:nth-child(6) .icon { transform: translate(-155px,155px); }
+.snap .orbit:nth-child(7) .icon { transform: translate(-220px,0); }
+.snap .orbit:nth-child(8) .icon { transform: translate(-155px,-155px); }
 
 /* ========= ANIMATIONS ========= */
 @keyframes logoReveal {
-  0%   { opacity: 0; transform: scale(0.5); }
-  70%  { opacity: 1; transform: scale(1.08); }
-  100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0; transform: scale(0.45); }
+  70% { opacity: 1; transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -154,7 +166,6 @@ body {
 
   <div class="center">
 
-    <!-- ICONS -->
     <div class="orbits" id="orbits">
       <div class="orbit"><span class="icon">🌐</span></div>
       <div class="orbit"><span class="icon">💼</span></div>
@@ -166,7 +177,6 @@ body {
       <div class="orbit"><span class="icon">🍔</span></div>
     </div>
 
-    <!-- LOGO -->
     <div class="logo-wrap">
       <div class="logo">HD</div>
       <div class="tagline">Family First · One Place for Everything</div>
@@ -176,12 +186,22 @@ body {
 </div>
 
 <script>
+/* SLOW DOWN */
+setTimeout(() => {
+  document.querySelectorAll(".orbit").forEach(o => {
+    o.style.animationDuration = "8s";
+  });
+}, 5000);
+
+/* STOP + SNAP */
 setTimeout(() => {
   document.querySelectorAll(".orbit").forEach(o => {
     o.style.animationPlayState = "paused";
   });
-}, 9200);
+  document.getElementById("orbits").classList.add("snap");
+}, 7800);
 
+/* MOVE TO APP */
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
