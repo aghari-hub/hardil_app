@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-/* ===============================
-   RESET
-================================ */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -23,9 +21,7 @@ body {
   background: #000;
 }
 
-/* ===============================
-   BACKGROUND
-================================ */
+/* ================= BACKGROUND ================= */
 .splash-bg {
   position: fixed;
   inset: 0;
@@ -40,30 +36,64 @@ body {
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.1),
     rgba(0,0,0,0.7)
   );
 }
 
-/* ===============================
-   CENTER CONTAINER
-================================ */
+/* ================= CENTER ================= */
 .center {
   position: relative;
   width: 320px;
   height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* ===============================
-   ICON ORBITS
-================================ */
+/* ================= LOGO ================= */
+.logo-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.logo {
+  font-size: 4.8rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(167,139,250,0.9));
+  opacity: 0;
+  animation: logoReveal 1.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.tagline {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #e5e7eb;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 2.4s;
+}
+
+/* ================= ICON ORBITS ================= */
+.orbits {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: showIcons 0.8s ease forwards;
+  animation-delay: 3.2s;
+}
+
 .orbit {
   position: absolute;
   inset: 0;
-  animation: spin 3s linear infinite;
+  animation: spin 2.8s linear infinite;
 }
 
 .orbit:nth-child(1) { animation-delay: 0s; }
@@ -80,66 +110,28 @@ body {
   top: 50%;
   left: 50%;
   font-size: 1.6rem;
-  transform: translate(140px, -50%);
+  transform: translate(135px, -50%);
   filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
-  opacity: 0;
-  animation: iconIn 0.6s ease forwards;
-  animation-delay: 1.4s;
 }
 
-/* ===============================
-   LOGO
-================================ */
-.logo-wrap {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-}
-
-.logo {
-  font-size: 4.8rem;
-  font-weight: 900;
-  letter-spacing: 6px;
-  background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 35px rgba(167,139,250,0.8));
-  opacity: 0;
-  transform: scale(0.5);
-  animation: logoPop 1.4s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay: 0.4s;
-}
-
-.tagline {
-  margin-top: 12px;
-  font-size: 1rem;
-  color: #e5e7eb;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 1.6s;
-}
-
-/* ===============================
-   ANIMATIONS
-================================ */
-@keyframes logoPop {
-  0% { opacity: 0; transform: scale(0.5); }
-  60% { opacity: 1; transform: scale(1.12); }
-  100% { opacity: 1; transform: scale(1); }
+/* ================= ANIMATIONS ================= */
+@keyframes logoReveal {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes iconIn {
+@keyframes showIcons {
   to { opacity: 1; }
 }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 </style>
 </head>
@@ -151,15 +143,17 @@ body {
 
   <div class="center">
 
-    <!-- ICON ORBITS -->
-    <div class="orbit"><span class="icon">🌐</span></div>
-    <div class="orbit"><span class="icon">💼</span></div>
-    <div class="orbit"><span class="icon">🎬</span></div>
-    <div class="orbit"><span class="icon">🎵</span></div>
-    <div class="orbit"><span class="icon">🩺</span></div>
-    <div class="orbit"><span class="icon">🏏</span></div>
-    <div class="orbit"><span class="icon">🧠</span></div>
-    <div class="orbit"><span class="icon">🍔</span></div>
+    <!-- ICONS -->
+    <div class="orbits" id="orbits">
+      <div class="orbit"><span class="icon">🌐</span></div>
+      <div class="orbit"><span class="icon">💼</span></div>
+      <div class="orbit"><span class="icon">🎬</span></div>
+      <div class="orbit"><span class="icon">🎵</span></div>
+      <div class="orbit"><span class="icon">🩺</span></div>
+      <div class="orbit"><span class="icon">🏏</span></div>
+      <div class="orbit"><span class="icon">🧠</span></div>
+      <div class="orbit"><span class="icon">🍔</span></div>
+    </div>
 
     <!-- LOGO -->
     <div class="logo-wrap">
@@ -171,11 +165,18 @@ body {
 </div>
 
 <script>
-/* TOTAL SPLASH TIME = 3.5 SECONDS */
+/* STOP ICON ROTATION AFTER 5s */
+setTimeout(() => {
+  document.querySelectorAll(".orbit").forEach(o => {
+    o.style.animationPlayState = "paused";
+  });
+}, 5000);
+
+/* MOVE TO APP */
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
-}, 3500);
+}, 6000);
 </script>
 
 </body>
