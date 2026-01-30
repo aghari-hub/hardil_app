@@ -60,7 +60,7 @@ body {
 }
 
 .logo {
-  font-size: 4.8rem;
+  font-size: 6.5rem; /* INCREASED (was 4.8rem) */
   font-weight: 900;
   letter-spacing: 6px;
   background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
@@ -68,9 +68,9 @@ body {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 40px rgba(167,139,250,0.9));
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.55); /* slightly smaller start for stronger reveal */
   animation: logoReveal 1.4s ease forwards;
-  animation-delay: 1.2s; /* background only first */
+  animation-delay: 1.2s;
 }
 
 .tagline {
