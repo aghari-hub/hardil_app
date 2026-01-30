@@ -1,264 +1,177 @@
 /* ===============================
-   GLOBAL RESET
+   RESET
 ================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
-  color: #f8fafc;
-}
-
-/* ===============================
-   TOP APP BAR
-================================ */
-.top-app-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  z-index: 1000;
-  background: linear-gradient(180deg, #020617, #0f172a);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-.top-app-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.menu-icon {
-  font-size: 22px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Push content below bar */
 body {
-  padding-top: 56px;
-}
-
-/* ===============================
-   SIDE DRAWER
-================================ */
-.drawer {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 260px;
+  width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #020617, #0f172a);
-  z-index: 2000;
-  transition: right 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.drawer.open {
-  right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.drawer-header h2 {
-  font-size: 16px;
-}
-
-.drawer-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-}
-
-.drawer-content {
-  padding: 16px;
-  overflow-y: auto;
-}
-
-.drawer-content h4 {
-  margin-top: 16px;
-  margin-bottom: 6px;
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
-
-.drawer-content a {
-  display: block;
-  padding: 8px 0;
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.drawer-content a:hover {
-  color: #fff;
-}
-
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 1500;
-  display: none;
-}
-
-.backdrop.show {
-  display: block;
+  overflow: hidden;
 }
 
 /* ===============================
-   HERO
-================================ */
-.hero {
-  text-align: center;
-  padding: 48px 16px 24px;
-}
-
-.brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-.heart {
-  width: 26px;
-  height: 26px;
-  background: linear-gradient(135deg, #ec4899, #f43f5e);
-  transform: rotate(45deg);
-  border-radius: 6px;
-}
-
-.hero h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-}
-
-.hero p {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: #cbd5f5;
-}
-
-/* ===============================
-   MAIN APP LAYOUT
-================================ */
-.app {
-  max-width: 1200px;
-  margin: auto;
-  padding: 24px 16px;
-  display: grid;
-  gap: 28px;
-}
-
-/* ===============================
-   CARDS
-================================ */
-.card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 22px;
-  padding: 20px;
-  backdrop-filter: blur(12px);
-}
-
-.card h2 {
-  font-size: 1.35rem;
-}
-
-.section-sub {
-  margin-top: 6px;
-  margin-bottom: 18px;
-  font-size: 0.9rem;
-  color: #cbd5f5;
-}
-
-/* ===============================
-   GRID & APP BUTTONS
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 14px;
-}
-
-.app-btn {
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 16px;
-  padding: 14px 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.2);
-}
-
-.app-btn img {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 6px;
-}
-
-.app-btn span {
-  display: block;
-  font-size: 0.82rem;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-.footer {
-  text-align: center;
-  padding: 28px 16px 40px;
-  font-size: 0.82rem;
-  color: #cbd5f5;
-}
-
-/* ===============================
-   SPLASH SUPPORT
-   (works with your splash.html)
+   BACKGROUND
 ================================ */
 .splash-bg {
   position: fixed;
   inset: 0;
-  background-position: center;
-  background-size: cover;
+  background: url("assets/images/hd-bg.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: exitFade 0.6s ease forwards;
+  animation-delay: 3s; /* transition into app */
 }
 
-.logo {
-  font-weight: 900;
-  letter-spacing: 4px;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.65)
+  );
 }
 
 /* ===============================
-   MOBILE OPTIMIZATION
+   LOGO BLOCK
+================================ */
+.logo-wrap {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+}
+
+/* ===============================
+   HD LOGO WITH GLOW
+================================ */
+.logo {
+  font-size: 4.8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+
+  background: linear-gradient(
+    135deg,
+    #60a5fa,
+    #a78bfa,
+    #f472b6,
+    #22d3ee
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  transform: scale(0.6);
+
+  animation:
+    logoPop 1.2s ease forwards,
+    gradientMove 4s ease infinite,
+    glowPulse 2s ease-in-out infinite;
+
+  animation-delay: 0.6s, 0.6s, 1.8s;
+}
+
+/* ===============================
+   TAGLINE
+================================ */
+.tagline {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.8s;
+}
+
+/* ===============================
+   FLOATING ICONS (SYNCED)
+================================ */
+.icons {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  opacity: 0;
+  animation: showIcons 0.6s ease forwards;
+  animation-delay: 2.2s;
+}
+
+.icon {
+  position: absolute;
+  font-size: 1.6rem;
+  animation: orbit 8s linear infinite;
+}
+
+/* evenly distributed */
+.icon:nth-child(1) { transform: rotate(0deg) translate(140px); }
+.icon:nth-child(2) { transform: rotate(45deg) translate(140px); }
+.icon:nth-child(3) { transform: rotate(90deg) translate(140px); }
+.icon:nth-child(4) { transform: rotate(135deg) translate(140px); }
+.icon:nth-child(5) { transform: rotate(180deg) translate(140px); }
+.icon:nth-child(6) { transform: rotate(225deg) translate(140px); }
+.icon:nth-child(7) { transform: rotate(270deg) translate(140px); }
+.icon:nth-child(8) { transform: rotate(315deg) translate(140px); }
+
+/* ===============================
+   ANIMATIONS
+================================ */
+@keyframes logoPop {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔥 GLOW EFFECT */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 12px rgba(167,139,250,0.35),
+      0 0 24px rgba(96,165,250,0.25);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(236,72,153,0.45),
+      0 0 32px rgba(34,211,238,0.35);
+  }
+}
+
+@keyframes showIcons {
+  to { opacity: 1; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translate(140px) rotate(0deg); }
+  to { transform: rotate(360deg) translate(140px) rotate(-360deg); }
+}
+
+/* 🌊 EXIT TRANSITION */
+@keyframes exitFade {
+  to {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+/* ===============================
+   MOBILE TUNING
 ================================ */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
-  .card { padding: 18px; }
-  .grid { gap: 12px; }
+  .logo { font-size: 3.8rem; }
+  .icons { width: 240px; height: 240px; }
 }
