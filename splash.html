@@ -25,7 +25,13 @@ body {
 .splash-bg {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top, #1b1f3b, #05060d);
+
+  /* BACKGROUND IMAGE */
+  background-image: url("assets/images/splash-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +92,6 @@ body {
 }
 
 /* ================= ICON ORBITS ================= */
-/* Whole ring rotates */
 .orbits {
   position: absolute;
   inset: 0;
@@ -96,14 +101,12 @@ body {
     orbitSpin 18s linear infinite 3.1s;
 }
 
-/* 9 icons → 360 / 9 = 40deg */
 .orbit {
   position: absolute;
   inset: 0;
   transform: rotate(calc(var(--i) * 40deg));
 }
 
-/* Icons stay upright */
 .icon {
   position: absolute;
   top: 50%;
