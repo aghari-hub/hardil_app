@@ -8,12 +8,15 @@
   <meta name="theme-color" content="#020617" />
   <meta name="description" content="HarDil – Family First · One Place for Everything" />
 
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Splash control -->
   <script>
     try {
       if (sessionStorage.getItem("harDilSplash") !== "done") {
@@ -25,10 +28,53 @@
 
 <body>
 
+<!-- ===== TOP APP BAR ===== -->
 <header class="top-app-bar">
   <span class="top-app-title">HarDil</span>
+  <span class="menu-icon" id="openMenu">☰</span>
 </header>
 
+<!-- ===== SIDE DRAWER ===== -->
+<aside class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h2>HarDil</h2>
+    <button id="closeMenu">✕</button>
+  </div>
+
+  <div class="drawer-content">
+
+    <h4>Navigate</h4>
+    <a href="#social">🌐 Social</a>
+    <a href="#jobs">💼 Jobs</a>
+    <a href="#ott">🎬 OTT</a>
+    <a href="#music">🎵 Music</a>
+    <a href="#shop">🛒 Shopping</a>
+    <a href="#travel">✈️ Travel</a>
+    <a href="#rides">🚕 Rides</a>
+    <a href="#food">🍔 Food</a>
+    <a href="#health">🩺 Health</a>
+    <a href="#sports">🏏 Sports</a>
+    <a href="#learning">🧠 Learning</a>
+
+    <h4>About</h4>
+    <a href="about.html">ℹ️ About HarDil</a>
+    <a href="about.html#story">❤️ Our Story</a>
+    <a href="about.html#motive">🎯 Motive & Vision</a>
+
+    <h4>Legal</h4>
+    <a href="privacy.html">🔒 Privacy Policy</a>
+    <a href="terms.html">📜 Terms & Conditions</a>
+    <a href="legal.html">⚖️ Legal Disclaimer</a>
+
+    <h4>Support</h4>
+    <a href="mailto:aghari128@gmail.com">📩 Contact Us</a>
+
+  </div>
+</aside>
+
+<div class="backdrop" id="backdrop"></div>
+
+<!-- ===== HERO ===== -->
 <header class="hero">
   <div class="brand">
     <div class="heart"></div>
@@ -37,10 +83,11 @@
   <p>Family First · One Place for Everything</p>
 </header>
 
+<!-- ===== MAIN CONTENT ===== -->
 <main class="app">
 
 <!-- 🌐 SOCIAL -->
-<section class="card">
+<section class="card" id="social">
   <h2>🌐 Social Media</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://web.whatsapp.com"><img src="assets/icons/whatsapp.png"><span>WhatsApp</span></div>
@@ -53,7 +100,7 @@
 </section>
 
 <!-- 💼 JOBS -->
-<section class="card">
+<section class="card" id="jobs">
   <h2>💼 Jobs & Career</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://linkedin.com/jobs"><img src="assets/icons/linkedin.png"><span>LinkedIn</span></div>
@@ -68,7 +115,7 @@
 </section>
 
 <!-- 🎬 OTT -->
-<section class="card">
+<section class="card" id="ott">
   <h2>🎬 OTT Platforms</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://netflix.com"><img src="assets/icons/netflix.png"><span>Netflix</span></div>
@@ -79,7 +126,7 @@
 </section>
 
 <!-- 🎵 MUSIC -->
-<section class="card">
+<section class="card" id="music">
   <h2>🎵 Music</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://spotify.com"><img src="assets/icons/spotify.png"><span>Spotify</span></div>
@@ -90,7 +137,7 @@
 </section>
 
 <!-- 🛒 SHOPPING -->
-<section class="card">
+<section class="card" id="shop">
   <h2>🛒 Shopping</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://amazon.in"><img src="assets/icons/amazon.png"><span>Amazon</span></div>
@@ -102,7 +149,7 @@
 </section>
 
 <!-- ✈️ TRAVEL -->
-<section class="card">
+<section class="card" id="travel">
   <h2>✈️ Travel & Booking</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://irctc.co.in"><img src="assets/icons/irctc.png"><span>IRCTC</span></div>
@@ -116,7 +163,7 @@
 </section>
 
 <!-- 🚕 RIDES -->
-<section class="card">
+<section class="card" id="rides">
   <h2>🚕 Rides</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://uber.com"><img src="assets/icons/uber.png"><span>Uber</span></div>
@@ -127,7 +174,7 @@
 </section>
 
 <!-- 🍔 FOOD -->
-<section class="card">
+<section class="card" id="food">
   <h2>🍔 Food Delivery</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://zomato.com"><img src="assets/icons/zomato.png"><span>Zomato</span></div>
@@ -138,7 +185,7 @@
 </section>
 
 <!-- 🩺 HEALTH -->
-<section class="card">
+<section class="card" id="health">
   <h2>🩺 Health</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://1mg.com"><img src="assets/icons/1mg.png"><span>Tata 1mg</span></div>
@@ -149,7 +196,7 @@
 </section>
 
 <!-- 🧠 LEARNING -->
-<section class="card">
+<section class="card" id="learning">
   <h2>🧠 Learning</h2>
   <div class="grid">
     <div class="app-btn" data-url="https://ted.com"><img src="assets/icons/ted.png"><span>TED</span></div>
@@ -161,11 +208,27 @@
 </main>
 
 <footer class="footer">
-  HarDil redirects only to official websites.<br>
-  No logins · No payments · Family First.
+  HarDil strictly redirects users to official websites only.<br>
+  No logins stored · No payments · Family First.
 </footer>
 
 <script>
+  const drawer = document.getElementById("drawer");
+  const backdrop = document.getElementById("backdrop");
+
+  document.getElementById("openMenu").onclick = () => {
+    drawer.classList.add("open");
+    backdrop.classList.add("show");
+  };
+
+  document.getElementById("closeMenu").onclick = closeDrawer;
+  backdrop.onclick = closeDrawer;
+
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    backdrop.classList.remove("show");
+  }
+
   document.querySelectorAll(".app-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       window.open(btn.dataset.url, "_blank", "noopener,noreferrer");
