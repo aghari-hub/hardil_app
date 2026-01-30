@@ -1,5 +1,21 @@
-/* ===== FIXED APP TOP BAR ===== */
-.app-topbar {
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  padding-top: 56px; /* space for fixed top bar */
+  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  color: #f8fafc;
+}
+
+/* ===== FIXED TOP APP BAR (ONLY ONE) ===== */
+.top-app-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,45 +26,26 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  z-index: 9999;
+  z-index: 99999;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 /* App title */
-.app-title {
-  color: #ffffff;
+.top-app-title {
   font-size: 18px;
   font-weight: 600;
+  color: #ffffff;
 }
 
-/* Menu icon (NOT clickable now) */
-.menu-icon {
+/* Menu icon (NOT clickable yet) */
+.top-app-menu {
   font-size: 22px;
   color: #ffffff;
   opacity: 0.9;
-  pointer-events: none; /* IMPORTANT: disables clicking */
+  pointer-events: none;
 }
 
-/* ===== BASIC RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
-}
-
-/* ===== BODY ===== */
-body {
-  min-height: 100vh;
-  padding-top: 56px; /* space for fixed top bar */
-  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
-  color: #f8fafc;
-  margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-
-/* ===== HEADER ===== */
+/* ===== HERO HEADER ===== */
 .hero {
   text-align: center;
   padding: 3rem 1rem 2rem;
@@ -79,7 +76,7 @@ body {
   color: #cbd5f5;
 }
 
-/* ===== MAIN APP ===== */
+/* ===== MAIN APP LAYOUT ===== */
 .app {
   max-width: 1200px;
   margin: auto;
@@ -88,7 +85,7 @@ body {
   gap: 2rem;
 }
 
-/* ===== CARDS ===== */
+/* ===== SECTION CARDS ===== */
 .card {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
@@ -96,7 +93,7 @@ body {
   padding: 1.5rem;
 }
 
-/* ===== TITLES ===== */
+/* ===== SECTION TITLES ===== */
 .card h2 {
   font-size: 1.4rem;
 }
@@ -121,7 +118,6 @@ body {
   border-radius: 16px;
   padding: 1rem 0.6rem;
   text-align: center;
-  cursor: pointer;
 }
 
 .app-btn img {
@@ -135,7 +131,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (TEXT ONLY) ===== */
 .footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -145,99 +141,7 @@ body {
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
-}
-/* TOP BAR */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(2,6,23,0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.menu-btn {
-  font-size: 1.6rem;
-  background: none;
-  border: none;
-  color: #fff;
-}
-
-.top-title {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-/* DRAWER */
-.drawer {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 260px;
-  height: 100vh;
-  background: linear-gradient(180deg, #020617, #0f172a);
-  z-index: 2000;
-  transition: right 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.drawer.open {
-  right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.drawer-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-}
-
-.drawer-content {
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-.drawer-content h4 {
-  margin: 1rem 0 0.4rem;
-  font-size: 0.8rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-}
-
-.drawer-content a {
-  display: block;
-  padding: 0.6rem 0;
-  color: #e5e7eb;
-  text-decoration: none;
-}
-
-.drawer-content a:hover {
-  color: #fff;
-}
-
-/* BACKDROP */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  z-index: 1500;
-}
-
-.backdrop.show {
-  display: block;
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
