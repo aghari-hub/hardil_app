@@ -9,16 +9,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-const dotsBtn = document.getElementById("dotsBtn");
-const dotsMenu = document.getElementById("dotsMenu");
+const drawer = document.getElementById("drawer");
+const backdrop = document.getElementById("backdrop");
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
 
-if (dotsBtn && dotsMenu) {
-  dotsBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dotsMenu.classList.toggle("show");
-  });
+openMenu.onclick = () => {
+  drawer.classList.add("open");
+  backdrop.classList.add("show");
+};
 
-  document.addEventListener("click", () => {
-    dotsMenu.classList.remove("show");
-  });
+closeMenu.onclick = closeDrawer;
+backdrop.onclick = closeDrawer;
+
+function closeDrawer() {
+  drawer.classList.remove("open");
+  backdrop.classList.remove("show");
 }
+
+document.querySelectorAll("[data-scroll]").forEach(item => {
+  item.onclick = () => {
+    const target = document.querySelector("." + item.dataset.scroll);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+      closeDrawer();
+    }
+  };
+});
