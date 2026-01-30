@@ -9,89 +9,89 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 20px; /* BIG BASE FONT */
   scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   background:
-    linear-gradient(rgba(10,15,30,0.85), rgba(10,15,30,0.85)),
+    linear-gradient(rgba(6,10,20,0.92), rgba(6,10,20,0.92)),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
-  color: #f1f5f9;
-  line-height: 1.75;
+  color: #f8fafc;
+  line-height: 1.85;
 }
 
 /* ===============================
-   TOP APP BAR
+   TOP APP BAR (CLEAR)
 ================================ */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 56px;
-  background: rgba(10,15,30,0.95);
+  height: 64px;
+  background: rgba(6,10,20,0.98);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .top-app-title {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .menu-icon {
-  font-size: 26px;
+  font-size: 30px;
   cursor: pointer;
 }
 
 /* ===============================
-   HERO
+   HERO (STRONG & CLEAR)
 ================================ */
 .hero {
   text-align: center;
-  padding: 48px 16px 32px;
+  padding: 60px 18px 40px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
 }
 
 .hero p {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #cbd5f5;
+  margin-top: 14px;
+  font-size: 1.3rem;
+  color: #e2e8f0;
 }
 
 /* ===============================
    MAIN LAYOUT
 ================================ */
 .app {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: auto;
-  padding: 22px 14px 56px;
+  padding: 26px 18px 70px;
   display: grid;
-  gap: 34px;
+  gap: 44px;
 }
 
 /* ===============================
-   SECTION CARDS
+   SECTION CARDS (BIG & SOFT)
 ================================ */
 .card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 22px;
-  padding: 28px 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 26px;
+  padding: 36px 28px;
 }
 
 .card h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 22px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 26px;
 }
 
 /* ===============================
@@ -99,49 +99,49 @@ body {
 ================================ */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 28px;
 }
 
 /* ===============================
-   APP BUTTONS
+   APP BUTTONS (THUMB FRIENDLY)
 ================================ */
 .app-btn {
-  background: rgba(255,255,255,0.14);
-  border-radius: 20px;
-  padding: 28px 12px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 26px;
+  padding: 34px 16px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .app-btn:hover {
-  background: rgba(255,255,255,0.22);
-  transform: translateY(-4px);
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-6px);
 }
 
 .app-btn img {
-  width: 54px;
-  height: 54px;
-  margin-bottom: 14px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
 }
 
 .app-btn span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #f8fafc;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 /* ===============================
-   DRAWER
+   DRAWER (VERY READABLE)
 ================================ */
 .drawer {
   position: fixed;
   top: 0;
-  right: -280px;
-  width: 260px;
+  right: -320px;
+  width: 300px;
   height: 100vh;
-  background: #0b1020;
+  background: #060a18;
   transition: right 0.3s ease;
   z-index: 2000;
 }
@@ -154,30 +154,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .drawer-header strong {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .drawer-content {
-  padding: 18px;
+  padding: 22px;
 }
 
 .drawer-content h4 {
-  margin-top: 24px;
-  font-size: 0.85rem;
+  margin-top: 28px;
+  font-size: 1rem;
   color: #94a3b8;
   text-transform: uppercase;
 }
 
 .drawer-content a {
   display: block;
-  padding: 12px 0;
-  color: #e5e7eb;
-  font-size: 1.05rem;
+  padding: 16px 0;
+  color: #f1f5f9;
+  font-size: 1.2rem;
   text-decoration: none;
 }
 
@@ -191,7 +191,7 @@ body {
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   display: none;
   z-index: 1500;
 }
@@ -201,39 +201,39 @@ body {
 }
 
 /* ===============================
-   FOOTER
+   FOOTER (CLEAR & CALM)
 ================================ */
 .footer {
   text-align: center;
-  padding: 36px 16px;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cbd5f5;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 44px 18px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 /* ===============================
-   MOBILE TUNING
+   MOBILE OPTIMIZATION
 ================================ */
 @media (max-width: 600px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .app-btn {
-    padding: 26px 12px;
+    padding: 36px 14px;
   }
 
   .app-btn img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 
   .app-btn span {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 }
