@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -21,17 +20,13 @@ body {
   background: #000;
 }
 
-/* ================= BACKGROUND ================= */
 .splash-bg {
   position: fixed;
   inset: 0;
-
-  /* BACKGROUND IMAGE */
-  background-image: url("assets/images/splash-bg.jpg");
+  background-image: url("/hardil_app/assets/images/splash-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,14 +42,12 @@ body {
   );
 }
 
-/* ================= CENTER ================= */
 .center {
   position: relative;
   width: 320px;
   height: 320px;
 }
 
-/* ================= LOGO ================= */
 .logo-wrap {
   position: absolute;
   inset: 0;
@@ -91,7 +84,6 @@ body {
   animation-delay: 2.5s;
 }
 
-/* ================= ICON ORBITS ================= */
 .orbits {
   position: absolute;
   inset: 0;
@@ -120,16 +112,15 @@ body {
   animation: counterSpin 18s linear infinite 3.1s;
 }
 
-/* ================= ANIMATIONS ================= */
 @keyframes logoReveal {
-  0%   { opacity: 0; transform: scale(0.45); }
-  70%  { opacity: 1; transform: scale(1.08); }
+  0% { opacity: 0; transform: scale(0.45); }
+  70% { opacity: 1; transform: scale(1.08); }
   100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes showIcons {
@@ -138,12 +129,12 @@ body {
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes counterSpin {
   from { transform: translate(185px, -50%) rotate(0deg); }
-  to   { transform: translate(185px, -50%) rotate(-360deg); }
+  to { transform: translate(185px, -50%) rotate(-360deg); }
 }
 </style>
 </head>
@@ -155,7 +146,6 @@ body {
 
   <div class="center">
 
-    <!-- ICON RING -->
     <div class="orbits">
       <div class="orbit" style="--i:0"><span class="icon">🌐</span></div>
       <div class="orbit" style="--i:1"><span class="icon">💼</span></div>
@@ -168,7 +158,6 @@ body {
       <div class="orbit" style="--i:8"><span class="icon">🍔</span></div>
     </div>
 
-    <!-- LOGO -->
     <div class="logo-wrap">
       <div class="logo">HD</div>
       <div class="tagline">Family First · One Place for Everything</div>
@@ -178,19 +167,6 @@ body {
 </div>
 
 <script>
-/* Gentle pause before exit */
 setTimeout(() => {
   document.querySelectorAll(".orbits, .icon").forEach(el => {
-    el.style.animationPlayState = "paused";
-  });
-}, 9000);
-
-/* Go to main app */
-setTimeout(() => {
-  sessionStorage.setItem("harDilSplash", "done");
-  window.location.replace("index.html");
-}, 9800);
-</script>
-
-</body>
-</html>
+    el.style.animationPlayState = "paused
