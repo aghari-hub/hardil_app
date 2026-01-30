@@ -2,104 +2,214 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HarDil Journey</title>
+<title>HarDil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+:root {
+  --bg-dark: #020617;
+  --bg-mid: #0f172a;
+  --accent: #f43f5e;
+  --text-main: #f8fafc;
+  --text-soft: #cbd5f5;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system;
+}
+
 body {
   margin: 0;
   height: 100vh;
-  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg-dark));
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  color: white;
+  color: var(--text-main);
   transition: background 0.8s ease;
 }
 
-/* BACKGROUNDS */
-.space { background: radial-gradient(circle at top, #1b2735, #090a0f); }
-.final { background: linear-gradient(135deg, #667eea, #764ba2); }
+body.final {
+  background: linear-gradient(-45deg, #020617, #0f172a, #1e293b);
+  background-size: 400% 400%;
+  animation: bgFlow 12s ease infinite;
+}
 
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* SCENE */
 .scene {
   text-align: center;
+  position: relative;
 }
 
-/* ELEMENTS */
+/* PEOPLE */
 .people {
-  font-size: 60px;
+  font-size: 3.2rem;
   opacity: 0;
-  animation: peopleIn 0.6s ease forwards;
+  animation: fadeUp 0.8s ease forwards;
 }
 
-.handshake, .heart {
-  font-size: 42px;
+/* HANDSHAKE */
+.handshake,
+.heart {
+  font-size: 3rem;
+  margin-top: 10px;
   opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.45s cubic-bezier(.4,0,.2,1);
 }
 
+.handshake.show,
+.heart.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* CATEGORY ICONS */
+.categories {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 18px auto 0;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.8s cubic-bezier(.4,0,.2,1);
+  z-index: 1;
+}
+
+.categories.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.categories.fade {
+  opacity: 0.35;
+  transform: scale(0.92);
+}
+
+.categories span {
+  position: absolute;
+  font-size: 28px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.categories span:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.categories span:nth-child(2) { top: 22%; right: 0; }
+.categories span:nth-child(3) { bottom: 22%; right: 0; }
+.categories span:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.categories span:nth-child(5) { bottom: 22%; left: 0; }
+.categories span:nth-child(6) { top: 22%; left: 0; }
+.categories span:nth-child(7) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* LOGO */
 .logo {
-  font-size: 44px;
+  margin-top: 18px;
+  font-size: 2.6rem;
   font-weight: 700;
+  letter-spacing: 1px;
   opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  transition: all 0.7s cubic-bezier(.4,0,.2,1);
+  z-index: 2;
+  position: relative;
+}
+
+.logo.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .tagline {
-  font-size: 14px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--text-soft);
   opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease;
 }
 
-/* ANIMATIONS */
-@keyframes peopleIn {
-  from { transform: translateX(-40px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-.show {
+.tagline.show {
   opacity: 1;
-  transition: opacity 0.4s ease;
+  transform: translateY(0);
+}
+
+/* UTILS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
-<body class="space">
+<body>
 
 <div class="scene">
   <div class="people">🧑 &nbsp; 🧑</div>
   <div class="handshake">🤝</div>
   <div class="heart">❤️</div>
+
+  <div class="categories">
+    <span>🌐</span>
+    <span>💼</span>
+    <span>🎬</span>
+    <span>🎵</span>
+    <span>🩺</span>
+    <span>🏏</span>
+    <span>🧠</span>
+  </div>
+
   <div class="logo">HarDil</div>
   <div class="tagline">Family First · One Place for Everything</div>
 </div>
 
 <script>
-/* TIMELINE — TOTAL 3 SECONDS */
+/* PREMIUM TIMELINE */
 
-// 0.6s → handshake
+// handshake
 setTimeout(() => {
   document.querySelector(".handshake").classList.add("show");
 }, 600);
 
-// 1.2s → heart
+// heart
 setTimeout(() => {
   document.querySelector(".heart").classList.add("show");
 }, 1200);
 
-// 1.8s → background + logo
+// categories appear clearly
 setTimeout(() => {
-  document.body.className = "final";
-  document.querySelector(".logo").classList.add("show");
-}, 1800);
+  document.querySelector(".categories").classList.add("show");
+}, 1600);
 
-// 2.2s → tagline
+// logo reveal, categories soften
+setTimeout(() => {
+  document.body.classList.add("final");
+  document.querySelector(".categories").classList.add("fade");
+  document.querySelector(".logo").classList.add("show");
+}, 2300);
+
+// tagline
 setTimeout(() => {
   document.querySelector(".tagline").classList.add("show");
-}, 2200);
+}, 2700);
 
-// 3.0s → EXIT SPLASH (CONTROLLED)
+// exit splash
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
-}, 3000);
+}, 3400);
 </script>
 
 </body>
