@@ -210,4 +210,53 @@ body {
 .backdrop.show {
   display: block;
 }
+/* ===== THREE DOT MENU ===== */
+.overflow {
+  position: relative;
+}
+
+.dots-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.dots-menu {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  min-width: 220px;
+  display: none;
+  z-index: 3000;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.dots-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.dots-menu a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.dots-menu hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin: 0.3rem 0;
+}
+
+.dots-menu.show {
+  display: block;
+}
 
