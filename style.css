@@ -1,282 +1,189 @@
-/* ===============================
-   RESET & BASE
-================================ */
+/* =====================
+   ROOT & GLOBAL
+===================== */
+:root {
+  --bg-main: linear-gradient(135deg, #0f172a, #1e293b);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --text-main: #f8fafc;
+  --text-muted: #cbd5f5;
+  --accent: #6366f1;
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
 }
 
 body {
-  margin: 0;
-  background: #f4f6fb;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  color: #1f2937;
-  overflow-x: hidden;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* ===============================
-   HEADER
-================================ */
+/* =====================
+   HERO / HEADER
+===================== */
 .hero {
-  padding: 26px 16px 18px;
   text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
 }
 
 .brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand h1 {
-  margin: 0;
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-}
-
-/* Heart = logo life */
-.heart {
-  width: 14px;
-  height: 14px;
-  background: linear-gradient(135deg,#ff4d6d,#ff758f);
-  border-radius: 50%;
-  animation: pulse 1.8s infinite ease-in-out;
-}
-
-.hero p {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-@keyframes pulse {
-  0% { transform: scale(.9); opacity:.7; }
-  50% { transform: scale(1.4); opacity:1; }
-  100% { transform: scale(.9); opacity:.7; }
-}
-
-/* ===============================
-   APP WRAPPER
-================================ */
-.app {
-  padding: 14px 14px 90px;
-}
-
-/* ===============================
-   SECTION CARD (PREMIUM)
-================================ */
-.card {
-  border-radius: 26px;
-  padding: 18px;
-  margin-bottom: 22px;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
-  background-size: 200% 200%;
-  animation: fadeUp .8s cubic-bezier(.22,1,.36,1) both;
-}
-
-.card h2 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.section-sub {
-  margin: 6px 0 16px;
-  font-size: 13px;
-  color: #6b7280;
-}
-
-/* SECTION GRADIENTS (SOFT & PREMIUM) */
-.social { background: linear-gradient(135deg,#eef2ff,#ffffff); }
-.jobs { background: linear-gradient(135deg,#ecfdf5,#ffffff); }
-.ott { background: linear-gradient(135deg,#fdf2f8,#ffffff); }
-.music { background: linear-gradient(135deg,#f3f0ff,#ffffff); }
-.shop { background: linear-gradient(135deg,#fff7ed,#ffffff); }
-.travel { background: linear-gradient(135deg,#eef6ff,#ffffff); }
-.health { background: linear-gradient(135deg,#ecfeff,#ffffff); }
-.sports { background: linear-gradient(135deg,#f0fdf4,#ffffff); }
-.personality { background: linear-gradient(135deg,#fef3c7,#ffffff); }
-
-/* ===============================
-   GRID (APP ICON BOARD)
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ===============================
-   APP TILE (THIS IS KEY)
-================================ */
-.app-btn {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 14px 8px 12px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-
-  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
-  cursor: pointer;
-
-  opacity: 0;
-  transform: translateY(14px) scale(.95);
-  animation: appIn .6s cubic-bezier(.22,1,.36,1) forwards;
-}
-
-/* STAGGER (REAL APP FEEL) */
-.app-btn:nth-child(1){animation-delay:.05s}
-.app-btn:nth-child(2){animation-delay:.1s}
-.app-btn:nth-child(3){animation-delay:.15s}
-.app-btn:nth-child(4){animation-delay:.2s}
-.app-btn:nth-child(5){animation-delay:.25s}
-.app-btn:nth-child(6){animation-delay:.3s}
-.app-btn:nth-child(7){animation-delay:.35s}
-.app-btn:nth-child(8){animation-delay:.4s}
-
-.app-btn img {
-  width: 46px;
-  height: 46px;
-  transition: transform .35s ease;
-}
-
-.app-btn span {
-  font-size: 12px;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* MICRO INTERACTIONS */
-.app-btn:hover img {
-  transform: scale(1.15);
-}
-
-.app-btn:active {
-  transform: scale(.92);
-}
-
-/* ===============================
-   ANIMATIONS
-================================ */
-@keyframes appIn {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===============================
-   FOOTER
-================================ */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #6b7280;
-  padding: 26px 12px 32px;
-}
-
-/* ===============================
-   GLOBAL LOGO OVERLAY
-================================ */
-#logo-overlay {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg,#eef2ff,#ffffff);
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 12px;
 }
 
-/* Scene */
-.logo-scene {
-  position: relative;
-  width: 240px;
-  height: 200px;
+.heart {
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  transform: rotate(45deg);
+  border-radius: 6px;
 }
 
-/* People */
-.person {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #4f46e5;
-  position: absolute;
-  top: 60px;
-  opacity: 0;
-}
-
-.person.left { left: -80px; animation: enterLeft .5s forwards; }
-.person.right { right: -80px; animation: enterRight .5s forwards; animation-delay:.1s; }
-
-@keyframes enterLeft {
-  to { left: 50px; opacity:1; }
-}
-@keyframes enterRight {
-  to { right: 50px; opacity:1; }
-}
-
-/* Heart */
-.logo-scene .heart {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  background: #ff4d6d;
-  border-radius: 50%;
-  transform: translateX(-50%) scale(0);
-  animation: heartPop .4s ease forwards;
-  animation-delay: .9s;
-}
-
-@keyframes heartPop {
-  to { transform: translateX(-50%) scale(1.3); }
-}
-
-/* Logo text */
-.logo-text {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  opacity: 0;
-  font-size: 34px;
+.hero h1 {
+  font-size: 2.6rem;
   font-weight: 700;
-  animation: logoIn .6s ease forwards;
-  animation-delay: 1.4s;
+  letter-spacing: 0.5px;
 }
 
-@keyframes logoIn {
-  to { opacity:1; transform:translateX(-50%) translateY(0); }
+.hero p {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
 }
 
-/* Hide overlay */
-#logo-overlay.hide {
-  animation: fadeOut .5s ease forwards;
+/* =====================
+   MAIN APP
+===================== */
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
 }
 
-@keyframes fadeOut {
-  to { opacity:0; visibility:hidden; }
+/* =====================
+   CARDS
+===================== */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 1.8rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.3rem;
+}
+
+/* =====================
+   GRID BUTTONS
+===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1.1rem;
+}
+
+.app-btn {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 1.1rem 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.app-btn:hover::before {
+  opacity: 1;
+}
+
+.app-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.app-btn img {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 8px;
+}
+
+.app-btn span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* =====================
+   CATEGORY GRADIENT ACCENTS
+===================== */
+.social { border-left: 5px solid #22d3ee; }
+.jobs   { border-left: 5px solid #38bdf8; }
+.ott    { border-left: 5px solid #f472b6; }
+.music  { border-left: 5px solid #a78bfa; }
+.shop   { border-left: 5px solid #fbbf24; }
+.travel { border-left: 5px solid #34d399; }
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+}
