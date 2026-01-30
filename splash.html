@@ -20,6 +20,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: #000;
 }
 
 /* ===============================
@@ -37,13 +38,57 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center,
+  background: radial-gradient(
+    circle at center,
     rgba(0,0,0,0.15),
-    rgba(0,0,0,0.65));
+    rgba(0,0,0,0.7)
+  );
 }
 
 /* ===============================
-   LOGO CONTAINER
+   CENTER CONTAINER
+================================ */
+.center {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================
+   ICON ORBITS
+================================ */
+.orbit {
+  position: absolute;
+  inset: 0;
+  animation: spin 3s linear infinite;
+}
+
+.orbit:nth-child(1) { animation-delay: 0s; }
+.orbit:nth-child(2) { animation-delay: -0.3s; }
+.orbit:nth-child(3) { animation-delay: -0.6s; }
+.orbit:nth-child(4) { animation-delay: -0.9s; }
+.orbit:nth-child(5) { animation-delay: -1.2s; }
+.orbit:nth-child(6) { animation-delay: -1.5s; }
+.orbit:nth-child(7) { animation-delay: -1.8s; }
+.orbit:nth-child(8) { animation-delay: -2.1s; }
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.6rem;
+  transform: translate(140px, -50%);
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
+  opacity: 0;
+  animation: iconIn 0.6s ease forwards;
+  animation-delay: 1.4s;
+}
+
+/* ===============================
+   LOGO
 ================================ */
 .logo-wrap {
   position: relative;
@@ -51,89 +96,50 @@ body {
   text-align: center;
 }
 
-/* HD LOGO */
 .logo {
   font-size: 4.8rem;
   font-weight: 900;
   letter-spacing: 6px;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+  background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+  filter: drop-shadow(0 0 35px rgba(167,139,250,0.8));
   opacity: 0;
   transform: scale(0.5);
-  filter: drop-shadow(0 0 30px rgba(167,139,250,0.6));
-  animation: logoPop 1.6s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay: 0.6s;
+  animation: logoPop 1.4s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: 0.4s;
 }
 
-/* TAGLINE */
 .tagline {
   margin-top: 12px;
   font-size: 1rem;
   color: #e5e7eb;
   opacity: 0;
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 2s;
-}
-
-/* ===============================
-   FLOATING CATEGORY ICONS
-================================ */
-.icons {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  opacity: 0;
-  animation: showIcons 0.6s ease forwards;
-  animation-delay: 2.4s;
-}
-
-/* icon wrapper = position */
-.icon-wrap {
-  position: absolute;
-  inset: 0;
-}
-
-.icon-wrap:nth-child(1) { transform: rotate(0deg); }
-.icon-wrap:nth-child(2) { transform: rotate(45deg); }
-.icon-wrap:nth-child(3) { transform: rotate(90deg); }
-.icon-wrap:nth-child(4) { transform: rotate(135deg); }
-.icon-wrap:nth-child(5) { transform: rotate(180deg); }
-.icon-wrap:nth-child(6) { transform: rotate(225deg); }
-.icon-wrap:nth-child(7) { transform: rotate(270deg); }
-.icon-wrap:nth-child(8) { transform: rotate(315deg); }
-
-/* actual icon */
-.icon {
-  display: block;
-  font-size: 1.7rem;
-  transform: translate(150px);
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
-  animation: orbit 6s linear infinite;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.6s;
 }
 
 /* ===============================
    ANIMATIONS
 ================================ */
 @keyframes logoPop {
-  0%   { opacity: 0; transform: scale(0.5); }
-  60%  { opacity: 1; transform: scale(1.12); }
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.12); }
   100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes showIcons {
+@keyframes iconIn {
   to { opacity: 1; }
 }
 
-@keyframes orbit {
-  from { transform: translate(150px) rotate(0deg); }
-  to   { transform: translate(150px) rotate(360deg); }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 </style>
 </head>
@@ -143,22 +149,24 @@ body {
 <div class="splash-bg">
   <div class="overlay"></div>
 
-  <!-- FLOATING CATEGORY ICONS -->
-  <div class="icons">
-    <div class="icon-wrap"><span class="icon">🌐</span></div>
-    <div class="icon-wrap"><span class="icon">💼</span></div>
-    <div class="icon-wrap"><span class="icon">🎬</span></div>
-    <div class="icon-wrap"><span class="icon">🎵</span></div>
-    <div class="icon-wrap"><span class="icon">🩺</span></div>
-    <div class="icon-wrap"><span class="icon">🏏</span></div>
-    <div class="icon-wrap"><span class="icon">🧠</span></div>
-    <div class="icon-wrap"><span class="icon">🍔</span></div>
-  </div>
+  <div class="center">
 
-  <!-- LOGO -->
-  <div class="logo-wrap">
-    <div class="logo">HD</div>
-    <div class="tagline">Family First · One Place for Everything</div>
+    <!-- ICON ORBITS -->
+    <div class="orbit"><span class="icon">🌐</span></div>
+    <div class="orbit"><span class="icon">💼</span></div>
+    <div class="orbit"><span class="icon">🎬</span></div>
+    <div class="orbit"><span class="icon">🎵</span></div>
+    <div class="orbit"><span class="icon">🩺</span></div>
+    <div class="orbit"><span class="icon">🏏</span></div>
+    <div class="orbit"><span class="icon">🧠</span></div>
+    <div class="orbit"><span class="icon">🍔</span></div>
+
+    <!-- LOGO -->
+    <div class="logo-wrap">
+      <div class="logo">HD</div>
+      <div class="tagline">Family First · One Place for Everything</div>
+    </div>
+
   </div>
 </div>
 
@@ -172,4 +180,3 @@ setTimeout(() => {
 
 </body>
 </html>
-
