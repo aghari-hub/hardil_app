@@ -21,6 +21,27 @@ body {
   color: #f8fafc;
   line-height: 1.85;
 }
+/* ===============================
+   TOP BAR ACTIONS
+================================ */
+.top-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.top-actions a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.top-actions a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
 
 /* ===============================
    TOP APP BAR (CLEAR)
@@ -213,19 +234,29 @@ body {
 }
 
 /* ===============================
-   MOBILE OPTIMIZATION
+   MOBILE OPTIMIZATION (FINAL)
 ================================ */
 @media (max-width: 600px) {
+
+  /* Bigger cards = easier taps */
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
   }
 
+  /* Hero readability */
   .hero h1 {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
   }
 
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  /* App buttons */
   .app-btn {
-    padding: 36px 14px;
+    padding: 38px 16px;
+    border-radius: 28px;
   }
 
   .app-btn img {
@@ -234,6 +265,13 @@ body {
   }
 
   .app-btn span {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  /* Drawer text */
+  .drawer-content a {
+    font-size: 1.2rem;
+    padding: 16px 0;
   }
 }
