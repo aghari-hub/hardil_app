@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-/* ================= RESET ================= */
+/* ========= RESET ========= */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body {
   background: #000;
 }
 
-/* ================= BACKGROUND ================= */
+/* ========= BACKGROUND ========= */
 .splash-bg {
   position: fixed;
   inset: 0;
@@ -36,19 +36,19 @@ body {
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0,0,0,0.1),
-    rgba(0,0,0,0.7)
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.75)
   );
 }
 
-/* ================= CENTER ================= */
+/* ========= CENTER ========= */
 .center {
   position: relative;
   width: 320px;
   height: 320px;
 }
 
-/* ================= LOGO ================= */
+/* ========= LOGO ========= */
 .logo-wrap {
   position: absolute;
   inset: 0;
@@ -66,10 +66,11 @@ body {
   background: linear-gradient(135deg,#60a5fa,#a78bfa,#f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 35px rgba(167,139,250,0.9));
+  filter: drop-shadow(0 0 40px rgba(167,139,250,0.9));
   opacity: 0;
-  animation: logoReveal 1.8s ease forwards;
-  animation-delay: 0.8s;
+  transform: scale(0.6);
+  animation: logoReveal 1.4s ease forwards;
+  animation-delay: 1.2s; /* background only first */
 }
 
 .tagline {
@@ -78,10 +79,10 @@ body {
   color: #e5e7eb;
   opacity: 0;
   animation: fadeUp 1s ease forwards;
-  animation-delay: 2.4s;
+  animation-delay: 2.6s;
 }
 
-/* ================= ICON ORBITS ================= */
+/* ========= ICONS ========= */
 .orbits {
   position: absolute;
   inset: 0;
@@ -93,17 +94,17 @@ body {
 .orbit {
   position: absolute;
   inset: 0;
-  animation: spin 2.8s linear infinite;
+  animation: spin 3s linear infinite;
 }
 
 .orbit:nth-child(1) { animation-delay: 0s; }
-.orbit:nth-child(2) { animation-delay: -0.3s; }
-.orbit:nth-child(3) { animation-delay: -0.6s; }
-.orbit:nth-child(4) { animation-delay: -0.9s; }
-.orbit:nth-child(5) { animation-delay: -1.2s; }
-.orbit:nth-child(6) { animation-delay: -1.5s; }
-.orbit:nth-child(7) { animation-delay: -1.8s; }
-.orbit:nth-child(8) { animation-delay: -2.1s; }
+.orbit:nth-child(2) { animation-delay: -0.4s; }
+.orbit:nth-child(3) { animation-delay: -0.8s; }
+.orbit:nth-child(4) { animation-delay: -1.2s; }
+.orbit:nth-child(5) { animation-delay: -1.6s; }
+.orbit:nth-child(6) { animation-delay: -2s; }
+.orbit:nth-child(7) { animation-delay: -2.4s; }
+.orbit:nth-child(8) { animation-delay: -2.8s; }
 
 .icon {
   position: absolute;
@@ -111,18 +112,17 @@ body {
   left: 50%;
   font-size: 1.6rem;
   transform: translate(135px, -50%);
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.35));
+  filter: drop-shadow(0 0 14px rgba(255,255,255,0.4));
 }
 
-/* ================= ANIMATIONS ================= */
+/* ========= ANIMATIONS ========= */
 @keyframes logoReveal {
-  from { opacity: 0; transform: scale(0.6); }
-  to   { opacity: 1; transform: scale(1); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes showIcons {
@@ -131,7 +131,7 @@ body {
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 </style>
 </head>
@@ -165,18 +165,18 @@ body {
 </div>
 
 <script>
-/* STOP ICON ROTATION AFTER 5s */
+/* STOP ICON ROTATION AFTER 6 SECONDS */
 setTimeout(() => {
   document.querySelectorAll(".orbit").forEach(o => {
     o.style.animationPlayState = "paused";
   });
-}, 5000);
+}, 9200);
 
 /* MOVE TO APP */
 setTimeout(() => {
   sessionStorage.setItem("harDilSplash", "done");
   window.location.replace("index.html");
-}, 6000);
+}, 9800);
 </script>
 
 </body>
