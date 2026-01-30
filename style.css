@@ -1,166 +1,317 @@
 /* ===============================
-   GLOBAL
+   GLOBAL RESET
 ================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-  background: #f2f3fb;
-  color: #1f2937;
+  background:
+    radial-gradient(circle at top, #1e1b4b, #020617 55%),
+    linear-gradient(135deg, #020617, #020617);
+  color: #f9fafb;
   overflow-x: hidden;
 }
 
 /* ===============================
-   TOP BAR
+   TOP APP BAR
 ================================ */
 .top-app-bar {
-  height: 64px;
-  padding: 0 16px;
-  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 60px;
+  background: linear-gradient(
+    180deg,
+    rgba(30,27,75,0.95),
+    rgba(2,6,23,0.95)
+  );
+  backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(99,102,241,0.35);
 }
 
 .top-app-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
+  background: linear-gradient(135deg,#818cf8,#22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.top-app-bar nav a {
+  color: #c7d2fe !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.top-app-bar nav a:hover {
+  color: #ffffff !important;
 }
 
 .menu-icon {
-  font-size: 22px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #a5b4fc;
+}
+
+/* ===============================
+   SIDE DRAWER
+================================ */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #020617,
+    #1e1b4b
+  );
+  z-index: 2000;
+  transition: right 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.6);
+}
+
+.drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(99,102,241,0.3);
+}
+
+.drawer-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e0e7ff;
+}
+
+.drawer-header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #c7d2fe;
+  cursor: pointer;
+}
+
+.drawer-content {
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.drawer-content h4 {
+  margin: 20px 0 8px;
+  font-size: 11px;
+  color: #818cf8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.drawer-content a {
+  display: block;
+  padding: 10px 0;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.drawer-content a:hover {
+  color: #22d3ee;
+}
+
+/* ===============================
+   BACKDROP
+================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(2px);
+  z-index: 1500;
+  display: none;
+}
+
+.backdrop.show {
+  display: block;
 }
 
 /* ===============================
    HERO
 ================================ */
 .hero {
-  padding: 20px 16px 8px;
+  text-align: center;
+  padding: 56px 16px 40px;
 }
 
-.hero h1 {
-  font-size: 22px;
-}
-
-.hero p {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-/* ===============================
-   APP LAYOUT
-================================ */
-.app {
-  padding: 12px 16px 48px;
+.brand {
   display: flex;
-  flex-direction: column;
-  gap: 26px; /* THIS IS CRITICAL */
-}
-
-/* ===============================
-   SECTION CARD (VISIBILITY FIX)
-================================ */
-.card {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 20px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-}
-
-/* section header emphasis */
-.card h2 {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-/* ===============================
-   GRID (RESPONSIVE FIX)
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
   gap: 14px;
 }
 
-/* tablets */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.heart {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg,#ec4899,#f43f5e);
+  transform: rotate(45deg);
+  border-radius: 7px;
+  box-shadow: 0 0 18px rgba(244,63,94,0.6);
 }
 
-/* phones */
-@media (max-width: 500px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg,#818cf8,#22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #c7d2fe;
+  font-size: 14px;
 }
 
 /* ===============================
-   APP BUTTON
+   MAIN APP
+================================ */
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px 16px 56px;
+  display: grid;
+  gap: 32px;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.04)
+    );
+  border: 1px solid rgba(99,102,241,0.35);
+  border-radius: 26px;
+  padding: 22px;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #f8fafc;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: #c7d2fe;
+  margin: 6px 0 18px;
+}
+
+/* ===============================
+   GRID
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 16px;
+}
+
+/* ===============================
+   APP BUTTONS
 ================================ */
 .app-btn {
-  background: #f4f6ff;
-  border-radius: 22px;
-  padding: 14px 10px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(99,102,241,0.35),
+      rgba(30,27,75,0.45)
+    );
+  border: 1px solid rgba(129,140,248,0.55);
+  border-radius: 18px;
+  padding: 16px 10px;
   text-align: center;
-  transition: transform 0.15s ease;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .app-btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 18px 36px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(34,211,238,0.5);
 }
 
 .app-btn img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 8px;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 10px;
+  display: block;
 }
 
 .app-btn span {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-}
-
-/* ===============================
-   SECTION COLOR IDENTITY
-   (THIS MAKES SECTIONS OBVIOUS)
-================================ */
-#social    { background: linear-gradient(#ffffff, #eef2ff); }
-#jobs      { background: linear-gradient(#ffffff, #ecfeff); }
-#ott       { background: linear-gradient(#ffffff, #fff7ed); }
-#music     { background: linear-gradient(#ffffff, #fdf4ff); }
-#shop      { background: linear-gradient(#ffffff, #f1f5f9); }
-#travel    { background: linear-gradient(#ffffff, #ecfeff); }
-#rides     { background: linear-gradient(#ffffff, #f0fdf4); }
-#food      { background: linear-gradient(#ffffff, #fef2f2); }
-#health    { background: linear-gradient(#ffffff, #ecfdf5); }
-#sports    { background: linear-gradient(#ffffff, #eef2ff); }
-#learning  { background: linear-gradient(#ffffff, #faf5ff); }
-
-/* ===============================
-   DRAWER
-================================ */
-.drawer {
-  background: #ffffff;
-}
-
-.drawer-content a {
-  color: #374151;
+  color: #f8fafc;
 }
 
 /* ===============================
    FOOTER
 ================================ */
 .footer {
-  padding: 32px 16px;
   text-align: center;
+  padding: 36px 16px;
   font-size: 12px;
-  color: #6b7280;
+  color: #c7d2fe;
+  line-height: 1.7;
+}
+
+.footer a {
+  color: #a5b4fc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #22d3ee;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
