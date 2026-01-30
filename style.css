@@ -5,15 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body {
-  min-height: 100vh;
+html, body {
+  height: 100%;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
   background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
   color: #f8fafc;
-  padding-top: 56px; /* space for fixed top bar */
-  overflow-x: hidden;
 }
 
 /* ===============================
@@ -30,133 +28,23 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  z-index: 3000;
+  z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .top-app-title {
   font-size: 18px;
   font-weight: 600;
-  color: #ffffff;
 }
 
 .menu-icon {
   font-size: 22px;
-  color: #ffffff;
   cursor: pointer;
 }
 
-/* ===============================
-   HERO
-   =============================== */
-.hero {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-}
-
-.brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
-.heart {
-  width: 26px;
-  height: 26px;
-  background: linear-gradient(135deg, #ec4899, #f43f5e);
-  transform: rotate(45deg);
-  border-radius: 6px;
-}
-
-.hero h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-}
-
-.hero p {
-  margin-top: 8px;
-  color: #cbd5f5;
-}
-
-/* ===============================
-   MAIN APP
-   =============================== */
-.app {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1.5rem;
-  display: grid;
-  gap: 2rem;
-}
-
-/* ===============================
-   CARDS
-   =============================== */
-.card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 20px;
-  padding: 1.5rem;
-  backdrop-filter: blur(10px);
-}
-
-.card h2 {
-  font-size: 1.4rem;
-}
-
-.section-sub {
-  font-size: 0.9rem;
-  color: #cbd5f5;
-  margin: 6px 0 1.2rem;
-}
-
-/* ===============================
-   GRID
-   =============================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
-}
-
-/* ===============================
-   APP BUTTONS
-   =============================== */
-.app-btn {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 16px;
-  padding: 1rem 0.6rem;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.18);
-}
-
-.app-btn img {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 6px;
-}
-
-.app-btn span {
-  display: block;
-  font-size: 0.85rem;
-}
-
-/* ===============================
-   FOOTER
-   =============================== */
-.footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.85rem;
-  color: #cbd5f5;
+/* Push content below top bar */
+body {
+  padding-top: 56px;
 }
 
 /* ===============================
@@ -165,7 +53,7 @@ body {
 .drawer {
   position: fixed;
   top: 0;
-  right: -280px; /* hidden by default */
+  right: -280px;
   width: 260px;
   height: 100vh;
   background: linear-gradient(180deg, #020617, #0f172a);
@@ -183,55 +71,53 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 16px;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .drawer-header h2 {
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .drawer-header button {
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .drawer-content {
-  padding: 1rem;
+  padding: 16px;
   overflow-y: auto;
 }
 
 .drawer-content h4 {
-  margin: 1rem 0 0.4rem;
-  font-size: 0.75rem;
+  margin: 16px 0 8px;
+  font-size: 12px;
   color: #94a3b8;
   text-transform: uppercase;
 }
 
 .drawer-content a {
   display: block;
-  padding: 0.6rem 0;
+  padding: 8px 0;
   color: #e5e7eb;
   text-decoration: none;
-  font-size: 0.95rem;
+  cursor: pointer;
 }
 
 .drawer-content a:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
-/* ===============================
-   BACKDROP
-   =============================== */
+/* Backdrop */
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: 1500;
+  background: rgba(0,0,0,0.45);
   display: none;
+  z-index: 1500;
 }
 
 .backdrop.show {
@@ -239,10 +125,179 @@ body {
 }
 
 /* ===============================
+   HERO
+   =============================== */
+.hero {
+  text-align: center;
+  padding: 48px 16px 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  transform: rotate(45deg);
+  border-radius: 6px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.hero p {
+  margin-top: 8px;
+  color: #cbd5f5;
+}
+
+/* ===============================
+   MAIN APP LAYOUT
+   =============================== */
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: grid;
+  gap: 24px;
+}
+
+/* ===============================
+   CARDS
+   =============================== */
+.card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.card h2 {
+  font-size: 20px;
+}
+
+.section-sub {
+  font-size: 14px;
+  color: #cbd5f5;
+  margin: 6px 0 16px;
+}
+
+/* ===============================
+   GRID
+   =============================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+/* ===============================
+   APP BUTTONS
+   =============================== */
+.app-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 14px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.app-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.18);
+}
+
+.app-btn img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
+}
+
+.app-btn span {
+  font-size: 13px;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* ===============================
+   SPLASH – HD LOGO ANIMATION
+   =============================== */
+.splash-container {
+  height: 100vh;
+  background: url("assets/images/splash-bg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(
+    135deg,
+    #60a5fa,
+    #a78bfa,
+    #f472b6,
+    #22d3ee
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: scale(0.6);
+  animation:
+    logoReveal 1.2s ease-out forwards,
+    gradientShift 4s ease-in-out infinite;
+  animation-delay: 1.2s, 1.4s;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(
+    circle,
+    rgba(167,139,250,0.35),
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(18px);
+  z-index: -1;
+}
+
+@keyframes logoReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
    MOBILE TWEAKS
    =============================== */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
+  .hero h1 { font-size: 28px; }
+  .logo { font-size: 64px; }
 }
