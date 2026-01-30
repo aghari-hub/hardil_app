@@ -1,38 +1,53 @@
-// SIMPLE CLICK HANDLER (FAIL-SAFE)
+/* ===============================
+   HarDil App JS
+   =============================== */
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* ---------- APP BUTTON REDIRECT ---------- */
   document.querySelectorAll(".app-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const url = btn.getAttribute("data-url");
       if (url) {
-        window.open(url, "_blank");
+        window.open(url, "_blank"); // open official site
       }
     });
   });
-});
-const drawer = document.getElementById("drawer");
-const backdrop = document.getElementById("backdrop");
-const openMenu = document.getElementById("openMenu");
-const closeMenu = document.getElementById("closeMenu");
 
-openMenu.onclick = () => {
-  drawer.classList.add("open");
-  backdrop.classList.add("show");
-};
+  /* ---------- DRAWER ELEMENTS ---------- */
+  const menuBtn = document.querySelector(".top-app-menu");
+  const drawer = document.getElementById("drawer");
+  const closeBtn = document.getElementById("closeMenu");
+  const backdrop = document.getElementById("backdrop");
 
-closeMenu.onclick = closeDrawer;
-backdrop.onclick = closeDrawer;
+  /* ---------- OPEN DRAWER ---------- */
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      drawer.classList.add("open");
+      backdrop.classList.add("show");
+    });
+  }
 
-function closeDrawer() {
-  drawer.classList.remove("open");
-  backdrop.classList.remove("show");
-}
+  /* ---------- CLOSE DRAWER ---------- */
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    backdrop.classList.remove("show");
+  }
 
-document.querySelectorAll("[data-scroll]").forEach(item => {
-  item.onclick = () => {
-    const target = document.querySelector("." + item.dataset.scroll);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+  if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+  /* ---------- SCROLL TO SECTION ---------- */
+  document.querySelectorAll("[data-scroll]").forEach(link => {
+    link.addEventListener("click", () => {
+      const targetClass = link.getAttribute("data-scroll");
+      const section = document.querySelector("." + targetClass);
+
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
       closeDrawer();
-    }
-  };
+    });
+  });
+
 });
