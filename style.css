@@ -9,85 +9,83 @@
 }
 
 html {
-  font-size: 20px; /* BIG BASE FONT */
+  font-size: 16px; /* balanced base size */
   scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
-  background:
-    linear-gradient(rgba(6,10,20,0.92), rgba(6,10,20,0.92)),
-    url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
   color: #f8fafc;
-  line-height: 1.85;
+  line-height: 1.6;
+  background:
+    linear-gradient(
+      rgba(6,10,20,0.75),
+      rgba(6,10,20,0.75)
+    ),
+    url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
-/* ===============================
-   TOP TAB ACTIONS (FINAL)
-================================ */
-.top-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.top-actions a {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #e5e7eb;
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 10px;
-  white-space: nowrap;
-}
-
-.top-actions a:hover {
-  background: rgba(255,255,255,0.18);
-}
-
 
 /* ===============================
-   TOP APP BAR (CLEAR)
+   TOP BAR
 ================================ */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
   height: 64px;
-  background: rgba(6,10,20,0.98);
+  background: rgba(6,10,20,0.95);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .top-app-title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .menu-icon {
-  font-size: 30px;
+  font-size: 26px;
   cursor: pointer;
 }
 
+.top-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.top-actions a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.top-actions a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
 /* ===============================
-   HERO (STRONG & CLEAR)
+   HERO
 ================================ */
 .hero {
   text-align: center;
-  padding: 60px 18px 40px;
+  padding: 40px 16px 30px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 800;
 }
 
 .hero p {
-  margin-top: 14px;
-  font-size: 1.3rem;
+  margin-top: 8px;
+  font-size: 1.05rem;
   color: #e2e8f0;
 }
 
@@ -97,73 +95,79 @@ body {
 .app {
   max-width: 1280px;
   margin: auto;
-  padding: 26px 18px 70px;
+  padding: 20px 14px 60px;
   display: grid;
-  gap: 44px;
-}
-
-/* ===============================
-   SECTION CARDS (BIG & SOFT)
-================================ */
-.card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 26px;
-  padding: 36px 28px;
-}
-
-.card h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 26px;
-}
-
-/* ===============================
-   GRID
-================================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 28px;
 }
 
 /* ===============================
-   APP BUTTONS (THUMB FRIENDLY)
+   SECTIONS
 ================================ */
-.app-btn {
-  background: rgba(255,255,255,0.18);
-  border-radius: 26px;
-  padding: 34px 16px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+.card {
+  background: rgba(255,255,255,0.02);
+  border-radius: 18px;
+  padding: 18px 14px;
 }
 
-.app-btn:hover {
-  background: rgba(255,255,255,0.28);
-  transform: translateY(-6px);
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
-.app-btn img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 18px;
-}
-
-.app-btn span {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #ffffff;
+.section-sub {
+  font-size: 0.9rem;
+  color: #cbd5f5;
+  margin-bottom: 14px;
 }
 
 /* ===============================
-   DRAWER (VERY READABLE)
+   GRID (AUTO DESKTOP)
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+/* ===============================
+   APP ICONS (NO BOXES)
+================================ */
+.app-btn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px 2px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.app-btn:hover {
+  transform: translateY(-3px);
+}
+
+.app-btn img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+}
+
+.app-btn span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* ===============================
+   DRAWER
 ================================ */
 .drawer {
   position: fixed;
   top: 0;
   right: -320px;
-  width: 300px;
+  width: 280px;
   height: 100vh;
   background: #060a18;
   transition: right 0.3s ease;
@@ -178,30 +182,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .drawer-header strong {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .drawer-content {
-  padding: 22px;
+  padding: 18px;
 }
 
 .drawer-content h4 {
-  margin-top: 28px;
-  font-size: 1rem;
+  margin-top: 22px;
+  font-size: 0.8rem;
   color: #94a3b8;
   text-transform: uppercase;
 }
 
 .drawer-content a {
   display: block;
-  padding: 16px 0;
+  padding: 12px 0;
   color: #f1f5f9;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
 }
 
@@ -225,162 +229,41 @@ body {
 }
 
 /* ===============================
-   FOOTER (CLEAR & CALM)
+   FOOTER
 ================================ */
 .footer {
   text-align: center;
-  padding: 44px 18px;
-  font-size: 1.15rem;
-  line-height: 1.7;
+  padding: 30px 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
   color: #e2e8f0;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* ===============================
-   MOBILE OPTIMIZATION (FINAL)
+   MOBILE (5 APPS PER ROW)
 ================================ */
 @media (max-width: 600px) {
 
-  /* Bigger cards = easier taps */
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
-  }
-
-  /* Hero readability */
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-  }
-
-  /* App buttons */
-  .app-btn {
-    padding: 38px 16px;
-    border-radius: 28px;
-  }
-
-  .app-btn img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .app-btn span {
-    font-size: 1.15rem;
-    font-weight: 600;
-  }
-
-  /* Drawer text */
-  .drawer-content a {
-    font-size: 1.2rem;
-    padding: 16px 0;
-  }
-}/* ===============================
-   MOBILE OPTIMIZATION (FINAL)
-================================ */
-@media (max-width: 600px) {
-
-  /* =========================
-     TOP TAB BAR (CRITICAL FIX)
-  ========================== */
-  .top-actions {
-    gap: 6px;
-    flex-wrap: wrap;              /* allows wrapping */
-    justify-content: center;      /* keeps it clean */
-  }
-
-  .top-actions a {
-    font-size: 0.85rem;           /* slightly smaller to fit 5 tabs */
-    padding: 6px 8px;
-    border-radius: 8px;
-  }
-
-  /* =========================
-     GRID (EASY TAPS)
-  ========================== */
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
-  }
-
-  /* =========================
-     HERO READABILITY
-  ========================== */
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1.15rem;
-  }
-
-  /* =========================
-     APP BUTTONS (THUMB FRIENDLY)
-  ========================== */
-  .app-btn {
-    padding: 36px 16px;
-    border-radius: 28px;
-  }
-
-  .app-btn img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .app-btn span {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
-
-  /* =========================
-     DRAWER TEXT
-  ========================== */
-  .drawer-content a {
-    font-size: 1.2rem;
-    padding: 16px 0;
-  }
-}
-.app-btn {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 12px 4px;
-}
-
-.app-btn:hover {
-  background: transparent;
-  transform: translateY(-3px);
-}
-.app-btn img {
-  width: 52px;
-  height: 52px;
-}
-
-.app-btn span {
-  font-size: 12px;
-}
-@media (max-width: 520px) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
+    gap: 8px;
+  }
+
+  .app-btn img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .app-btn span {
+    font-size: 0.7rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 }
-body {
-  background:
-    linear-gradient(
-      rgba(2,6,23,0.88),
-      rgba(2,6,23,0.88)
-    ),
-    url("assets/images/splash-bg.jpg") center / cover no-repeat fixed;
-}
-.card {
-  background: rgba(255,255,255,0.02);
-  box-shadow: none;
-  border: none;
-}
-
-
-
-
