@@ -1,6 +1,6 @@
-/* =====================================================
+/* ===============================
    RESET
-===================================================== */
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -11,158 +11,174 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
+/* ===============================
+   BACKGROUND (VISIBLE LIKE APP DRAWER)
+================================ */
 body {
+  width: 100%;
   color: #f8fafc;
   background:
-    linear-gradient(rgba(6,10,20,0.88), rgba(6,10,20,0.88)),
+    linear-gradient(
+      rgba(6,10,20,0.92),
+      rgba(6,10,20,0.92)
+    ),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
 
-/* =====================================================
+/* ===============================
    TOP BAR
-===================================================== */
+================================ */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 64px;
-  background: rgba(6,10,20,0.95);
+  height: 60px;
+  background: rgba(6,10,20,0.9);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .top-app-title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .menu-icon {
-  font-size: 40px;
-  padding: 10px;
+  font-size: 24px;
   cursor: pointer;
 }
 
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .top-actions a {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #e5e7eb;
   text-decoration: none;
-  padding: 8px 10px;
+  padding: 6px 8px;
   border-radius: 8px;
 }
 
 .top-actions a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
 }
 
-/* =====================================================
+/* ===============================
    HERO
-===================================================== */
+================================ */
 .hero {
   text-align: center;
-  padding: 44px 16px 30px;
+  padding: 26px 12px 18px;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: 1.9rem;
   font-weight: 800;
 }
 
 .hero p {
-  font-size: 1.15rem;
+  margin-top: 6px;
+  font-size: 0.95rem;
   color: #cbd5f5;
-  margin-top: 10px;
 }
 
-/* =====================================================
-   MAIN APP AREA
-===================================================== */
+/* ===============================
+   MAIN CONTAINER
+================================ */
 .app {
   max-width: 1280px;
   margin: auto;
-  padding: 20px 16px 80px;
+  padding: 12px 8px 50px;
   display: grid;
-  gap: 36px;
+  gap: 22px;
 }
 
-/* =====================================================
-   SECTION CONTAINERS (UNIFORM)
-===================================================== */
+/* ===============================
+   SECTION HEADERS (NO CARDS)
+================================ */
 .card {
-  background: rgba(12,16,36,0.65);
-  backdrop-filter: blur(12px);
-  border-radius: 22px;
-  padding: 26px 22px 30px;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+  background: transparent;
+  padding: 0;
 }
 
 .card h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.section-sub {
-  font-size: 0.9rem;
-  color: #cbd5f5;
-  margin-bottom: 20px;
-}
-
-/* =====================================================
-   GRID — ALWAYS 5 APPS PER ROW
-===================================================== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 18px;
-  row-gap: 26px;
-}
-
-/* =====================================================
-   APP ICONS — MAIN FOCUS
-===================================================== */
-.app-btn {
-  background: transparent;
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  padding: 6px 4px;
-  transition: transform 0.2s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-6px);
-}
-
-.app-btn img {
-  width: 96px;
-  height: 96px;
   margin-bottom: 10px;
 }
 
-/* 🔥 APP NAME — BIGGEST TEXT IN UI */
-.app-btn span {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: #ffffff;
+.section-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 10px;
 }
 
-/* =====================================================
+/* ===============================
+   GRID (ANDROID STYLE – TIGHT)
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 6px;   /* reduced vertical & horizontal gap */
+}
+
+/* ===============================
+   APP ICONS (BIGGER + FLOATING)
+================================ */
+.app-btn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 4px 0;   /* tighter touch area */
+  text-align: center;
+  cursor: pointer;
+}
+
+.app-btn img {
+  width: 68px;     /* increased from 54px */
+  height: 68px;
+  margin-bottom: 4px; /* reduced gap to label */
+}
+
+.app-btn span {
+  font-size: 0.8rem;  /* slightly bigger text */
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+/* ===============================
+   DESKTOP / TABLET
+================================ */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 18px;
+  }
+
+  .app-btn img {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* ===============================
    DRAWER
-===================================================== */
+================================ */
 .drawer {
   position: fixed;
   top: 0;
   right: -320px;
-  width: 300px;
+  width: 280px;
   height: 100vh;
-  background: rgba(8,12,32,0.98);
+  background: #060a18;
   transition: right 0.3s ease;
   z-index: 2000;
 }
@@ -171,90 +187,359 @@ body {
   right: 0;
 }
 
-.drawer-content a {
+/* ===============================
+   BACKDROP
+================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 1500;
+}
+
+.backdrop.show {
   display: block;
-  font-size: 1.4rem;
-  padding: 18px 22px;
-  color: #f1f5f9;
-  text-decoration: none;
 }
 
-.drawer-content a:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* =====================================================
-   STATIC PAGES (ABOUT / MOTIVE / PRIVACY / TERMS / LEGAL)
-===================================================== */
-main {
-  max-width: 100%;
-  padding: 40px 16px 100px;
-}
-
-main section,
-main article {
-  max-width: 960px;
-  margin: 36px auto;
-  padding: 38px 34px;
-  background: rgba(12,16,36,0.7);
-  backdrop-filter: blur(14px);
-  border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Titles */
-main h1 {
-  font-size: 2.6rem;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Paragraphs — EASY ON EYES */
-main p {
-  font-size: 1.55rem;
-  line-height: 2.2;
-  color: #e5e7eb;
-  margin-bottom: 24px;
-  word-break: break-word;
-}
-
-/* =====================================================
+/* ===============================
    FOOTER
-===================================================== */
+================================ */
 .footer {
   text-align: center;
-  padding: 36px 16px;
-  font-size: 1rem;
+  padding: 26px 12px;
+  font-size: 0.8rem;
   color: #cbd5f5;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+/* ===============================
+   FINAL SIMPLE FIX (ICON ONLY)
+================================ */
+
+/* Remove box feeling completely */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;
 }
 
-/* =====================================================
-   MOBILE TUNING (NO LAYOUT CHANGE)
-===================================================== */
+/* Make app icons BIGGER */
+.app-btn img {
+  width: 68px !important;
+  height: 68px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Clean app name */
+.app-btn span {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Floating effect (subtle) */
+.app-btn:hover {
+  transform: translateY(-6px);
+}
+/* =================================================
+   FORCE BIG UI – FINAL OVERRIDE
+   (APPS · TEXT · MENU ICON)
+================================================= */
+
+/* ===============================
+   GRID – BIG APPS, LESS ROW GAP
+================================ */
+.grid {
+  grid-template-columns: repeat(5, 1fr) !important;
+  row-gap: 18px !important;     /* DECREASE vertical gap */
+  column-gap: 12px !important;
+}
+
+/* ===============================
+   APP BUTTON – BIGGER ICONS
+================================ */
+.app-btn {
+  padding: 6px 4px !important;
+}
+
+.app-btn img {
+  width: 88px !important;       /* BIG ICON */
+  height: 88px !important;
+  margin-bottom: 6px !important;
+}
+
+/* App text */
+.app-btn span {
+  font-size: 1.15rem !important; /* BIG TEXT */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ===============================
+   TEXT PAGES – VERY READABLE
+================================ */
+main p {
+  font-size: 1.45rem !important;
+  line-height: 2.1;
+}
+
+main h1,
+main h2 {
+  font-size: 2.2rem !important;
+}
+
+/* ===============================
+   SECTION BLOCKS (PREMIUM)
+================================ */
+.card,
+main section,
+main article {
+  padding: 40px 32px !important;
+  margin-bottom: 32px !important;
+}
+
+/* ===============================
+   MENU ICON (☰) – EASY TAP
+================================ */
+.menu-icon {
+  font-size: 38px !important;   /* BIG THREE BARS */
+  padding: 10px 14px !important;
+  cursor: pointer;
+}
+
+/* ===============================
+   DRAWER LINKS – BIGGER
+================================ */
+.drawer-content a {
+  font-size: 1.35rem !important;
+  padding: 18px 16px !important;
+}
+
+/* ===============================
+   MOBILE – EXTRA COMFORT
+================================ */
 @media (max-width: 600px) {
 
   html {
-    font-size: 18px;
+    font-size: 20px;
+  }
+
+  .grid {
+    row-gap: 16px !important;   /* EVEN LESS GAP */
   }
 
   .app-btn img {
-    width: 100px;
-    height: 100px;
+    width: 92px !important;
+    height: 92px !important;
   }
 
   .app-btn span {
-    font-size: 1.7rem;
+    font-size: 1.2rem !important;
+  }
+
+  .menu-icon {
+    font-size: 42px !important;
+  }
+}
+/* =================================================
+   STORY PAGES (ABOUT / MOTIVE / PRIVACY / TERMS / LEGAL)
+   BIG TEXT + TRANSPARENT BOX
+================================================= */
+
+/* Page container */
+main {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
+}
+
+/* Content box */
+main section,
+main article,
+main .content {
+  background: rgba(12, 16, 36, 0.72); /* transparent premium */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 38px 34px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* Page title */
+main h1 {
+  font-size: 2.3rem !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 28px;
+  color: #f8fafc;
+}
+
+/* Paragraph text (MAIN FIX) */
+main p {
+  font-size: 1.45rem !important;   /* LARGE TEXT */
+  line-height: 2.1;
+  color: #e5e7eb;
+  margin-bottom: 20px;
+}
+
+/* Lists if present */
+main ul li {
+  font-size: 1.35rem;
+  line-height: 2;
+  margin-bottom: 14px;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  main {
+    margin-top: 24px;
+  }
+
+  main section,
+  main article,
+  main .content {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+
+  main h1 {
+    font-size: 2rem !important;
+  }
+
+  main p {
+    font-size: 1.5rem !important;
+  }
+}
+/* =================================================
+   ZOOM-SAFE TEXT (NO CUTTING / NO OVERFLOW)
+================================================= */
+
+/* Allow natural text expansion */
+main,
+main section,
+main article,
+.card {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+/* Paragraph safety */
+main p {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* Headings safety */
+main h1,
+main h2,
+main h3 {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Line height scales smoothly on zoom */
+main p,
+main li {
+  line-height: 1.9;
+}
+
+/* Prevent text clipping in all containers */
+* {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ===============================
+   MOBILE ZOOM FRIENDLY
+================================ */
+@media (max-width: 600px) {
+
+  main p {
+    font-size: 1.5rem !important;
+    line-height: 2.1;
   }
 
   main section,
   main article {
-    padding: 30px 22px;
+    padding-bottom: 32px; /* extra space for zoom */
+  }
+}
+/* =====================================================
+   STATIC PAGES (ABOUT / MOTIVE / PRIVACY / TERMS / LEGAL)
+   BIG TEXT + FULL WIDTH + PREMIUM GLASS
+===================================================== */
+
+main {
+  max-width: 100%;
+  padding: 24px 16px 80px;
+}
+
+/* Transparent readable box */
+main section,
+main article,
+.static-page {
+  max-width: 920px;              /* USE SCREEN PROPERLY */
+  margin: 32px auto;
+  padding: 28px 24px;
+
+  background: rgba(10, 15, 35, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Headings */
+main h1,
+main h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+
+/* Paragraph text — MAIN FIX */
+main p {
+  font-size: 1.35rem;            /* BIG TEXT */
+  line-height: 2.1;              /* EASY ON EYES */
+  color: #e5e7eb;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+/* Remove wasted vertical space */
+main p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   MOBILE — USE FULL WIDTH & EVEN BIGGER TEXT
+===================================================== */
+@media (max-width: 600px) {
+
+  main section,
+  main article,
+  .static-page {
+    max-width: 100%;
+    padding: 22px 18px;
+    margin: 20px auto;
+  }
+
+  main h1,
+  main h2 {
+    font-size: 1.7rem;
   }
 
   main p {
-    font-size: 1.65rem;
+    font-size: 1.55rem;          /* VERY READABLE */
+    line-height: 2.2;
   }
-}
-
-
+}    
