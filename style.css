@@ -1,171 +1,130 @@
-/* =====================================================
-   GLOBAL RESET & BASE
-===================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* =========================
+   RESPONSIVE DESIGN UPGRADE
+   ========================= */
 
-html {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  min-height: 100vh;
-  background-color: #050812;
-  color: #ffffff;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+/* Prevent horizontal overflow */
+html, body {
+  max-width: 100%;
   overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
-/* =====================================================
-   APP SECTION (FULL SCREEN BLOCKS)
-===================================================== */
-.app-section {
-  width: 100%;
-  padding: 20px 12px;
+/* Top bar tweaks for mobile */
+@media (max-width: 768px) {
+  .top-actions {
+    display: none; /* hide links on small screens */
+  }
+
+  .top-app-title {
+    font-size: 16px;
+  }
 }
 
-/* =====================================================
-   STICKY SECTION HEADERS
-===================================================== */
-.section-title {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background-color: #050812;
-  padding: 10px 0;
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
-/* =====================================================
-   APP GRID (NO BOXES, FULL WIDTH)
-===================================================== */
-.app-grid {
-  display: grid;
-  margin-top: 14px;
-  gap: 12px;
-}
-
-/* =====================================================
-   APP ICON (CLEAN, FLOATING)
-===================================================== */
-.app-icon {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  text-align: center;
-  outline: none;
-}
-
-.app-icon img {
-  display: block;
-  margin: 0 auto 4px;
-}
-
-.app-icon span {
-  font-size: 0.75rem;
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-/* =====================================================
-   KEYBOARD NAVIGATION (DESKTOP)
-===================================================== */
-.app-icon:focus {
-  outline: 2px solid #4f46e5;
-  outline-offset: 4px;
-}
-
-/* =====================================================
-   📱 MOBILE PHONES (CLEAR, NO ZOOM)
-===================================================== */
+/* Drawer full-height & mobile friendly */
 @media (max-width: 600px) {
+  .drawer {
+    width: 85%;
+    left: -100%;
+  }
 
-  .app-grid {
+  .drawer.open {
+    left: 0;
+  }
+}
+
+/* Hero scaling */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+}
+
+/* Cards spacing on small screens */
+@media (max-width: 600px) {
+  main.app {
+    padding: 10px;
+    padding-bottom: 100px;
+  }
+
+  .card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .card h2 {
+    font-size: 15px;
+  }
+
+  .section-sub {
+    font-size: 12px;
+  }
+}
+
+/* Grid responsiveness (more refined) */
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
+
+/* App buttons responsive */
+@media (max-width: 480px) {
+  .app-btn {
+    padding: 8px 6px;
+    border-radius: 10px;
+  }
+
+  .app-btn img,
+  .icon-fallback {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+  }
+
+  .app-btn span {
+    font-size: 11px;
+  }
+}
+
+/* Tablet optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .app-icon img {
-    width: 56px;
-    height: 56px;
-  }
-
-  .app-icon span {
-    font-size: 0.7rem;
-  }
-
-  .app-section {
-    padding: 18px 10px;
+  main.app {
+    max-width: 900px;
   }
 }
 
-/* =====================================================
-   📲 TABLETS (NOT STRETCHED MOBILE)
-===================================================== */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* Desktop large screens */
+@media (min-width: 1200px) {
+  main.app {
+    max-width: 1100px;
+  }
 
-  .app-grid {
-    grid-template-columns: repeat(6, 1fr);
+  .grid {
     gap: 14px;
   }
-
-  .app-icon img {
-    width: 64px;
-    height: 64px;
-  }
-
-  .app-icon span {
-    font-size: 0.8rem;
-  }
-
-  .app-section {
-    padding: 26px 22px;
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-  }
 }
 
-/* =====================================================
-   💻 DESKTOP & LAPTOPS (TRUE FULLSCREEN)
-===================================================== */
-@media (min-width: 1025px) {
-
-  .app-grid {
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-    gap: 16px;
-  }
-
-  .app-icon img {
-    width: 72px;
-    height: 72px;
-  }
-
-  .app-icon span {
-    font-size: 0.85rem;
-  }
-
-  .app-section {
-    padding: 32px 48px;
-  }
-
-  .section-title {
-    font-size: 1.35rem;
-  }
-}
-
-/* =====================================================
-   TOUCH DEVICES – DISABLE HOVER EFFECTS
-===================================================== */
+/* Touch-friendly hover fallback */
 @media (hover: none) {
-  .app-icon:hover {
+  .app-btn:hover {
     transform: none;
+    box-shadow: none;
   }
+}
+
+/* Footer responsiveness */
+@media (max-width: 600px) {
+  footer.footer {
+    font-size: 11px;
+    padding: 20px 8px;
+  }
+}
+/* iOS-style safe area support */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
 }
