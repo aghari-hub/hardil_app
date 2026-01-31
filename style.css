@@ -342,4 +342,45 @@ body {
     padding: 16px 0;
   }
 }
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 12px 4px;
+}
+
+.app-btn:hover {
+  background: transparent;
+  transform: translateY(-3px);
+}
+.app-btn img {
+  width: 52px;
+  height: 52px;
+}
+
+.app-btn span {
+  font-size: 12px;
+}
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+}
+body {
+  background:
+    linear-gradient(
+      rgba(2,6,23,0.88),
+      rgba(2,6,23,0.88)
+    ),
+    url("assets/images/splash-bg.jpg") center / cover no-repeat fixed;
+}
+.card {
+  background: rgba(255,255,255,0.02);
+  box-shadow: none;
+  border: none;
+}
+
+
+
 
