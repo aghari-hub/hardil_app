@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -17,7 +17,7 @@ html {
 body {
   color: #f8fafc;
   background:
-    linear-gradient(rgba(6,10,20,0.9), rgba(6,10,20,0.9)),
+    linear-gradient(rgba(6,10,20,0.88), rgba(6,10,20,0.88)),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 .top-app-title {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 
@@ -48,83 +48,79 @@ body {
   cursor: pointer;
 }
 
-.top-actions a {
-  font-size: 0.9rem;
-  color: #e5e7eb;
-  padding: 6px 10px;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.top-actions a:hover {
-  background: rgba(255,255,255,0.15);
-}
-
 /* =====================================================
    HERO
 ===================================================== */
 .hero {
   text-align: center;
-  padding: 36px 16px 26px;
+  padding: 36px 16px 28px;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #cbd5f5;
 }
 
 /* =====================================================
-   MAIN APP GRID
+   MAIN CONTAINER
 ===================================================== */
 .app {
   max-width: 1280px;
   margin: auto;
-  padding: 16px 12px 80px;
+  padding: 20px 14px 90px;
   display: grid;
-  gap: 28px;
-}
-
-/* Section headers */
-.card {
-  background: transparent;
-}
-
-.card h2 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.section-sub {
-  font-size: 0.9rem;
-  color: #94a3b8;
-  margin-bottom: 14px;
+  gap: 36px;
 }
 
 /* =====================================================
-   GRID — 5 APPS PER ROW (MOBILE & DESKTOP)
+   SECTION CARD — SAME FOR ALL
+===================================================== */
+.card {
+  background: rgba(12,16,36,0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 22px 18px 28px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+/* Section title */
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Section subtitle */
+.section-sub {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #cbd5f5;
+}
+
+/* =====================================================
+   GRID — 5 APPS EVERYWHERE
 ===================================================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 14px;
-  row-gap: 22px;
+  column-gap: 18px;
+  row-gap: 26px;
 }
 
 /* =====================================================
-   APP ICONS — BIGGER THAN SECTION TEXT
+   APP ICONS — PRIMARY FOCUS
 ===================================================== */
 .app-btn {
   background: transparent;
   border: none;
   text-align: center;
   cursor: pointer;
-  padding: 8px 4px;
+  padding: 6px 4px;
   transition: transform 0.2s ease;
 }
 
@@ -132,19 +128,18 @@ body {
   transform: translateY(-6px);
 }
 
-/* ICON */
 .app-btn img {
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   margin-bottom: 8px;
 }
 
-/* 🔥 APP NAME — BIGGEST TEXT IN UI */
+/* 🔥 APP NAME — BIGGEST TEXT */
 .app-btn span {
-  font-size: 1.25rem;      /* BIGGER than section titles */
+  font-size: 1.45rem;
   font-weight: 600;
-  color: #ffffff;
   line-height: 1.3;
+  color: #ffffff;
 }
 
 /* =====================================================
@@ -178,7 +173,7 @@ body {
 ===================================================== */
 main {
   max-width: 100%;
-  padding: 32px 16px 90px;
+  padding: 40px 16px 100px;
 }
 
 main section,
@@ -189,219 +184,48 @@ main article {
   background: rgba(12,16,36,0.65);
   backdrop-filter: blur(12px);
   border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Page titles */
+/* Page title */
 main h1 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 28px;
   text-align: center;
 }
 
-/* Paragraphs — VERY READABLE */
+/* Paragraphs — EASY ON EYES */
 main p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 2.2;
   color: #e5e7eb;
   margin-bottom: 22px;
-}
-
-/* Zoom-safe */
-main p,
-main h1,
-main h2 {
   white-space: normal;
   word-break: break-word;
 }
 
 /* =====================================================
-   FOOTER
-===================================================== */
-.footer {
-  text-align: center;
-  padding: 32px 16px;
-  font-size: 0.9rem;
-  color: #cbd5f5;
-}
-
-/* =====================================================
-   MOBILE OPTIMIZATION
+   MOBILE
 ===================================================== */
 @media (max-width: 600px) {
 
   html {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .grid {
-    row-gap: 20px;
+    row-gap: 24px;
   }
 
   .app-btn img {
-    width: 96px;
-    height: 96px;
+    width: 100px;
+    height: 100px;
   }
 
   .app-btn span {
-    font-size: 1.3rem;
-  }
-
-  main section,
-  main article {
-    padding: 28px 22px;
+    font-size: 1.5rem;
   }
 
   main p {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 }
-/* =====================================================
-   FINAL UN-MIX FIX — REMOVE CARD BOX FEEL COMPLETELY
-===================================================== */
-
-/* Kill all section boxes */
-.card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin-bottom: 32px !important;
-}
-
-/* Section titles spacing */
-.card h2 {
-  font-size: 1.15rem !important;
-  margin-bottom: 6px !important;
-}
-
-/* Section description */
-.section-sub {
-  font-size: 0.95rem !important;
-  margin-bottom: 18px !important;
-}
-
-/* Grid should span full width */
-.grid {
-  width: 100% !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  row-gap: 26px !important;
-  column-gap: 16px !important;
-}
-
-/* App icons — BIG & FREE */
-.app-btn img {
-  width: 96px !important;
-  height: 96px !important;
-}
-
-/* App name — MOST IMPORTANT TEXT */
-.app-btn span {
-  font-size: 1.35rem !important;
-  font-weight: 600 !important;
-}
-
-/* Mobile tuning */
-@media (max-width: 600px) {
-  .grid {
-    row-gap: 24px !important;
-  }
-
-  .app-btn img {
-    width: 100px !important;
-    height: 100px !important;
-  }
-
-  .app-btn span {
-    font-size: 1.4rem !important;
-  }
-}
-/* =====================================================
-   FINAL UNIFORM SECTION STYLE — ALL SECTIONS SAME
-===================================================== */
-
-/* EVERY section container behaves same */
-.card {
-  background: rgba(12, 16, 36, 0.65) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 22px 18px 26px !important;
-  margin-bottom: 32px !important;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.45);
-}
-
-/* Section title */
-.card h2 {
-  font-size: 1.15rem !important;
-  font-weight: 700;
-  margin-bottom: 6px !important;
-}
-
-/* Section subtitle */
-.section-sub {
-  font-size: 0.95rem !important;
-  margin-bottom: 18px !important;
-  color: #cbd5f5;
-}
-
-/* =====================================================
-   GRID — SAME FOR EVERY SECTION
-===================================================== */
-.grid {
-  width: 100% !important;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr) !important;
-  column-gap: 16px !important;
-  row-gap: 24px !important;
-}
-
-/* =====================================================
-   APP ICONS — BIG, CLEAR, FLOATING
-===================================================== */
-.app-btn {
-  padding: 6px 4px !important;
-  text-align: center;
-}
-
-/* Icon size */
-.app-btn img {
-  width: 92px !important;
-  height: 92px !important;
-  margin-bottom: 8px !important;
-}
-
-/* App name — MOST IMPORTANT TEXT */
-.app-btn span {
-  font-size: 1.35rem !important;
-  font-weight: 600 !important;
-  line-height: 1.25;
-  color: #ffffff;
-}
-
-/* Subtle hover lift */
-.app-btn:hover {
-  transform: translateY(-6px);
-}
-
-/* =====================================================
-   MOBILE — STILL 5 APPS, COMFORTABLE
-===================================================== */
-@media (max-width: 600px) {
-
-  .grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    row-gap: 22px !important;
-  }
-
-  .app-btn img {
-    width: 96px !important;
-    height: 96px !important;
-  }
-
-  .app-btn span {
-    font-size: 1.4rem !important;
-  }
-}
-
-
