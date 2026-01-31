@@ -1,6 +1,6 @@
-/* =====================================================
+/* ===============================
    RESET
-===================================================== */
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -11,222 +11,973 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
+/* ===============================
+   BACKGROUND (VISIBLE LIKE APP DRAWER)
+================================ */
 body {
+  width: 100%;
   color: #f8fafc;
   background:
-    linear-gradient(rgba(5, 8, 20, 0.9), rgba(5, 8, 20, 0.9)),
+    linear-gradient(
+      rgba(6,10,20,0.45),
+      rgba(6,10,20,0.45)
+    ),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
 
-/* =====================================================
+/* ===============================
    TOP BAR
-===================================================== */
+================================ */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 68px;
-  background: rgba(5, 8, 20, 0.96);
+  height: 60px;
+  background: rgba(6,10,20,0.9);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  padding: 0 14px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .top-app-title {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .menu-icon {
-  font-size: 36px;
-  padding: 10px;
+  font-size: 24px;
   cursor: pointer;
 }
 
-/* =====================================================
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.top-actions a {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.top-actions a:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ===============================
    HERO
-===================================================== */
+================================ */
 .hero {
   text-align: center;
-  padding: 64px 24px 48px;
+  padding: 26px 12px 18px;
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 3vw, 2.8rem);
+  font-size: 1.9rem;
   font-weight: 800;
 }
 
 .hero p {
-  font-size: clamp(1.15rem, 1.4vw, 1.3rem);
+  margin-top: 6px;
+  font-size: 0.95rem;
   color: #cbd5f5;
-  margin-top: 12px;
 }
 
-/* =====================================================
-   MAIN LAYOUT (DESKTOP FIRST)
-===================================================== */
+/* ===============================
+   MAIN CONTAINER
+================================ */
 .app {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: auto;
-  padding: 40px 32px 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
+  padding: 12px 8px 50px;
+  display: grid;
+  gap: 22px;
 }
 
-/* =====================================================
-   SECTIONS (FULL WIDTH, PREMIUM)
-===================================================== */
+/* ===============================
+   SECTION HEADERS (NO CARDS)
+================================ */
 .card {
-  background: rgba(14, 18, 40, 0.72);
-  backdrop-filter: blur(16px);
-  border-radius: 26px;
-  padding: 36px 40px 44px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  background: transparent;
+  padding: 0;
 }
 
 .card h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .section-sub {
-  font-size: 1rem;
-  color: #cbd5f5;
-  margin-bottom: 32px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 10px;
 }
 
-/* =====================================================
-   APP GRID (REAL LAUNCHER FEEL)
-===================================================== */
+/* ===============================
+   GRID (ANDROID STYLE – TIGHT)
+================================ */
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 36px 28px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px 6px;   /* reduced vertical & horizontal gap */
 }
 
-/* =====================================================
-   APP ICONS
-===================================================== */
+/* ===============================
+   APP ICONS (BIGGER + FLOATING)
+================================ */
 .app-btn {
   background: transparent;
   border: none;
+  box-shadow: none;
+  padding: 4px 0;   /* tighter touch area */
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-6px);
 }
 
 .app-btn img {
-  width: 96px;
-  height: 96px;
-  margin-bottom: 12px;
+  width: 68px;     /* increased from 54px */
+  height: 68px;
+  margin-bottom: 4px; /* reduced gap to label */
 }
 
-/* APP NAME — PRIMARY TEXT */
 .app-btn span {
-  font-size: 1.45rem;
+  font-size: 0.8rem;  /* slightly bigger text */
   font-weight: 600;
-  line-height: 1.3;
   color: #ffffff;
+  line-height: 1.1;
 }
 
-/* =====================================================
-   STATIC PAGES (ABOUT / MOTIVE / LEGAL ETC.)
-===================================================== */
-main {
-  max-width: 100%;
-  padding: 80px 24px 140px;
-}
-
-main section,
-main article {
-  max-width: 1000px;
-  margin: 0 auto 48px;
-  padding: 48px 44px;
-  background: rgba(14, 18, 40, 0.75);
-  backdrop-filter: blur(18px);
-  border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-main h1 {
-  font-size: clamp(2.3rem, 3vw, 2.7rem);
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-main p {
-  font-size: clamp(1.5rem, 1.8vw, 1.7rem);
-  line-height: 2.2;
-  color: #e5e7eb;
-  margin-bottom: 28px;
-  word-break: break-word;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-.footer {
-  text-align: center;
-  padding: 48px 24px;
-  font-size: 1rem;
-  color: #cbd5f5;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* =====================================================
-   MOBILE (TRUE EQUAL TREATMENT)
-===================================================== */
-@media (max-width: 768px) {
-
-  .top-app-bar {
-    padding: 0 18px;
-  }
-
-  .hero {
-    padding: 48px 16px 36px;
-  }
-
-  .app {
-    padding: 32px 16px 100px;
-    gap: 44px;
-  }
-
-  .card {
-    padding: 28px 24px 36px;
-  }
-
+/* ===============================
+   DESKTOP / TABLET
+================================ */
+@media (min-width: 600px) {
   .grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 28px 16px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 18px;
   }
 
   .app-btn img {
-    width: 88px;
-    height: 88px;
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* ===============================
+   DRAWER
+================================ */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 280px;
+  height: 100vh;
+  background: #060a18;
+  transition: right 0.3s ease;
+  z-index: 2000;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+/* ===============================
+   BACKDROP
+================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 1500;
+}
+
+.backdrop.show {
+  display: block;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  text-align: center;
+  padding: 26px 12px;
+  font-size: 0.8rem;
+  color: #cbd5f5;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+/* ===============================
+   FINAL SIMPLE FIX (ICON ONLY)
+================================ */
+
+/* Remove box feeling completely */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;
+}
+
+/* Make app icons BIGGER */
+.app-btn img {
+  width: 68px !important;
+  height: 68px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Clean app name */
+.app-btn span {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Floating effect (subtle) */
+.app-btn:hover {
+  transform: translateY(-6px);
+}
+/* ===============================
+   FINAL ANDROID APP-DRAWER FIX
+   (BIG + READABLE + TIGHT)
+================================ */
+
+/* Grid – tighter like phone launcher */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px 6px;   /* VERY tight spacing */
+}
+
+/* App container */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px 0 !important;
+  text-align: center;
+}
+
+/* App icon – BIGGER */
+.app-btn img {
+  width: 72px !important;
+  height: 72px !important;
+  margin-bottom: 2px !important; /* icon & text closer */
+}
+
+/* App label – CLEAR & READABLE */
+.app-btn span {
+  font-size: 0.95rem !important;   /* BIGGER TEXT */
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.15 !important;
+}
+
+/* Slight floating feel */
+.app-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* ===============================
+   MOBILE EXTRA POLISH
+================================ */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 4px;
+  }
+
+  .app-btn img {
+    width: 76px !important;
+    height: 76px !important;
   }
 
   .app-btn span {
-    font-size: 1.35rem;
+    font-size: 1rem !important;
+  }
+}
+/* ===============================
+   FINAL ANDROID GRID – 5 APPS
+================================ */
+
+/* FORCE 5 apps per row */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 4px 4px !important;   /* tight like launcher */
+}
+
+/* App container */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px 0 !important;
+  text-align: center;
+}
+
+/* Icon size */
+.app-btn img {
+  width: 72px !important;
+  height: 72px !important;
+  margin-bottom: 2px !important;
+}
+
+/* Text size */
+.app-btn span {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.1 !important;
+}
+
+/* Small floating feel */
+.app-btn:hover {
+  transform: translateY(-3px);
+}
+/* ===============================
+   FINAL READABILITY TUNING
+   (5 apps · big icons · clear text)
+================================ */
+
+/* 5 apps per row, more vertical air */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 14px 6px !important;   /* MORE vertical, tight horizontal */
+}
+
+/* App wrapper */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;   /* adds vertical breathing */
+  text-align: center;
+}
+
+/* BIGGER ICONS */
+.app-btn img {
+  width: 80px !important;
+  height: 80px !important;
+  margin-bottom: 6px !important;
+}
+
+/* CLEAR, EASY-TO-READ LABELS */
+.app-btn span {
+  font-size: 1.05rem !important;  /* clearly readable */
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+}
+
+/* Soft floating feel */
+.app-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* ===============================
+   FINAL MASTER SCALE FIX
+   (BIGGER UI · 5 APPS · VERTICAL SPACE)
+================================ */
+
+/* Increase overall UI scale */
+html {
+  font-size: 18px !important; /* global zoom without breaking layout */
+}
+
+/* FORCE 5 apps per row */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 20px 8px !important;   /* MUCH more vertical space */
+}
+
+/* App container spacing */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 14px 0 !important;   /* adds vertical height */
+  text-align: center;
+}
+
+/* BIGGER ICONS */
+.app-btn img {
+  width: 88px !important;
+  height: 88px !important;
+  margin-bottom: 10px !important;
+}
+
+/* BIGGER, VERY READABLE TEXT */
+.app-btn span {
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.25 !important;
+}
+
+/* Smooth floating feel */
+.app-btn:hover {
+  transform: translateY(-4px);
+}
+/* ===============================
+   READABLE CONTENT PAGES FIX
+   (Motive · Privacy · Terms · Legal)
+================================ */
+
+/* Main content wrapper */
+main,
+section,
+.app {
+  position: relative;
+}
+
+/* Text container style */
+main > *,
+section > *,
+.app > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Readable content box */
+.app > section,
+.app > article,
+.app > div,
+main > section {
+  background: rgba(10, 14, 30, 0.65);   /* soft glass effect */
+  border-radius: 16px;
+  padding: 22px 20px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-align: center;
+  color: #f8fafc;
+}
+
+/* Paragraph text */
+p {
+  font-size: 1.05rem;      /* comfortable reading */
+  line-height: 1.7;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+}
+
+/* Lists */
+li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  .app > section,
+  .app > article,
+  .app > div,
+  main > section {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.45rem;
+  }
+
+  p, li {
+    font-size: 1.1rem;   /* slightly bigger on mobile */
+    line-height: 1.75;
+  }
+}
+/* ===============================
+   MENU / DRAWER READABILITY FIX
+================================ */
+
+/* Drawer background clarity */
+.drawer {
+  background: rgba(6, 10, 24, 0.92) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Drawer content spacing */
+.drawer-content {
+  padding: 22px 20px !important;
+}
+
+/* Section headings inside menu */
+.drawer-content h4 {
+  font-size: 0.9rem !important;
+  font-weight: 600;
+  color: #c7d2fe;
+  margin: 18px 0 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Menu links – BIG & EASY */
+.drawer-content a {
+  display: block;
+  font-size: 1.1rem !important;   /* bigger text */
+  line-height: 1.6;
+  padding: 12px 10px !important;  /* easy tap */
+  margin-bottom: 6px;
+  color: #f8fafc !important;
+  border-radius: 10px;
+}
+
+/* Hover / active feel */
+.drawer-content a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Close button clarity */
+.drawer-header button {
+  font-size: 1.4rem;
+  padding: 6px 10px;
+}
+
+/* ===============================
+   MOBILE EXTRA COMFORT
+================================ */
+@media (max-width: 600px) {
+
+  .drawer-content a {
+    font-size: 1.15rem !important;
+    padding: 14px 12px !important;
+  }
+
+  .drawer-content h4 {
+    font-size: 1rem !important;
+  }
+}
+/* =================================================
+   FINAL ACCESSIBILITY + READABILITY CSS
+   (MENU · TEXT PAGES · COMFORT)
+================================================= */
+
+/* ===============================
+   LEFT MENU / DRAWER (BIG TEXT)
+================================ */
+
+/* Drawer container */
+.drawer {
+  width: 300px !important;
+  background: rgba(8, 12, 28, 0.95) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Drawer header */
+.drawer-header strong {
+  font-size: 1.4rem !important;
+  font-weight: 700;
+}
+
+.drawer-header button {
+  font-size: 1.6rem !important;
+  padding: 8px 12px;
+}
+
+/* Drawer content padding */
+.drawer-content {
+  padding: 24px 18px !important;
+}
+
+/* Section titles like "Navigate", "Support" */
+.drawer-content h4 {
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  color: #c7d2fe;
+  margin: 22px 0 14px;
+  letter-spacing: 0.6px;
+}
+
+/* Menu links – BIG, CLEAR, EASY TAP */
+.drawer-content a {
+  font-size: 1.25rem !important;   /* BIG TEXT */
+  line-height: 1.7;
+  padding: 14px 14px !important;   /* BIG TOUCH AREA */
+  margin-bottom: 8px;
+  color: #f8fafc !important;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hover / active */
+.drawer-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===============================
+   TEXT PAGES (MOTIVE / TERMS ETC.)
+================================ */
+
+main,
+.app {
+  padding: 24px 16px;
+}
+
+main section,
+.app section {
+  background: rgba(12, 16, 36, 0.65);
+  border-radius: 18px;
+  padding: 26px 22px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(6px);
+}
+
+/* Headings */
+h1, h2 {
+  font-size: 1.7rem !important;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1.15rem !important;
+  line-height: 1.8;
+  color: #e5e7eb;
+  margin-bottom: 14px;
+}
+
+/* ===============================
+   MOBILE EXTRA COMFORT
+================================ */
+@media (max-width: 600px) {
+
+  .drawer {
+    width: 88vw !important;
+  }
+
+  .drawer-content a {
+    font-size: 1.3rem !important;
+    padding: 16px 16px !important;
+  }
+
+  h1, h2 {
+    font-size: 1.55rem !important;
+  }
+
+  p {
+    font-size: 1.2rem !important;
+  }
+}
+/* =================================================
+   PREMIUM CONTENT PAGES (ABOUT / MOTIVE / TERMS)
+================================================= */
+
+/* Page wrapper */
+main {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
+}
+
+/* Transparent content block */
+main section,
+main article,
+main .content,
+.app section {
+  background: rgba(10, 14, 34, 0.68); /* transparent glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 34px 30px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Headings */
+main h1,
+main h2 {
+  font-size: 1.8rem !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px;
+  color: #f8fafc;
+}
+
+/* Paragraph text */
+main p {
+  font-size: 1.15rem !important;
+  line-height: 1.85;
+  color: #e5e7eb;
+  margin-bottom: 16px;
+}
+
+/* Lists if any */
+main ul li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  main {
+    margin-top: 24px;
   }
 
   main section,
-  main article {
-    padding: 32px 24px;
+  main article,
+  main .content {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  main h1,
+  main h2 {
+    font-size: 1.6rem !important;
   }
 
   main p {
-    font-size: 1.55rem;
+    font-size: 1.2rem !important;
   }
 }
+/* =================================================
+   FINAL BIG UI OVERRIDE (NO SMALL ANYWHERE)
+================================================= */
+
+/* ===============================
+   GLOBAL SCALE UP
+================================ */
+html {
+  font-size: 18px; /* base increase */
+}
+
+body {
+  line-height: 1.9;
+}
+
+/* ===============================
+   APP GRID – BIG ICONS & SPACE
+================================ */
+.grid {
+  grid-template-columns: repeat(5, 1fr) !important;
+  row-gap: 34px !important;   /* VERTICAL SPACE */
+  column-gap: 16px !important;
+}
+
+/* App button container */
+.app-btn {
+  padding: 12px 6px !important;
+}
+
+/* App icons */
+.app-btn img {
+  width: 72px !important;
+  height: 72px !important;
+  margin-bottom: 10px;
+}
+
+/* App labels */
+.app-btn span {
+  font-size: 1rem !important;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ===============================
+   SECTION BLOCKS (PREMIUM CARD)
+================================ */
+.card,
+main section,
+main article {
+  background: rgba(12, 16, 36, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 36px 34px;
+  margin-bottom: 36px;
+}
+
+/* ===============================
+   TEXT PAGES – BIG & EASY READ
+================================ */
+main h1,
+main h2 {
+  font-size: 2.1rem !important;
+  margin-bottom: 24px;
+}
+
+main p {
+  font-size: 1.35rem !important; /* BIG TEXT */
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   MENU / DRAWER – BIG & SPACED
+================================ */
+.drawer {
+  width: 320px !important;
+}
+
+.drawer-content h4 {
+  font-size: 1.1rem !important;
+  margin-top: 26px;
+  margin-bottom: 14px;
+}
+
+.drawer-content a {
+  font-size: 1.3rem !important;
+  padding: 18px 16px !important;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   MOBILE – STILL BIG & COMFY
+================================ */
+@media (max-width: 600px) {
+
+  html {
+    font-size: 19px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    row-gap: 36px !important;
+  }
+
+  .app-btn img {
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .app-btn span {
+    font-size: 1.05rem !important;
+  }
+
+  main p {
+    font-size: 1.4rem !important;
+  }
+
+  .drawer-content a {
+    font-size: 1.35rem !important;
+  }
+}
+/* =================================================
+   FORCE BIG UI – FINAL OVERRIDE
+   (APPS · TEXT · MENU ICON)
+================================================= */
+
+/* ===============================
+   GRID – BIG APPS, LESS ROW GAP
+================================ */
+.grid {
+  grid-template-columns: repeat(5, 1fr) !important;
+  row-gap: 18px !important;     /* DECREASE vertical gap */
+  column-gap: 12px !important;
+}
+
+/* ===============================
+   APP BUTTON – BIGGER ICONS
+================================ */
+.app-btn {
+  padding: 6px 4px !important;
+}
+
+.app-btn img {
+  width: 88px !important;       /* BIG ICON */
+  height: 88px !important;
+  margin-bottom: 6px !important;
+}
+
+/* App text */
+.app-btn span {
+  font-size: 1.15rem !important; /* BIG TEXT */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ===============================
+   TEXT PAGES – VERY READABLE
+================================ */
+main p {
+  font-size: 1.45rem !important;
+  line-height: 2.1;
+}
+
+main h1,
+main h2 {
+  font-size: 2.2rem !important;
+}
+
+/* ===============================
+   SECTION BLOCKS (PREMIUM)
+================================ */
+.card,
+main section,
+main article {
+  padding: 40px 32px !important;
+  margin-bottom: 32px !important;
+}
+
+/* ===============================
+   MENU ICON (☰) – EASY TAP
+================================ */
+.menu-icon {
+  font-size: 38px !important;   /* BIG THREE BARS */
+  padding: 10px 14px !important;
+  cursor: pointer;
+}
+
+/* ===============================
+   DRAWER LINKS – BIGGER
+================================ */
+.drawer-content a {
+  font-size: 1.35rem !important;
+  padding: 18px 16px !important;
+}
+
+/* ===============================
+   MOBILE – EXTRA COMFORT
+================================ */
+@media (max-width: 600px) {
+
+  html {
+    font-size: 20px;
+  }
+
+  .grid {
+    row-gap: 16px !important;   /* EVEN LESS GAP */
+  }
+
+  .app-btn img {
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  .app-btn span {
+    font-size: 1.2rem !important;
+  }
+
+  .menu-icon {
+    font-size: 42px !important;
+  }
+}
+
+
+
