@@ -50,7 +50,7 @@ body {
 }
 
 /* ===============================
-   TOP ACTION TABS
+   TOP ACTIONS
 ================================ */
 .top-actions {
   display: flex;
@@ -92,20 +92,21 @@ body {
 }
 
 /* ===============================
-   MAIN WRAPPER
+   MAIN WRAPPER (FULL WIDTH)
 ================================ */
 .app {
-  max-width: 1320px;
-  margin: auto;
-  padding: 30px 18px 80px;
+  width: 100%;
+  max-width: none;
+  padding: 30px 22px 80px;
   display: grid;
   gap: 48px;
 }
 
 /* ===============================
-   SECTION CARDS (KEEP)
+   SECTION CARDS
 ================================ */
 .card {
+  width: 100%;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 26px;
@@ -123,16 +124,17 @@ body {
 }
 
 /* ===============================
-   ICON GRID (LAUNCHER STYLE)
+   GRID (FULL WIDTH, DENSE)
 ================================ */
 .grid {
+  width: 100%;
   display: grid;
-  justify-items: center;
-  row-gap: 44px;
-  column-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  column-gap: 16px;
+  row-gap: 40px;
 }
 
-/* REMOVE ICON CARDS COMPLETELY */
+/* REMOVE ICON BOXES COMPLETELY */
 .grid > * {
   background: none !important;
   border: none !important;
@@ -141,9 +143,11 @@ body {
   border-radius: 0 !important;
 }
 
-/* APP ICON */
+/* ===============================
+   APP ICONS (LAUNCHER STYLE)
+================================ */
 .app-btn {
-  all: unset;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,9 +155,9 @@ body {
 }
 
 .app-btn img {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 10px;
+  width: 78px;
+  height: 78px;
+  margin-bottom: 8px;
 }
 
 .app-btn span {
@@ -209,8 +213,8 @@ body {
 
   .grid {
     grid-template-columns: repeat(5, 1fr);
-    row-gap: 36px;
-    column-gap: 14px;
+    column-gap: 12px;
+    row-gap: 32px;
   }
 
   .app-btn img {
@@ -228,77 +232,3 @@ body {
     line-height: 2;
   }
 }
-
-/* ===============================
-   DESKTOP / LAPTOP
-================================ */
-@media (min-width: 601px) {
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-
-  .app-btn img {
-    width: 82px;
-    height: 82px;
-  }
-
-  .app-btn span {
-    font-size: 1.2rem;
-  }
-}
-/* ===============================
-   FIX GRID WIDTH & WASTED SPACE
-================================ */
-
-/* Make grid fill entire card width */
-.grid {
-  width: 100%;
-  justify-items: stretch;   /* IMPORTANT */
-  align-items: start;
-  column-gap: 20px;         /* tighter horizontal spacing */
-  row-gap: 44px;
-}
-
-/* Desktop / Laptop: use full width efficiently */
-@media (min-width: 601px) {
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .app-btn img {
-    width: 78px;
-    height: 78px;
-  }
-
-  .app-btn span {
-    font-size: 1.15rem;
-  }
-}
-
-/* Mobile: EXACT 5 per row */
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
-    column-gap: 12px;
-    row-gap: 34px;
-  }
-
-  .app-btn img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .app-btn span {
-    font-size: 0.95rem;
-  }
-}
-
-/* Ensure app buttons take full grid cell */
-.app-btn {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
