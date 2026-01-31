@@ -415,3 +415,62 @@ main ul li {
     font-size: 1.5rem !important;
   }
 }
+/* =================================================
+   ZOOM-SAFE TEXT (NO CUTTING / NO OVERFLOW)
+================================================= */
+
+/* Allow natural text expansion */
+main,
+main section,
+main article,
+.card {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+/* Paragraph safety */
+main p {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+}
+
+/* Headings safety */
+main h1,
+main h2,
+main h3 {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Line height scales smoothly on zoom */
+main p,
+main li {
+  line-height: 1.9;
+}
+
+/* Prevent text clipping in all containers */
+* {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ===============================
+   MOBILE ZOOM FRIENDLY
+================================ */
+@media (max-width: 600px) {
+
+  main p {
+    font-size: 1.5rem !important;
+    line-height: 2.1;
+  }
+
+  main section,
+  main article {
+    padding-bottom: 32px; /* extra space for zoom */
+  }
+}
+
