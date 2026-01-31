@@ -1,0 +1,113 @@
+const fs = require("fs");
+const https = require("https");
+const path = require("path");
+
+const icons = {
+  // SOCIAL
+  whatsapp: "whatsapp.com",
+  instagram: "instagram.com",
+  facebook: "facebook.com",
+  twitter: "twitter.com",
+  telegram: "telegram.org",
+  snapchat: "snapchat.com",
+  discord: "discord.com",
+
+  // JOBS
+  linkedin: "linkedin.com",
+  naukri: "naukri.com",
+  indeed: "indeed.com",
+  glassdoor: "glassdoor.com",
+  internshala: "internshala.com",
+  unstop: "unstop.com",
+  foundit: "foundit.in",
+
+  // OTT
+  netflix: "netflix.com",
+  prime: "primevideo.com",
+  hotstar: "hotstar.com",
+  sonyliv: "sonyliv.com",
+  zee5: "zee5.com",
+  voot: "voot.com",
+
+  // MUSIC
+  spotify: "spotify.com",
+  youtubemusic: "music.youtube.com",
+  gaana: "gaana.com",
+  jiosaavn: "jiosaavn.com",
+  wynk: "wynk.in",
+
+  // SHOPPING
+  amazon: "amazon.in",
+  flipkart: "flipkart.com",
+  myntra: "myntra.com",
+  ajio: "ajio.com",
+  meesho: "meesho.com",
+  tatacliq: "tatacliq.com",
+
+  // TRAVEL / RIDES
+  irctc: "irctc.co.in",
+  makemytrip: "makemytrip.com",
+  goibibo: "goibibo.com",
+  booking: "booking.com",
+  airbnb: "airbnb.com",
+  uber: "uber.com",
+  ola: "olacabs.com",
+  rapido: "rapido.bike",
+  nammayatri: "nammayatri.in",
+  redbus: "redbus.in",
+  indrive: "indrive.com",
+
+  // FOOD
+  zomato: "zomato.com",
+  swiggy: "swiggy.com",
+  dominos: "dominos.co.in",
+  pizzahut: "pizzahut.co.in",
+  mcdonalds: "mcdelivery.co.in",
+  kfc: "online.kfc.co.in",
+  subway: "subway.com",
+
+  // GROCERY
+  blinkit: "blinkit.com",
+  zepto: "zepto.in",
+  bigbasket: "bigbasket.com",
+  jiomart: "jiomart.com",
+  grofers: "grofers.com",
+
+  // HEALTH
+  onemg: "1mg.com",
+  pharmeasy: "pharmeasy.in",
+  practo: "practo.com",
+  apollo: "apollo247.com",
+
+  // SPORTS
+  cricbuzz: "cricbuzz.com",
+
+  // LEARNING
+  coursera: "coursera.org",
+  udemy: "udemy.com",
+  khanacademy: "khanacademy.org",
+  nptel: "nptel.ac.in",
+  skillshare: "skillshare.com",
+  unacademy: "unacademy.com",
+  edx: "edx.org",
+  udacity: "udacity.com"
+};
+
+const dir = path.join(__dirname, "assets/icons");
+if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+for (const [name, domain] of Object.entries(icons)) {
+  const url = `https://www.google.com/s2/favicons?sz=128&domain=${domain}`;
+  const file = fs.createWriteStream(`${dir}/${name}.png`);
+
+  https.get(url, res => {
+    res.pipe(file);
+    file.on("finish", () => {
+      file.close();
+      console.log(`✔ ${name}.png`);
+    });
+  }).on("error", err => {
+    console.error(`✖ ${name}`, err.message);
+  });
+}
+
