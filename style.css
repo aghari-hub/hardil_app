@@ -1,11 +1,12 @@
 /* =====================================================
-   RESET
+   BASE RESET
 ===================================================== */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html {
@@ -15,9 +16,10 @@ html {
 }
 
 body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #f8fafc;
   background:
-    linear-gradient(rgba(6,10,20,0.9), rgba(6,10,20,0.9)),
+    linear-gradient(rgba(6,10,20,0.88), rgba(6,10,20,0.88)),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
 
@@ -33,7 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 18px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -43,9 +45,21 @@ body {
 }
 
 .menu-icon {
-  font-size: 32px;
-  padding: 8px;
+  font-size: 36px;
+  padding: 10px;
   cursor: pointer;
+}
+
+.top-actions a {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.top-actions a:hover {
+  background: rgba(255,255,255,0.15);
 }
 
 /* =====================================================
@@ -53,66 +67,65 @@ body {
 ===================================================== */
 .hero {
   text-align: center;
-  padding: 56px 20px 40px;
+  padding: 42px 16px 36px;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 800;
 }
 
 .hero p {
-  margin-top: 12px;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-top: 10px;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
   color: #cbd5f5;
 }
 
 /* =====================================================
-   MAIN CONTAINER
+   MAIN LAYOUT
 ===================================================== */
 .app {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
-  padding: 32px 20px 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+  padding: 24px 16px 80px;
+  display: grid;
+  gap: 36px;
 }
 
 /* =====================================================
-   SECTIONS (UNIFORM & ALIGNED)
+   SECTION CARD (UNIFORM FOR ALL)
 ===================================================== */
 .card {
-  background: rgba(14, 18, 40, 0.7);
+  background: rgba(12,16,36,0.65);
   backdrop-filter: blur(14px);
-  border-radius: 24px;
-  padding: 28px 24px 36px;
+  border-radius: 22px;
+  padding: 26px 22px 30px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
 }
 
 .card h2 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 .section-sub {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #cbd5f5;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 /* =====================================================
-   APP GRID (RESPONSIVE CORE)
+   APP GRID (RESPONSIVE – NO BREAKING)
 ===================================================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 28px 20px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 26px 22px;
 }
 
 /* =====================================================
-   APP ICONS
+   APP BUTTON (CLEAR PRIORITY)
 ===================================================== */
 .app-btn {
   background: transparent;
@@ -123,85 +136,53 @@ body {
 }
 
 .app-btn:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .app-btn img {
-  width: 84px;
-  height: 84px;
+  width: 88px;
+  height: 88px;
   margin-bottom: 10px;
 }
 
-/* App name — intentionally larger than section text */
+/* 🔥 APP NAME — MOST IMPORTANT TEXT */
 .app-btn span {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   color: #ffffff;
 }
 
 /* =====================================================
-   STATIC PAGES (ABOUT / MOTIVE / LEGAL)
+   DRAWER
 ===================================================== */
-main {
-  padding: 64px 20px 120px;
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background: rgba(8,12,32,0.98);
+  transition: right 0.3s ease;
+  z-index: 2000;
 }
 
-main section,
-main article {
-  max-width: 960px;
-  margin: 0 auto 48px;
-  padding: 36px 32px;
-  background: rgba(14,18,40,0.75);
-  backdrop-filter: blur(16px);
-  border-radius: 26px;
-  border: 1px solid rgba(255,255,255,0.1);
+.drawer.open {
+  right: 0;
 }
 
-main h1 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  text-align: center;
-  margin-bottom: 32px;
+.drawer-content a {
+  display: block;
+  font-size: 1.3rem;
+  padding: 18px 20px;
+  color: #f1f5f9;
+  text-decoration: none;
 }
 
-main p {
-  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
-  line-height: 2.1;
-  color: #e5e7eb;
-  margin-bottom: 24px;
-  word-break: break-word;
+.drawer-content a:hover {
+  background: rgba(255,255,255,0.08);
 }
 
 /* =====================================================
-   FOOTER
-===================================================== */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 1rem;
-  color: #cbd5f5;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* =====================================================
-   LARGE SCREENS (DESKTOP ENHANCEMENT)
-===================================================== */
-@media (min-width: 1024px) {
-
-  .app {
-    padding: 48px 32px 120px;
-  }
-
-  .card {
-    padding: 36px 40px 44px;
-  }
-
-  .app-btn img {
-    width: 96px;
-    height: 96px;
-  }
-
-  .app-btn span {
-    font-size: 1.45rem;
-  }
-}
+   STATIC PAGES (ABOUT / MOTIVE / PRIVACY / TERMS / LEGAL)
+===================================================== */*
