@@ -1,80 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>HarDil</title>
+  <meta charset="UTF-8" />
+  <title>HarDil</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#020617">
-<meta name="description" content="HarDil – Family First · One Place for Everything">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="description" content="HarDil – Family First · One Place for Everything" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<script>
-try {
-  if (sessionStorage.getItem("harDilSplash") !== "done") {
-    window.location.href = "splash.html";
-  }
-} catch(e){}
-</script>
+  <style>
+    * { box-sizing: border-box; font-family: Inter, system-ui, sans-serif; }
+    body { margin: 0; background: #020617; color: #e5e7eb; }
+    header { position: sticky; top: 0; background: rgba(2,6,23,.9); backdrop-filter: blur(10px); padding: 14px 16px; font-weight: 700; font-size: 18px; z-index: 10; }
+    main { padding: 16px; }
+    .card { background: rgba(255,255,255,.08); border-radius: 18px; padding: 14px; margin-bottom: 18px; }
+    .card h2 { margin: 0 0 12px; font-size: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .app-btn { background: rgba(255,255,255,.12); border-radius: 16px; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; transition: transform .12s ease; }
+    .app-btn:active { transform: scale(.94); }
+    .app-btn img { width: 40px; height: 40px; border-radius: 10px; background: #fff; }
+    .app-btn span { font-size: 12px; text-align: center; }
+    footer { text-align: center; font-size: 12px; opacity: .7; padding: 20px 10px 30px; }
+  </style>
+
+  <script>
+    try {
+      if (sessionStorage.getItem("harDilSplash") !== "done") {
+        location.replace("splash.html");
+      }
+    } catch(e){}
+  </script>
 </head>
 
 <body>
 
-<header class="top-app-bar">
-  <span class="top-app-title">❤️ HarDil</span>
-  <span class="menu-icon" id="openMenu">☰</span>
-</header>
+<header>❤️ HarDil</header>
 
-<main class="app">
+<main>
 
-<!-- SOCIAL -->
-<section class="card" id="social">
+<!-- 🌐 SOCIAL -->
+<section class="card">
 <h2>🌐 Social</h2>
 <div class="grid">
-  <div class="app-btn" data-url="https://web.whatsapp.com"><img src="assets/icons/whatsapp.png"><span>WhatsApp</span></div>
-  <div class="app-btn" data-url="https://instagram.com"><img src="assets/icons/instagram.png"><span>Instagram</span></div>
-  <div class="app-btn" data-url="https://facebook.com"><img src="assets/icons/facebook.png"><span>Facebook</span></div>
-  <div class="app-btn" data-url="https://twitter.com"><img src="assets/icons/twitter.png"><span>Twitter</span></div>
-  <div class="app-btn" data-url="https://web.telegram.org"><img src="assets/icons/telegram.png"><span>Telegram</span></div>
-  <div class="app-btn" data-url="https://discord.com"><img src="assets/icons/discord.png"><span>Discord</span></div>
+<div class="app-btn" data-url="https://web.whatsapp.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=whatsapp.com"><span>WhatsApp</span></div>
+<div class="app-btn" data-url="https://instagram.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=instagram.com"><span>Instagram</span></div>
+<div class="app-btn" data-url="https://facebook.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=facebook.com"><span>Facebook</span></div>
+<div class="app-btn" data-url="https://twitter.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=twitter.com"><span>X</span></div>
+<div class="app-btn" data-url="https://web.telegram.org"><img src="https://www.google.com/s2/favicons?sz=128&domain=telegram.org"><span>Telegram</span></div>
+<div class="app-btn" data-url="https://discord.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=discord.com"><span>Discord</span></div>
+<div class="app-btn" data-url="https://snapchat.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=snapchat.com"><span>Snapchat</span></div>
+<div class="app-btn" data-url="https://threads.net"><img src="https://www.google.com/s2/favicons?sz=128&domain=threads.net"><span>Threads</span></div>
+<div class="app-btn" data-url="https://reddit.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=reddit.com"><span>Reddit</span></div>
 </div>
 </section>
 
-<!-- JOBS -->
-<section class="card" id="jobs">
+<!-- 💼 JOBS -->
+<section class="card">
 <h2>💼 Jobs</h2>
 <div class="grid">
-  <div class="app-btn" data-url="https://linkedin.com/jobs"><img src="assets/icons/linkedin.png"><span>LinkedIn</span></div>
-  <div class="app-btn" data-url="https://naukri.com"><img src="assets/icons/naukri.png"><span>Naukri</span></div>
-  <div class="app-btn" data-url="https://indeed.com"><img src="assets/icons/indeed.png"><span>Indeed</span></div>
-  <div class="app-btn" data-url="https://internshala.com"><img src="assets/icons/internshala.png"><span>Internshala</span></div>
-  <div class="app-btn" data-url="https://unstop.com"><img src="assets/icons/unstop.png"><span>Unstop</span></div>
+<div class="app-btn" data-url="https://linkedin.com/jobs"><img src="https://www.google.com/s2/favicons?sz=128&domain=linkedin.com"><span>LinkedIn</span></div>
+<div class="app-btn" data-url="https://naukri.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=naukri.com"><span>Naukri</span></div>
+<div class="app-btn" data-url="https://indeed.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=indeed.com"><span>Indeed</span></div>
+<div class="app-btn" data-url="https://internshala.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=internshala.com"><span>Internshala</span></div>
+<div class="app-btn" data-url="https://unstop.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=unstop.com"><span>Unstop</span></div>
+<div class="app-btn" data-url="https://glassdoor.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=glassdoor.com"><span>Glassdoor</span></div>
+<div class="app-btn" data-url="https://wellfound.com/jobs"><img src="https://www.google.com/s2/favicons?sz=128&domain=wellfound.com"><span>Wellfound</span></div>
+<div class="app-btn" data-url="https://www.instahyre.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=instahyre.com"><span>Instahyre</span></div>
+<div class="app-btn" data-url="https://cutshort.io"><img src="https://www.google.com/s2/favicons?sz=128&domain=cutshort.io"><span>CutShort</span></div>
+<div class="app-btn" data-url="https://www.hirist.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=hirist.com"><span>Hirist</span></div>
+<div class="app-btn" data-url="https://www.iimjobs.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=iimjobs.com"><span>IIMJobs</span></div>
+<div class="app-btn" data-url="https://remoteok.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=remoteok.com"><span>Remote OK</span></div>
 </div>
 </section>
 
-<!-- FOOD -->
-<section class="card" id="food">
+<!-- 🎬 OTT -->
+<section class="card">
+<h2>🎬 OTT</h2>
+<div class="grid">
+<div class="app-btn" data-url="https://netflix.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=netflix.com"><span>Netflix</span></div>
+<div class="app-btn" data-url="https://primevideo.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=primevideo.com"><span>Prime</span></div>
+<div class="app-btn" data-url="https://hotstar.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=hotstar.com"><span>Hotstar</span></div>
+<div class="app-btn" data-url="https://zee5.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=zee5.com"><span>Zee5</span></div>
+<div class="app-btn" data-url="https://sonyliv.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=sonyliv.com"><span>Sony LIV</span></div>
+<div class="app-btn" data-url="https://jiocinema.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=jiocinema.com"><span>JioCinema</span></div>
+</div>
+</section>
+
+<!-- 🍔 FOOD -->
+<section class="card">
 <h2>🍔 Food</h2>
 <div class="grid">
-  <div class="app-btn" data-url="https://zomato.com"><img src="assets/icons/zomato.png"><span>Zomato</span></div>
-  <div class="app-btn" data-url="https://swiggy.com"><img src="assets/icons/swiggy.png"><span>Swiggy</span></div>
-  <div class="app-btn" data-url="https://dominos.co.in"><img src="assets/icons/dominos.png"><span>Domino’s</span></div>
-  <div class="app-btn" data-url="https://online.kfc.co.in"><img src="assets/icons/kfc.png"><span>KFC</span></div>
+<div class="app-btn" data-url="https://zomato.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=zomato.com"><span>Zomato</span></div>
+<div class="app-btn" data-url="https://swiggy.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=swiggy.com"><span>Swiggy</span></div>
+<div class="app-btn" data-url="https://dominos.co.in"><img src="https://www.google.com/s2/favicons?sz=128&domain=dominos.co.in"><span>Domino’s</span></div>
+<div class="app-btn" data-url="https://online.kfc.co.in"><img src="https://www.google.com/s2/favicons?sz=128&domain=kfc.co.in"><span>KFC</span></div>
+<div class="app-btn" data-url="https://mcdelivery.co.in"><img src="https://www.google.com/s2/favicons?sz=128&domain=mcdelivery.co.in"><span>McDonald's</span></div>
+<div class="app-btn" data-url="https://pizzahut.co.in"><img src="https://www.google.com/s2/favicons?sz=128&domain=pizzahut.co.in"><span>Pizza Hut</span></div>
+</div>
+</section>
+
+<!-- 🛒 SHOPPING -->
+<section class="card">
+<h2>🛒 Shopping</h2>
+<div class="grid">
+<div class="app-btn" data-url="https://amazon.in"><img src="https://www.google.com/s2/favicons?sz=128&domain=amazon.in"><span>Amazon</span></div>
+<div class="app-btn" data-url="https://flipkart.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=flipkart.com"><span>Flipkart</span></div>
+<div class="app-btn" data-url="https://myntra.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=myntra.com"><span>Myntra</span></div>
+<div class="app-btn" data-url="https://ajio.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=ajio.com"><span>AJIO</span></div>
+<div class="app-btn" data-url="https://meesho.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=meesho.com"><span>Meesho</span></div>
+<div class="app-btn" data-url="https://tatacliq.com"><img src="https://www.google.com/s2/favicons?sz=128&domain=tatacliq.com"><span>Tata CLiQ</span></div>
 </div>
 </section>
 
 </main>
 
-<footer class="footer">
-HarDil redirects only to official websites.<br>
-No logins · No payments · Family First ❤️
+<footer>
+HarDil redirects only to official websites<br>
+No logins · No payments · Family First
 </footer>
 
 <script>
-document.querySelectorAll(".app-btn").forEach(btn => {
-  btn.onclick = () => window.open(btn.dataset.url, "_blank", "noopener");
+document.querySelectorAll(".app-btn").forEach(b=>{
+  b.onclick=()=>window.open(b.dataset.url,"_blank","noopener")
 });
 </script>
 
