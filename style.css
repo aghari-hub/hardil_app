@@ -242,49 +242,79 @@ body {
 .app-btn:hover {
   transform: translateY(-6px);
 }
-/* ===============================
-   FINAL MASTER SCALE FIX
-   (BIGGER UI · 5 APPS · VERTICAL SPACE)
-================================ */
+/* =================================================
+   PREMIUM CONTENT PAGES (ABOUT / MOTIVE / TERMS)
+================================================= */
 
-/* Increase overall UI scale */
-html {
-  font-size: 18px !important; /* global zoom without breaking layout */
+/* Page wrapper */
+main {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
 }
 
-/* FORCE 5 apps per row */
-.grid {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  gap: 20px 8px !important;   /* MUCH more vertical space */
+/* Transparent content block */
+main section,
+main article,
+main .content,
+.app section {
+  background: rgba(10, 14, 34, 0.68); /* transparent glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 22px;
+  padding: 34px 30px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45);
 }
 
-/* App container spacing */
-.app-btn {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 14px 0 !important;   /* adds vertical height */
+/* Headings */
+main h1,
+main h2 {
+  font-size: 1.8rem !important;
+  font-weight: 700;
   text-align: center;
+  margin-bottom: 22px;
+  color: #f8fafc;
 }
 
-/* BIGGER ICONS */
-.app-btn img {
-  width: 88px !important;
-  height: 88px !important;
-  margin-bottom: 10px !important;
-}
-
-/* BIGGER, VERY READABLE TEXT */
-.app-btn span {
+/* Paragraph text */
+main p {
   font-size: 1.15rem !important;
-  font-weight: 600 !important;
-  color: #ffffff !important;
-  line-height: 1.25 !important;
+  line-height: 1.85;
+  color: #e5e7eb;
+  margin-bottom: 16px;
 }
 
-/* Smooth floating feel */
-.app-btn:hover {
-  transform: translateY(-4px);
+/* Lists if any */
+main ul li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: #e5e7eb;
 }
 
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  main {
+    margin-top: 24px;
+  }
+
+  main section,
+  main article,
+  main .content {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  main h1,
+  main h2 {
+    font-size: 1.6rem !important;
+  }
+
+  main p {
+    font-size: 1.2rem !important;
+  }
+}
