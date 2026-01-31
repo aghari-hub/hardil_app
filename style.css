@@ -14,55 +14,52 @@ html {
 }
 
 /* ===============================
-   BODY / BACKGROUND
+   BACKGROUND (VISIBLE LIKE APP DRAWER)
 ================================ */
 body {
   width: 100%;
   color: #f8fafc;
-  line-height: 1.6;
   background:
     linear-gradient(
-      rgba(6,10,20,0.55),
-      rgba(6,10,20,0.55)
+      rgba(6,10,20,0.45),
+      rgba(6,10,20,0.45)
     ),
     url("assets/images/app-bg.jpg") center / cover no-repeat fixed;
 }
 
 /* ===============================
-   TOP APP BAR
+   TOP BAR
 ================================ */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 64px;
-  background: rgba(6,10,20,0.95);
+  height: 60px;
+  background: rgba(6,10,20,0.9);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .top-app-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .menu-icon {
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
 }
 
 .top-actions {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .top-actions a {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
   color: #e5e7eb;
   text-decoration: none;
   padding: 6px 8px;
@@ -70,7 +67,7 @@ body {
 }
 
 .top-actions a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
 }
 
 /* ===============================
@@ -78,18 +75,18 @@ body {
 ================================ */
 .hero {
   text-align: center;
-  padding: 32px 14px 24px;
+  padding: 26px 12px 18px;
 }
 
 .hero h1 {
-  font-size: 2.1rem;
+  font-size: 1.9rem;
   font-weight: 800;
 }
 
 .hero p {
   margin-top: 6px;
-  font-size: 1rem;
-  color: #e2e8f0;
+  font-size: 0.95rem;
+  color: #cbd5f5;
 }
 
 /* ===============================
@@ -98,43 +95,42 @@ body {
 .app {
   max-width: 1280px;
   margin: auto;
-  padding: 16px 8px 56px;
+  padding: 12px 8px 50px;
   display: grid;
-  gap: 24px;
+  gap: 22px;
 }
 
 /* ===============================
-   SECTIONS
+   SECTION HEADERS (NO CARDS)
 ================================ */
 .card {
-  background: rgba(255,255,255,0.015);
-  border-radius: 16px;
-  padding: 14px 8px;
+  background: transparent;
+  padding: 0;
 }
 
 .card h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .section-sub {
-  font-size: 0.85rem;
-  color: #cbd5f5;
+  font-size: 0.8rem;
+  color: #94a3b8;
   margin-bottom: 10px;
 }
 
 /* ===============================
-   GRID — DESKTOP / TABLET
+   GRID (ANDROID STYLE)
 ================================ */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 10px;
 }
 
 /* ===============================
-   APP ICONS (NO BOXES)
+   APP ICONS (APP DRAWER LOOK)
 ================================ */
 .app-btn {
   background: transparent;
@@ -143,24 +139,34 @@ body {
   padding: 6px 0;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-3px);
 }
 
 .app-btn img {
-  width: 46px;
-  height: 46px;
-  margin-bottom: 4px;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 6px;
 }
 
 .app-btn span {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: #ffffff;
   line-height: 1.2;
+}
+
+/* ===============================
+   DESKTOP / TABLET
+================================ */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 18px;
+  }
+
+  .app-btn img {
+    width: 58px;
+    height: 58px;
+  }
 }
 
 /* ===============================
@@ -179,41 +185,6 @@ body {
 
 .drawer.open {
   right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.drawer-header strong {
-  font-size: 1.2rem;
-}
-
-.drawer-content {
-  padding: 16px;
-}
-
-.drawer-content h4 {
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-}
-
-.drawer-content a {
-  display: block;
-  padding: 12px 0;
-  color: #f1f5f9;
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-.drawer-content a:hover {
-  color: #38bdf8;
 }
 
 /* ===============================
@@ -236,37 +207,8 @@ body {
 ================================ */
 .footer {
   text-align: center;
-  padding: 28px 14px;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: #e2e8f0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* ===============================
-   MOBILE — FORCE 5 APPS
-================================ */
-@media (max-width: 600px) {
-
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-  }
-
-  .app-btn img {
-    width: 42px;
-    height: 42px;
-  }
-
-  .app-btn span {
-    font-size: 10.5px;
-  }
-
-  .hero h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
+  padding: 26px 12px;
+  font-size: 0.8rem;
+  color: #cbd5f5;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
