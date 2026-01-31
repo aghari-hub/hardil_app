@@ -243,78 +243,123 @@ body {
   transform: translateY(-6px);
 }
 /* =================================================
-   PREMIUM CONTENT PAGES (ABOUT / MOTIVE / TERMS)
+   FINAL BIG UI OVERRIDE (NO SMALL ANYWHERE)
 ================================================= */
 
-/* Page wrapper */
-main {
-  max-width: 960px;
-  margin: 40px auto 80px;
-  padding: 0 16px;
+/* ===============================
+   GLOBAL SCALE UP
+================================ */
+html {
+  font-size: 18px; /* base increase */
 }
 
-/* Transparent content block */
-main section,
-main article,
-main .content,
-.app section {
-  background: rgba(10, 14, 34, 0.68); /* transparent glass */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 22px;
-  padding: 34px 30px;
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.45);
-}
-
-/* Headings */
-main h1,
-main h2 {
-  font-size: 1.8rem !important;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 22px;
-  color: #f8fafc;
-}
-
-/* Paragraph text */
-main p {
-  font-size: 1.15rem !important;
-  line-height: 1.85;
-  color: #e5e7eb;
-  margin-bottom: 16px;
-}
-
-/* Lists if any */
-main ul li {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 10px;
-  color: #e5e7eb;
+body {
+  line-height: 1.9;
 }
 
 /* ===============================
-   MOBILE OPTIMIZATION
+   APP GRID – BIG ICONS & SPACE
+================================ */
+.grid {
+  grid-template-columns: repeat(5, 1fr) !important;
+  row-gap: 34px !important;   /* VERTICAL SPACE */
+  column-gap: 16px !important;
+}
+
+/* App button container */
+.app-btn {
+  padding: 12px 6px !important;
+}
+
+/* App icons */
+.app-btn img {
+  width: 72px !important;
+  height: 72px !important;
+  margin-bottom: 10px;
+}
+
+/* App labels */
+.app-btn span {
+  font-size: 1rem !important;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ===============================
+   SECTION BLOCKS (PREMIUM CARD)
+================================ */
+.card,
+main section,
+main article {
+  background: rgba(12, 16, 36, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 36px 34px;
+  margin-bottom: 36px;
+}
+
+/* ===============================
+   TEXT PAGES – BIG & EASY READ
+================================ */
+main h1,
+main h2 {
+  font-size: 2.1rem !important;
+  margin-bottom: 24px;
+}
+
+main p {
+  font-size: 1.35rem !important; /* BIG TEXT */
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   MENU / DRAWER – BIG & SPACED
+================================ */
+.drawer {
+  width: 320px !important;
+}
+
+.drawer-content h4 {
+  font-size: 1.1rem !important;
+  margin-top: 26px;
+  margin-bottom: 14px;
+}
+
+.drawer-content a {
+  font-size: 1.3rem !important;
+  padding: 18px 16px !important;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   MOBILE – STILL BIG & COMFY
 ================================ */
 @media (max-width: 600px) {
 
-  main {
-    margin-top: 24px;
+  html {
+    font-size: 19px;
   }
 
-  main section,
-  main article,
-  main .content {
-    padding: 26px 20px;
-    border-radius: 18px;
+  .grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    row-gap: 36px !important;
   }
 
-  main h1,
-  main h2 {
-    font-size: 1.6rem !important;
+  .app-btn img {
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .app-btn span {
+    font-size: 1.05rem !important;
   }
 
   main p {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
+  }
+
+  .drawer-content a {
+    font-size: 1.35rem !important;
   }
 }
