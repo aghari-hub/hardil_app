@@ -243,42 +243,48 @@ body {
   transform: translateY(-6px);
 }
 /* ===============================
-   FINAL READABILITY TUNING
-   (5 apps · big icons · clear text)
+   FINAL MASTER SCALE FIX
+   (BIGGER UI · 5 APPS · VERTICAL SPACE)
 ================================ */
 
-/* 5 apps per row, more vertical air */
+/* Increase overall UI scale */
+html {
+  font-size: 18px !important; /* global zoom without breaking layout */
+}
+
+/* FORCE 5 apps per row */
 .grid {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr) !important;
-  gap: 14px 6px !important;   /* MORE vertical, tight horizontal */
+  gap: 20px 8px !important;   /* MUCH more vertical space */
 }
 
-/* App wrapper */
+/* App container spacing */
 .app-btn {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 10px 0 !important;   /* adds vertical breathing */
+  padding: 14px 0 !important;   /* adds vertical height */
   text-align: center;
 }
 
 /* BIGGER ICONS */
 .app-btn img {
-  width: 80px !important;
-  height: 80px !important;
-  margin-bottom: 6px !important;
+  width: 88px !important;
+  height: 88px !important;
+  margin-bottom: 10px !important;
 }
 
-/* CLEAR, EASY-TO-READ LABELS */
+/* BIGGER, VERY READABLE TEXT */
 .app-btn span {
-  font-size: 1.05rem !important;  /* clearly readable */
+  font-size: 1.15rem !important;
   font-weight: 600 !important;
   color: #ffffff !important;
-  line-height: 1.2 !important;
+  line-height: 1.25 !important;
 }
 
-/* Soft floating feel */
+/* Smooth floating feel */
 .app-btn:hover {
   transform: translateY(-4px);
 }
+
