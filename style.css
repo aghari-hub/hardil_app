@@ -212,3 +212,33 @@ body {
   color: #cbd5f5;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
+/* ===============================
+   FINAL SIMPLE FIX (ICON ONLY)
+================================ */
+
+/* Remove box feeling completely */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;
+}
+
+/* Make app icons BIGGER */
+.app-btn img {
+  width: 68px !important;
+  height: 68px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Clean app name */
+.app-btn span {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Floating effect (subtle) */
+.app-btn:hover {
+  transform: translateY(-6px);
+}
