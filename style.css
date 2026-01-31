@@ -256,3 +256,64 @@ main h2 {
     font-size: 1.6rem;
   }
 }
+/* =====================================================
+   FINAL UN-MIX FIX — REMOVE CARD BOX FEEL COMPLETELY
+===================================================== */
+
+/* Kill all section boxes */
+.card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 32px !important;
+}
+
+/* Section titles spacing */
+.card h2 {
+  font-size: 1.15rem !important;
+  margin-bottom: 6px !important;
+}
+
+/* Section description */
+.section-sub {
+  font-size: 0.95rem !important;
+  margin-bottom: 18px !important;
+}
+
+/* Grid should span full width */
+.grid {
+  width: 100% !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  row-gap: 26px !important;
+  column-gap: 16px !important;
+}
+
+/* App icons — BIG & FREE */
+.app-btn img {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+/* App name — MOST IMPORTANT TEXT */
+.app-btn span {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+}
+
+/* Mobile tuning */
+@media (max-width: 600px) {
+  .grid {
+    row-gap: 24px !important;
+  }
+
+  .app-btn img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .app-btn span {
+    font-size: 1.4rem !important;
+  }
+}
+
