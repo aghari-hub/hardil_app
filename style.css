@@ -316,4 +316,92 @@ main h2 {
     font-size: 1.4rem !important;
   }
 }
+/* =====================================================
+   FINAL UNIFORM SECTION STYLE — ALL SECTIONS SAME
+===================================================== */
+
+/* EVERY section container behaves same */
+.card {
+  background: rgba(12, 16, 36, 0.65) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 22px 18px 26px !important;
+  margin-bottom: 32px !important;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.45);
+}
+
+/* Section title */
+.card h2 {
+  font-size: 1.15rem !important;
+  font-weight: 700;
+  margin-bottom: 6px !important;
+}
+
+/* Section subtitle */
+.section-sub {
+  font-size: 0.95rem !important;
+  margin-bottom: 18px !important;
+  color: #cbd5f5;
+}
+
+/* =====================================================
+   GRID — SAME FOR EVERY SECTION
+===================================================== */
+.grid {
+  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) !important;
+  column-gap: 16px !important;
+  row-gap: 24px !important;
+}
+
+/* =====================================================
+   APP ICONS — BIG, CLEAR, FLOATING
+===================================================== */
+.app-btn {
+  padding: 6px 4px !important;
+  text-align: center;
+}
+
+/* Icon size */
+.app-btn img {
+  width: 92px !important;
+  height: 92px !important;
+  margin-bottom: 8px !important;
+}
+
+/* App name — MOST IMPORTANT TEXT */
+.app-btn span {
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+/* Subtle hover lift */
+.app-btn:hover {
+  transform: translateY(-6px);
+}
+
+/* =====================================================
+   MOBILE — STILL 5 APPS, COMFORTABLE
+===================================================== */
+@media (max-width: 600px) {
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    row-gap: 22px !important;
+  }
+
+  .app-btn img {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  .app-btn span {
+    font-size: 1.4rem !important;
+  }
+}
+
 
