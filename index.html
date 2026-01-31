@@ -1,319 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>HarDil</title>
+<meta charset="UTF-8">
+<title>HarDil</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#020617" />
-  <meta name="description" content="HarDil – Family First · One Place for Everything" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020617">
+<meta name="description" content="HarDil – Family First · One Place for Everything">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-  <script>
-    try {
-      if (sessionStorage.getItem("harDilSplash") !== "done") {
-        window.location.href = "splash.html";
-      }
-    } catch (e) {}
-  </script>
+<script>
+try {
+  if (sessionStorage.getItem("harDilSplash") !== "done") {
+    window.location.href = "splash.html";
+  }
+} catch(e){}
+</script>
 </head>
 
 <body>
+
 <header class="top-app-bar">
   <span class="top-app-title">❤️ HarDil</span>
-  <nav class="top-actions">
-    <a href="about.html">About</a>
-    <a href="motive.html">Motive</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="legal.html">Legal</a>
-  </nav>
   <span class="menu-icon" id="openMenu">☰</span>
 </header>
-
-<!-- DRAWER -->
-<aside class="drawer" id="drawer">
-  <div class="drawer-header">
-    <strong>HarDil</strong>
-    <button id="closeMenu">✕</button>
-  </div>
-
-  <div class="drawer-content">
-    <h4>Navigate</h4>
-    <a href="#social">🌐 Social</a>
-    <a href="#jobs">💼 Jobs</a>
-    <a href="#ott">🎬 OTT</a>
-    <a href="#music">🎵 Music</a>
-    <a href="#shop">🛒 Shopping</a>
-    <a href="#travel">✈️ Travel</a>
-    <a href="#rides">🚕 Rides</a>
-    <a href="#food">🍔 Food</a>
-    <a href="#grocery">🛒 Grocery & Essentials</a>
-    <a href="#health">🩺 Health</a>
-    <a href="#sports">🏏 Sports</a>
-    <a href="#learning">🧠 Learning</a>
-
-    <h4>Support</h4>
-    <a href="mailto:aghari128@gmail.com">Contact</a>
-  </div>
-</aside>
-
-<div class="backdrop" id="backdrop"></div>
-
-<section class="hero">
-  <h1>HarDil</h1>
-  <p>Family First · One Place for Everything</p>
-</section>
 
 <main class="app">
 
 <!-- SOCIAL -->
 <section class="card" id="social">
-  <h2>🌐 Social</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://web.whatsapp.com"><img src="assets/icons/whatsapp.png"><span>WhatsApp</span></div>
-    <div class="app-btn" data-url="https://instagram.com"><img src="assets/icons/instagram.png"><span>Instagram</span></div>
-    <div class="app-btn" data-url="https://facebook.com"><img src="assets/icons/facebook.png"><span>Facebook</span></div>
-    <div class="app-btn" data-url="https://twitter.com"><img src="assets/icons/twitter.png"><span>Twitter (X)</span></div>
-    <div class="app-btn" data-url="https://web.telegram.org"><img src="assets/icons/telegram.png"><span>Telegram</span></div>
-    <div class="app-btn" data-url="https://snapchat.com"><img src="assets/icons/snapchat.png"><span>Snapchat</span></div>
-    <div class="app-btn" data-url="https://discord.com"><img src="assets/icons/discord.png"><span>Discord</span></div>
-  </div>
+<h2>🌐 Social</h2>
+<div class="grid">
+  <div class="app-btn" data-url="https://web.whatsapp.com"><img src="assets/icons/whatsapp.png"><span>WhatsApp</span></div>
+  <div class="app-btn" data-url="https://instagram.com"><img src="assets/icons/instagram.png"><span>Instagram</span></div>
+  <div class="app-btn" data-url="https://facebook.com"><img src="assets/icons/facebook.png"><span>Facebook</span></div>
+  <div class="app-btn" data-url="https://twitter.com"><img src="assets/icons/twitter.png"><span>Twitter</span></div>
+  <div class="app-btn" data-url="https://web.telegram.org"><img src="assets/icons/telegram.png"><span>Telegram</span></div>
+  <div class="app-btn" data-url="https://discord.com"><img src="assets/icons/discord.png"><span>Discord</span></div>
+</div>
 </section>
 
 <!-- JOBS -->
 <section class="card" id="jobs">
-  <h2>💼 Jobs</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://linkedin.com/jobs"><img src="assets/icons/linkedin.png"><span>LinkedIn</span></div>
-    <div class="app-btn" data-url="https://naukri.com"><img src="assets/icons/naukri.png"><span>Naukri</span></div>
-    <div class="app-btn" data-url="https://indeed.com"><img src="assets/icons/indeed.png"><span>Indeed</span></div>
-    <div class="app-btn" data-url="https://glassdoor.com"><img src="assets/icons/glassdoor.png"><span>Glassdoor</span></div>
-    <div class="app-btn" data-url="https://internshala.com"><img src="assets/icons/internshala.png"><span>Internshala</span></div>
-    <div class="app-btn" data-url="https://unstop.com"><img src="assets/icons/unstop.png"><span>Unstop</span></div>
-    <div class="app-btn" data-url="https://foundit.in"><img src="assets/icons/foundit.png"><span>Foundit</span></div>
-  </div>
+<h2>💼 Jobs</h2>
+<div class="grid">
+  <div class="app-btn" data-url="https://linkedin.com/jobs"><img src="assets/icons/linkedin.png"><span>LinkedIn</span></div>
+  <div class="app-btn" data-url="https://naukri.com"><img src="assets/icons/naukri.png"><span>Naukri</span></div>
+  <div class="app-btn" data-url="https://indeed.com"><img src="assets/icons/indeed.png"><span>Indeed</span></div>
+  <div class="app-btn" data-url="https://internshala.com"><img src="assets/icons/internshala.png"><span>Internshala</span></div>
+  <div class="app-btn" data-url="https://unstop.com"><img src="assets/icons/unstop.png"><span>Unstop</span></div>
+</div>
 </section>
 
-<!-- OTT -->
-<section class="card" id="ott">
-  <h2>🎬 OTT</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://netflix.com"><img src="assets/icons/netflix.png"><span>Netflix</span></div>
-    <div class="app-btn" data-url="https://primevideo.com"><img src="assets/icons/prime.png"><span>Prime Video</span></div>
-    <div class="app-btn" data-url="https://hotstar.com"><img src="assets/icons/hotstar.png"><span>Hotstar</span></div>
-    <div class="app-btn" data-url="https://sonyLIV.com"><img src="assets/icons/sonyliv.png"><span>Sony LIV</span></div>
-    <div class="app-btn" data-url="https://zee5.com"><img src="assets/icons/zee5.png"><span>Zee5</span></div>
-    <div class="app-btn" data-url="https://voot.com"><img src="assets/icons/voot.png"><span>Voot</span></div>
-  </div>
-</section>
-
-<!-- MUSIC -->
-<section class="card" id="music">
-  <h2>🎵 Music</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://spotify.com"><img src="assets/icons/spotify.png"><span>Spotify</span></div>
-    <div class="app-btn" data-url="https://music.youtube.com"><img src="assets/icons/youtubemusic.png"><span>YouTube Music</span></div>
-    <div class="app-btn" data-url="https://gaana.com"><img src="assets/icons/gaana.png"><span>Gaana</span></div>
-    <div class="app-btn" data-url="https://jiosaavn.com"><img src="assets/icons/jiosaavn.png"><span>JioSaavn</span></div>
-    <div class="app-btn" data-url="https://wynk.in"><img src="assets/icons/wynk.png"><span>Wynk</span></div>
-  </div>
-</section>
-
-<!-- SHOPPING -->
-<section class="card" id="shopping">
-  <h2>🛒 Shopping</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://amazon.in"><img src="assets/icons/amazon.png"><span>Amazon</span></div>
-    <div class="app-btn" data-url="https://flipkart.com"><img src="assets/icons/flipkart.png"><span>Flipkart</span></div>
-    <div class="app-btn" data-url="https://myntra.com"><img src="assets/icons/myntra.png"><span>Myntra</span></div>
-    <div class="app-btn" data-url="https://ajio.com"><img src="assets/icons/ajio.png"><span>Ajio</span></div>
-    <div class="app-btn" data-url="https://meesho.com"><img src="assets/icons/meesho.png"><span>Meesho</span></div>
-    <div class="app-btn" data-url="https://tatacliq.com"><img src="assets/icons/tatacliq.png"><span>Tata CLiQ</span></div>
-  </div>
-</section>
-
-<!-- TRAVEL -->
-<section class="card" id="travel">
-  <h2>✈️ Travel</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://irctc.co.in"><img src="assets/icons/irctc.png"><span>IRCTC</span></div>
-    <div class="app-btn" data-url="https://makemytrip.com"><img src="assets/icons/makemytrip.png"><span>MakeMyTrip</span></div>
-    <div class="app-btn" data-url="https://goibibo.com"><img src="assets/icons/goibibo.png"><span>Goibibo</span></div>
-    <div class="app-btn" data-url="https://booking.com"><img src="assets/icons/booking.png"><span>Booking</span></div>
-    <div class="app-btn" data-url="https://airbnb.com"><img src="assets/icons/airbnb.png"><span>Airbnb</span></div>
-  </div>
-</section>
-
-<!-- 🚕 RIDES -->
-<section class="card" id="rides">
-  <h2>🚕 Rides & Transport</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://uber.com">
-      <img src="assets/icons/uber.png"><span>Uber</span>
-    </div>
-
-    <div class="app-btn" data-url="https://olacabs.com">
-      <img src="assets/icons/ola.png"><span>Ola</span>
-    </div>
-
-    <div class="app-btn" data-url="https://rapido.bike">
-      <img src="assets/icons/rapido.png"><span>Rapido</span>
-    </div>
-
-    <div class="app-btn" data-url="https://nammayatri.in">
-      <img src="assets/icons/nammayatri.png"><span>Namma Yatri</span>
-    </div>
-
-    <div class="app-btn" data-url="https://redbus.in">
-      <img src="assets/icons/redbus.png"><span>RedBus</span>
-    </div>
-
-    <div class="app-btn" data-url="https://indrive.com">
-      <img src="assets/icons/indrive.png"><span>inDrive</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- 🍔 FOOD -->
+<!-- FOOD -->
 <section class="card" id="food">
-  <h2>🍔 Food Delivery</h2>
-  <div class="grid">
-
-    <div class="app-btn" data-url="https://zomato.com">
-      <img src="assets/icons/zomato.png"><span>Zomato</span>
-    </div>
-
-    <div class="app-btn" data-url="https://swiggy.com">
-      <img src="assets/icons/swiggy.png"><span>Swiggy</span>
-    </div>
-
-    <div class="app-btn" data-url="https://dominos.co.in">
-      <img src="assets/icons/dominos.png"><span>Domino’s</span>
-    </div>
-
-    <div class="app-btn" data-url="https://pizzahut.co.in">
-      <img src="assets/icons/pizzahut.png"><span>Pizza Hut</span>
-    </div>
-
-    <div class="app-btn" data-url="https://mcdelivery.co.in">
-      <img src="assets/icons/mcdonalds.png"><span>McDonald’s</span>
-    </div>
-
-    <div class="app-btn" data-url="https://online.kfc.co.in">
-      <img src="assets/icons/kfc.png"><span>KFC</span>
-    </div>
-
-    <div class="app-btn" data-url="https://subway.com">
-      <img src="assets/icons/subway.png"><span>Subway</span>
-    </div>
-
-  </div>
-</section>
-<!-- 🛒 GROCERY -->
-<section class="card" id="grocery">
-  <h2>🛒 Grocery & Essentials</h2>
-  <div class="grid">
-
-    <div class="app-btn" data-url="https://blinkit.com">
-      <img src="assets/icons/blinkit.png"><span>Blinkit</span>
-    </div>
-
-    <div class="app-btn" data-url="https://zepto.in">
-      <img src="assets/icons/zepto.png"><span>Zepto</span>
-    </div>
-
-    <div class="app-btn" data-url="https://bigbasket.com">
-      <img src="assets/icons/bigbasket.png"><span>BigBasket</span>
-    </div>
-
-    <div class="app-btn" data-url="https://jiomart.com">
-      <img src="assets/icons/jiomart.png"><span>JioMart</span>
-    </div>
-
-
-    <div class="app-btn" data-url="https://grofers.com">
-      <img src="assets/icons/grofers.png"><span>Grofers</span>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- HEALTH -->
-<section class="card" id="health">
-  <h2>🩺 Health</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://1mg.com"><img src="assets/icons/1mg.png"><span>Tata 1mg</span></div>
-    <div class="app-btn" data-url="https://pharmeasy.in"><img src="assets/icons/pharmeasy.png"><span>PharmEasy</span></div>
-    <div class="app-btn" data-url="https://practo.com"><img src="assets/icons/practo.png"><span>Practo</span></div>
-    <div class="app-btn" data-url="https://apollo247.com"><img src="assets/icons/apollo.png"><span>Apollo 24/7</span></div>
-  </div>
-</section>
-
-<!-- SPORTS -->
-<section class="card" id="sports">
-  <h2>🏏 Sports</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://cricbuzz.com"><img src="assets/icons/cricbuzz.png"><span>Cricbuzz</span></div>
-    <div class="app-btn" data-url="https://hotstar.com/sports"><img src="assets/icons/hotstar.png"><span>Hotstar Sports</span></div>
-  </div>
-</section>
-
-<!-- LEARNING -->
-<section class="card" id="learning">
-  <h2>🧠 Learning</h2>
-  <div class="grid">
-    <div class="app-btn" data-url="https://coursera.org"><img src="assets/icons/coursera.png"><span>Coursera</span></div>
-    <div class="app-btn" data-url="https://udemy.com"><img src="assets/icons/udemy.png"><span>Udemy</span></div>
-    <div class="app-btn" data-url="https://khanacademy.org"><img src="assets/icons/khanacademy.png"><span>Khan Academy</span></div>
-    <div class="app-btn" data-url="https://www.nptel.ac.in">
-      <img src="assets/icons/nptel.png"><span>NPTEL</span>
-    </div>
-     <div class="app-btn" data-url="https://www.skillshare.com">
-      <img src="assets/icons/skillshare.png"><span>Skillshare</span>
-    </div>
-     <div class="app-btn" data-url="https://unacademy.com">
-      <img src="assets/icons/unacademy.png"><span>Unacademy</span>
-    </div>
-    <div class="app-btn" data-url="https://www.edx.org">
-      <img src="assets/icons/edx.png"><span>edX</span>
-    </div>
-
-    <div class="app-btn" data-url="https://www.udacity.com">
-      <img src="assets/icons/udacity.png"><span>Udacity</span>
-    </div>
- 
-  </div>
+<h2>🍔 Food</h2>
+<div class="grid">
+  <div class="app-btn" data-url="https://zomato.com"><img src="assets/icons/zomato.png"><span>Zomato</span></div>
+  <div class="app-btn" data-url="https://swiggy.com"><img src="assets/icons/swiggy.png"><span>Swiggy</span></div>
+  <div class="app-btn" data-url="https://dominos.co.in"><img src="assets/icons/dominos.png"><span>Domino’s</span></div>
+  <div class="app-btn" data-url="https://online.kfc.co.in"><img src="assets/icons/kfc.png"><span>KFC</span></div>
+</div>
 </section>
 
 </main>
 
 <footer class="footer">
-  HarDil redirects users only to official websites.<br>
-  No logins · No payments · Family First ❤️
+HarDil redirects only to official websites.<br>
+No logins · No payments · Family First ❤️
 </footer>
 
 <script>
-  const drawer = document.getElementById("drawer");
-  const backdrop = document.getElementById("backdrop");
-
-  openMenu.onclick = () => {
-    drawer.classList.add("open");
-    backdrop.classList.add("show");
-  };
-
-  closeMenu.onclick = backdrop.onclick = () => {
-    drawer.classList.remove("open");
-    backdrop.classList.remove("show");
-  };
-
-  document.querySelectorAll(".app-btn").forEach(btn => {
-    btn.onclick = () => window.open(btn.dataset.url, "_blank", "noopener");
-  });
+document.querySelectorAll(".app-btn").forEach(btn => {
+  btn.onclick = () => window.open(btn.dataset.url, "_blank", "noopener");
+});
 </script>
 
 </body>
