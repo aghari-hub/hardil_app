@@ -242,3 +242,42 @@ body {
 .app-btn:hover {
   transform: translateY(-6px);
 }
+/* ===============================
+   FINAL ANDROID GRID – 5 APPS
+================================ */
+
+/* FORCE 5 apps per row */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 4px 4px !important;   /* tight like launcher */
+}
+
+/* App container */
+.app-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px 0 !important;
+  text-align: center;
+}
+
+/* Icon size */
+.app-btn img {
+  width: 72px !important;
+  height: 72px !important;
+  margin-bottom: 2px !important;
+}
+
+/* Text size */
+.app-btn span {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  line-height: 1.1 !important;
+}
+
+/* Small floating feel */
+.app-btn:hover {
+  transform: translateY(-3px);
+}
