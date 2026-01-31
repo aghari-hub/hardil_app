@@ -342,3 +342,76 @@ main article {
     font-size: 42px !important;
   }
 }
+/* =================================================
+   STORY PAGES (ABOUT / MOTIVE / PRIVACY / TERMS / LEGAL)
+   BIG TEXT + TRANSPARENT BOX
+================================================= */
+
+/* Page container */
+main {
+  max-width: 960px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
+}
+
+/* Content box */
+main section,
+main article,
+main .content {
+  background: rgba(12, 16, 36, 0.72); /* transparent premium */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 38px 34px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* Page title */
+main h1 {
+  font-size: 2.3rem !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 28px;
+  color: #f8fafc;
+}
+
+/* Paragraph text (MAIN FIX) */
+main p {
+  font-size: 1.45rem !important;   /* LARGE TEXT */
+  line-height: 2.1;
+  color: #e5e7eb;
+  margin-bottom: 20px;
+}
+
+/* Lists if present */
+main ul li {
+  font-size: 1.35rem;
+  line-height: 2;
+  margin-bottom: 14px;
+  color: #e5e7eb;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 600px) {
+
+  main {
+    margin-top: 24px;
+  }
+
+  main section,
+  main article,
+  main .content {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+
+  main h1 {
+    font-size: 2rem !important;
+  }
+
+  main p {
+    font-size: 1.5rem !important;
+  }
+}
