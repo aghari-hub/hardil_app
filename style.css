@@ -318,74 +318,59 @@ footer.footer {
   font-size: 14px;
   color: #fff;
 }
-/* ================= MOBILE COMPACT FIX (FINAL) ================= */
+/* ===== EXTRA COMPACT MOBILE TUNING ===== */
 @media (max-width: 640px) {
 
-  /* ---- HERO / APP NAME SECTION ---- */
+  /* App name / hero section */
   .hero {
-    padding: 22px 12px 20px;   /* reduced height */
+    padding: 18px 12px 16px;   /* slightly shorter */
   }
 
   .hero h1 {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .hero p {
-    font-size: 11.5px;
-    margin-top: 4px;
+    font-size: 11px;
+    margin-top: 3px;
   }
 
-  /* ---- SECTION / CARD COMPACT ---- */
+  /* Section container */
   .card {
-    padding: 14px 0;          /* reduced section height */
-    margin-bottom: 10px;
+    padding: 12px 0;           /* reduced but not cramped */
+    margin-bottom: 8px;
+  }
+
+  .card h2 {
+    font-size: 16px;
   }
 
   .section-sub {
-    margin-bottom: 8px;
-    font-size: 12px;
+    font-size: 11.5px;
+    margin-bottom: 6px;
   }
 
-  /* ---- GRID DENSITY ---- */
+  /* Grid spacing */
   .grid {
-    gap: 10px;                /* tighter rows */
+    gap: 8px;                  /* tighter rows */
   }
 
-  /* ---- APP TILE COMPACT ---- */
+  /* App tiles */
   .app-btn {
-    min-height: 82px;         /* tighter tiles */
-    padding: 6px 4px;
+    min-height: 78px;          /* compact tiles */
+    padding: 5px 4px;
   }
 
   .app-btn img,
   .icon-fallback {
-    width: 38px;
-    height: 38px;
-    padding: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
   }
 
   .app-btn span {
-    font-size: 9px;
+    font-size: 8.8px;
     margin-top: 3px;
-    min-height: 1.8em;
-  }
-
-  /* ---- FOOTER LINKS (CRITICAL FIX) ---- */
-  footer.footer {
-    padding: 14px 12px 18px;
-  }
-
-  .footer-links {
-    display: flex;            /* force visibility */
-    justify-content: center;
-    gap: 10px;
-    margin: 8px 0;
-  }
-
-  .footer-links a {
-    font-size: 11px;
-    color: #c7d2fe;
-    opacity: 0.95;
+    min-height: 1.6em;
   }
 }
-
