@@ -296,4 +296,152 @@ main.app {
 footer.footer {
   padding-bottom: 40px;
 }
+/* =====================================================
+   FULL-WIDTH APP PATCH (ALL SCREEN SIZES)
+   SAFE OVERRIDES – NO HTML / JS CHANGES
+===================================================== */
+
+/* Prevent horizontal gaps */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Remove boxed layout completely */
+main.app {
+  max-width: none !important;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hero should span full width */
+.hero {
+  width: 100%;
+  padding: 72px 20px 56px;
+  background: radial-gradient(
+    circle at top,
+    rgba(99,102,241,0.25),
+    rgba(2,6,23,1) 70%
+  );
+}
+
+/* Full-width sections like Apple / Google */
+.card {
+  width: 100%;
+  margin: 0 0 28px;
+  padding: 32px 0;
+  border-radius: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.015)
+  );
+  box-shadow: none;
+  border-left: none;
+  border-right: none;
+}
+
+/* Inner safe spacing (visual container without boxing) */
+.card > h2,
+.card > p,
+.card > .grid {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Section title spacing (Apple style) */
+.card h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.card p.section-sub {
+  margin-bottom: 22px;
+}
+
+/* ===============================
+   GRID RULES (EXACT COUNTS)
+=============================== */
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* 📱 Mobile → 4 icons per row */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .app-btn {
+    padding: 10px 6px;
+  }
+
+  .app-btn span {
+    font-size: 11px;
+  }
+
+  .app-btn img,
+  .icon-fallback {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 📟 Tablet → 6 icons per row */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* 💻 Laptop & Desktop → 8 icons per row */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* ===============================
+   TOUCH & WEBVIEW OPTIMIZATION
+=============================== */
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+.app-btn {
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+/* Disable hover lift on touch devices */
+@media (hover: none) {
+  .app-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .app-btn:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Drawer performance */
+.drawer {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Footer spacing safety */
+footer.footer {
+  padding-bottom: 48px;
+}
 
