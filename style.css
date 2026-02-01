@@ -326,18 +326,32 @@ footer.footer {
   padding: 10px 6px;
 }
 
-/* Icon container consistency */
+/* ===== UNIFIED ICON VISUAL STYLE (ALL SECTIONS) ===== */
+
+/* Icon container */
 .app-btn img,
 .icon-fallback {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6px;                 /* key: normalizes odd icons */
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;           /* forces visual consistency */
 
   object-fit: contain;
+  box-sizing: border-box;
 }
+
+/* Mobile refinement */
+@media (max-width: 640px) {
+  .app-btn img,
+  .icon-fallback {
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+  }
+}
+
 
 /* Label baseline fix */
 .app-btn span {
