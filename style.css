@@ -404,4 +404,37 @@ footer.footer {
   }
 }
 
+/* ===== DESKTOP DENSITY OPTIMIZATION ===== */
+@media (min-width: 1024px) {
+
+  /* Bigger icons (≈ +30%) */
+  .app-btn img,
+  .icon-fallback {
+    width: 58px;
+    height: 58px;
+    padding: 8px;
+  }
+
+  /* Slightly larger labels to match */
+  .app-btn span {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  /* Reduce wasted vertical space */
+  .app-btn {
+    min-height: 128px;
+    padding: 12px 6px;
+  }
+
+  /* Reduce section height */
+  .card {
+    padding: 24px 0;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    margin-bottom: 16px;
+  }
+}
 
