@@ -1,42 +1,32 @@
 /* =====================================================
-   HarDil – FINAL PRODUCTION CSS
-   Apple + Google Style · Full Width · WebView Ready
+   HarDil – FINAL RESPONSIVE CSS
 ===================================================== */
 
-/* ---------- RESET ---------- */
-*,
-*::before,
-*::after {
+/* RESET */
+* {
   box-sizing: border-box;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
 html, body {
   margin: 0;
-  padding: 0;
   background: #020617;
   color: #e6eef8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  touch-action: manipulation;
 }
 
-/* ---------- SAFE AREA (Android / iOS) ---------- */
-body {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-/* ---------- TOP BAR ---------- */
+/* TOP BAR */
 .top-app-bar {
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 14px 18px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: rgba(2,6,23,.88);
-  backdrop-filter: blur(12px);
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(2,6,23,.9);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
@@ -56,16 +46,16 @@ body {
   text-decoration: none;
 }
 
-/* ---------- HERO ---------- */
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* HERO */
 .hero {
-  width: 100%;
-  padding: 90px 20px 70px;
+  padding: 80px 20px 60px;
   text-align: center;
-  background: radial-gradient(
-    circle at top,
-    rgba(99,102,241,.28),
-    rgba(2,6,23,1) 70%
-  );
+  background: radial-gradient(circle at top, rgba(99,102,241,.3), #020617 70%);
 }
 
 .hero h1 {
@@ -74,140 +64,109 @@ body {
 }
 
 .hero p {
-  margin-top: 10px;
-  font-size: 14px;
   color: #a5b4fc;
+  margin-top: 10px;
 }
 
-/* ---------- MAIN ---------- */
+/* MAIN */
 main.app {
   width: 100%;
   padding-bottom: 140px;
 }
 
-/* ---------- SECTION (FULL WIDTH) ---------- */
+/* SECTION */
 .card {
   width: 100%;
-  padding: 64px 0;
-  margin-bottom: 24px;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.05),
-    rgba(255,255,255,.02)
-  );
+  padding: 56px 0;
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-/* ---------- INNER CONTENT ---------- */
 .section-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding: 0 20px;
 }
 
-/* ---------- TITLES ---------- */
 .card h2 {
-  font-size: 20px;
   margin-bottom: 6px;
 }
 
 .section-sub {
   color: #9fb7ff;
-  font-size: 14px;
   margin-bottom: 22px;
 }
 
-/* ---------- GRID ---------- */
+/* GRID COUNTS */
 .grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
 }
 
-/* ---------- APP TILE ---------- */
+/* Mobile: 4 */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet: 6 */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Laptop/Desktop: 8 */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* APP TILE */
 .app-btn {
   background: rgba(255,255,255,.06);
   border-radius: 16px;
-  padding: 18px 12px;
+  padding: 16px 10px;
   text-align: center;
+  cursor: pointer;
   border: 1px solid rgba(255,255,255,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease;
 }
 
-.app-btn img,
-.icon-fallback {
+.app-btn img {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .app-btn span {
   font-size: 13px;
 }
 
-.app-btn:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
-}
-
-/* ---------- FALLBACK ICON ---------- */
-.icon-fallback {
-  background: linear-gradient(135deg,#6366f1,#111827);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-}
-
-/* ---------- FOOTER ---------- */
-footer.footer {
+/* FOOTER */
+.footer {
   text-align: center;
   padding: 40px 16px;
   font-size: 12px;
   color: #9fb7ff;
 }
 
-/* ---------- REVEAL ANIMATION ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .7s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ---------- MOBILE OPTIMIZATION ---------- */
-@media (max-width: 640px) {
-  .card {
-    padding: 40px 0;
-  }
-
-  .section-inner {
-    padding: 0 14px;
-  }
-
-  .top-actions {
-    display: none;
-  }
-}
-
-/* -------*
+/* MOBILE BOTTOM NAV */
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   height: 64px;
   background: rgba(2,6,23,.95);
   display: none;
   justify-content: space-around;
   align-items: center;
-  z-index: 60;
   border-top: 1px solid rgba(255,255,255,.08);
+  z-index: 70;
 }
 
 .bottom-nav a {
@@ -223,5 +182,8 @@ footer.footer {
   .bottom-nav {
     display: flex;
   }
-}
 
+  .top-actions {
+    display: none;
+  }
+}
