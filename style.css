@@ -318,3 +318,74 @@ footer.footer {
   font-size: 14px;
   color: #fff;
 }
+/* ================= MOBILE COMPACT FIX (FINAL) ================= */
+@media (max-width: 640px) {
+
+  /* ---- HERO / APP NAME SECTION ---- */
+  .hero {
+    padding: 22px 12px 20px;   /* reduced height */
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 11.5px;
+    margin-top: 4px;
+  }
+
+  /* ---- SECTION / CARD COMPACT ---- */
+  .card {
+    padding: 14px 0;          /* reduced section height */
+    margin-bottom: 10px;
+  }
+
+  .section-sub {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  /* ---- GRID DENSITY ---- */
+  .grid {
+    gap: 10px;                /* tighter rows */
+  }
+
+  /* ---- APP TILE COMPACT ---- */
+  .app-btn {
+    min-height: 82px;         /* tighter tiles */
+    padding: 6px 4px;
+  }
+
+  .app-btn img,
+  .icon-fallback {
+    width: 38px;
+    height: 38px;
+    padding: 5px;
+  }
+
+  .app-btn span {
+    font-size: 9px;
+    margin-top: 3px;
+    min-height: 1.8em;
+  }
+
+  /* ---- FOOTER LINKS (CRITICAL FIX) ---- */
+  footer.footer {
+    padding: 14px 12px 18px;
+  }
+
+  .footer-links {
+    display: flex;            /* force visibility */
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: #c7d2fe;
+    opacity: 0.95;
+  }
+}
+
