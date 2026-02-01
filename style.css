@@ -349,4 +349,26 @@ footer.footer {
   /* forces same text baseline across rows */
   min-height: 2.6em;
 }
+/* ===== MOBILE VISUAL ALIGNMENT FIX (FINAL) ===== */
+@media (max-width: 640px) {
+
+  /* Lock icon box more strictly on mobile */
+  .app-btn img,
+  .icon-fallback {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Reduce visual jump between icon & text */
+  .app-btn span {
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 2.2em;
+  }
+
+  /* Slightly tighter tile height */
+  .app-btn {
+    min-height: 104px;
+  }
+}
 
