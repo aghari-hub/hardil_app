@@ -440,4 +440,13 @@ footer.footer {
     margin-bottom: 16px;
   }
 }
+footer.footer a {
+  color: #a5b4fc;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer.footer a:hover {
+  text-decoration: underline;
+}
 
