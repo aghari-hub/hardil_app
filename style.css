@@ -310,3 +310,38 @@ footer.footer {
     margin: 0 6px;
   }
 }
+/* === GLOBAL ICON ALIGNMENT NORMALIZATION === */
+.app-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  min-height: 112px; /* critical: equal tile height */
+  padding: 10px 6px;
+}
+
+/* Icon container consistency */
+.app-btn img,
+.icon-fallback {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  object-fit: contain;
+}
+
+/* Label baseline fix */
+.app-btn span {
+  margin-top: 6px;
+  line-height: 1.25;
+  text-align: center;
+  font-size: 13px;
+
+  /* forces same text baseline across rows */
+  min-height: 2.6em;
+}
+
