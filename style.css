@@ -371,4 +371,23 @@ footer.footer {
     min-height: 104px;
   }
 }
+/* ===== FINAL MOBILE TEXT NORMALIZATION (25% REDUCTION) ===== */
+@media (max-width: 640px) {
+
+  .app-btn span {
+    font-size: 9.5px;        /* ~25% smaller than 12.5px */
+    line-height: 1.15;
+    margin-top: 4px;
+
+    /* hard-stop text from affecting height */
+    min-height: 2em;
+    max-height: 2em;
+    overflow: hidden;
+  }
+
+  .app-btn {
+    min-height: 96px;        /* tighter & equal */
+  }
+}
+
 
