@@ -449,4 +449,31 @@ footer.footer a {
 footer.footer a:hover {
   text-decoration: underline;
 }
+/* ===== MOBILE FOOTER COMPACT FIX ===== */
+@media (max-width: 640px) {
+
+  footer.footer {
+    padding: 16px 14px 22px;
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
+  .footer-note {
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    font-size: 11.5px;
+  }
+
+  .footer-rights {
+    margin: 0;
+    font-size: 11.5px;
+  }
+}
 
