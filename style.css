@@ -451,12 +451,10 @@ footer.footer a:hover {
 }
 /* ===== MOBILE FOOTER COMPACT FIX ===== */
 @media (max-width: 640px) {
-
   footer.footer {
-    padding: 16px 14px 22px;
-    font-size: 11.5px;
-    line-height: 1.45;
+    margin-top: 8px;        /* pulls footer closer */
   }
+}
 
   .footer-note {
     margin-bottom: 10px;
@@ -474,6 +472,24 @@ footer.footer a:hover {
   .footer-rights {
     margin: 0;
     font-size: 11.5px;
+  }
+}
+/* ===== MOBILE TOP BAR COMPACT FIX (FINAL) ===== */
+@media (max-width: 640px) {
+
+  .top-app-bar {
+    padding: 6px 12px;      /* reduce height */
+    min-height: 44px;       /* mobile-native */
+  }
+
+  .top-app-title {
+    font-size: 15px;        /* slightly smaller */
+    gap: 6px;
+  }
+
+  .menu-icon {
+    font-size: 20px;
+    padding: 4px;
   }
 }
 
