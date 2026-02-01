@@ -233,37 +233,42 @@ main.app {
   .grid { grid-template-columns: repeat(8, 1fr); }
 }
 
-/* ================= FLAT ICON STYLE (ALL SCREENS) ================= */
-.app-btn {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
+/* ================= VISUAL NORMALIZATION (ALL SECTIONS) ================= */
 
+/* Tile */
+.app-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 
-  padding: 12px 6px;
-  cursor: pointer;
-  min-height: 110px; /* keeps text aligned on desktop */
+  padding: 10px 6px;
+  min-height: 108px;          /* equal tile height */
 }
 
+/* Icon visual box */
 .app-btn img,
 .icon-fallback {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  object-fit: contain;
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  object-fit: contain;        /* CRITICAL */
 }
 
+/* Label */
 .app-btn span {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 6px;
+  font-size: 12.5px;          /* normalized */
+  line-height: 1.25;
   text-align: center;
-  line-height: 1.2;
+
+  min-height: 2.4em;          /* forces same baseline */
 }
+
 
 
 /* Touch devices */
