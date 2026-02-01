@@ -1,9 +1,9 @@
-/* =========================================================
-   HarDil – Full Responsive Style Sheet
-   Mobile First · Tablet · Desktop
-========================================================= */
+/* =====================================================
+   HarDil – FINAL PRODUCTION CSS
+   Apple + Google Style · Full Width · WebView Ready
+===================================================== */
 
-/* ------------------ RESET & BASE ------------------ */
+/* ---------- RESET ---------- */
 *,
 *::before,
 *::after {
@@ -14,270 +14,186 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
   background: #020617;
   color: #e6eef8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
 }
 
-/* ------------------ TOP APP BAR ------------------ */
+/* ---------- SAFE AREA (Android / iOS) ---------- */
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ---------- TOP BAR ---------- */
 .top-app-bar {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 50;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  background: linear-gradient(90deg, rgba(3,7,23,.88), rgba(8,12,30,.88));
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(2,6,23,.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .top-app-title {
   font-size: 18px;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .top-actions {
   display: flex;
-  gap: 8px;
+  gap: 14px;
 }
 
 .top-actions a {
+  color: #c7d2fe;
   font-size: 13px;
-  color: rgba(230,238,248,.85);
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 8px;
 }
 
-.top-actions a:hover {
-  background: rgba(255,255,255,.05);
-}
-
-.menu-icon {
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 8px;
-}
-
-.menu-icon:hover {
-  background: rgba(255,255,255,.05);
-}
-
-/* ------------------ DRAWER ------------------ */
-.drawer {
-  position: fixed;
-  inset: 0 auto 0 -100%;
-  width: 280px;
-  background: linear-gradient(180deg, #061126, #0b1530);
-  color: #dbeafe;
-  padding: 14px;
-  z-index: 50;
-  transition: left .3s ease;
-  overflow-y: auto;
-}
-
-.drawer.open {
-  left: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-
-.drawer-header strong {
-  font-size: 18px;
-}
-
-.drawer-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.drawer-content h4 {
-  font-size: 13px;
-  color: #93c5fd;
-  margin: 12px 0 6px;
-}
-
-.drawer-content a {
-  display: block;
-  color: #dbeafe;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.drawer-content a:hover {
-  background: rgba(255,255,255,.05);
-}
-
-/* ------------------ BACKDROP ------------------ */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 45;
-  transition: opacity .2s ease;
-}
-
-.backdrop.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ------------------ HERO ------------------ */
+/* ---------- HERO ---------- */
 .hero {
+  width: 100%;
+  padding: 90px 20px 70px;
   text-align: center;
-  padding: 22px 16px 14px;
+  background: radial-gradient(
+    circle at top,
+    rgba(99,102,241,.28),
+    rgba(2,6,23,1) 70%
+  );
 }
 
 .hero h1 {
-  font-size: 28px;
+  font-size: clamp(28px, 4vw, 40px);
   margin: 0;
-  letter-spacing: 1px;
 }
 
 .hero p {
+  margin-top: 10px;
   font-size: 14px;
   color: #a5b4fc;
-  margin-top: 6px;
 }
 
-/* ------------------ MAIN LAYOUT ------------------ */
+/* ---------- MAIN ---------- */
 main.app {
-  max-width: 1100px;
-  margin: auto;
-  padding: 14px;
-  padding-bottom: 120px;
+  width: 100%;
+  padding-bottom: 140px;
 }
 
-/* ------------------ CARD ------------------ */
+/* ---------- SECTION (FULL WIDTH) ---------- */
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border-radius: 14px;
-  padding: 12px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(255,255,255,.05);
-  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+  width: 100%;
+  padding: 64px 0;
+  margin-bottom: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.02)
+  );
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
+/* ---------- INNER CONTENT ---------- */
+.section-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ---------- TITLES ---------- */
 .card h2 {
-  font-size: 16px;
-  margin: 0 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 20px;
+  margin-bottom: 6px;
 }
 
 .section-sub {
-  font-size: 13px;
   color: #9fb7ff;
-  margin-bottom: 10px;
+  font-size: 14px;
+  margin-bottom: 22px;
 }
 
-/* ------------------ GRID ------------------ */
+/* ---------- GRID ---------- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 
-/* ------------------ APP BUTTON ------------------ */
+/* ---------- APP TILE ---------- */
 .app-btn {
-  background: rgba(255,255,255,.04);
-  border-radius: 12px;
-  padding: 10px 8px;
+  background: rgba(255,255,255,.06);
+  border-radius: 16px;
+  padding: 18px 12px;
   text-align: center;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,.04);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.app-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .app-btn img,
 .icon-fallback {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  margin: auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .app-btn span {
-  display: block;
-  margin-top: 6px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-/* ------------------ FALLBACK ICON ------------------ */
+.app-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
+
+/* ---------- FALLBACK ICON ---------- */
 .icon-fallback {
-  background: linear-gradient(135deg,#64748b,#111827);
+  background: linear-gradient(135deg,#6366f1,#111827);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #fff;
 }
 
-/* ------------------ FOOTER ------------------ */
+/* ---------- FOOTER ---------- */
 footer.footer {
   text-align: center;
-  padding: 24px 12px;
+  padding: 40px 16px;
   font-size: 12px;
   color: #9fb7ff;
 }
 
-/* =================================================
-   RESPONSIVE BREAKPOINTS
-================================================= */
-
-/* Tablets */
-@media (min-width: 480px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+/* ---------- REVEAL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .7s cubic-bezier(.2,.8,.2,1);
 }
 
-/* Small laptops */
-@media (min-width: 768px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
-  .hero h1 { font-size: 30px; }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
 }
 
-/* Large screens */
-@media (min-width: 1200px) {
-  main.app { max-width: 1200px; }
-  .card { padding: 16px; }
-}
-
-/* Touch devices */
-@media (hover: none) {
-  .app-btn:hover {
-    transform: none;
-    box-shadow: none;
+/* ---------- MOBILE OPTIMIZATION ---------- */
+@media (max-width: 640px) {
+  .card {
+    padding: 40px 0;
   }
-  .app-btn:active {
-    transform: scale(.96);
+
+  .section-inner {
+    padding: 0 14px;
+  }
+
+  .top-actions {
+    display: none;
   }
 }
+
+/* -------*
