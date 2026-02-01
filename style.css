@@ -187,3 +187,113 @@ main.app {
     display: none;
   }
 }
+/* =====================================================
+   PERFORMANCE & RESPONSIVE PATCHES
+   (NO HTML / JS CHANGES)
+===================================================== */
+
+/* Prevent layout shifts & overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Improve scrolling performance (Android WebView) */
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Remove desktop box constraint (full width sections) */
+main.app {
+  max-width: none;
+  margin: 0;
+}
+
+/* Improve card rendering performance */
+.card {
+  will-change: transform;
+  contain: layout paint;
+}
+
+/* Better tap response */
+.app-btn {
+  touch-action: manipulation;
+}
+
+/* ================================
+   GRID FIX (EXACT ICON COUNTS)
+================================ */
+
+/* DEFAULT (large screens fallback) */
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+/* 📱 MOBILE → 4 icons per row */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .app-btn span {
+    font-size: 11px;
+  }
+
+  .app-btn img,
+  .icon-fallback {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 📟 TABLET → 6 icons per row */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* 💻 LAPTOP / DESKTOP → 8 icons per row */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* ================================
+   HOVER SAFETY (TOUCH DEVICES)
+================================ */
+@media (hover: none) {
+  .app-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .app-btn:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ================================
+   IMAGE RENDER OPTIMIZATION
+================================ */
+.app-btn img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ================================
+   DRAWER PERFORMANCE PATCH
+================================ */
+.drawer {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ================================
+   FOOTER SAFETY (MOBILE)
+================================ */
+footer.footer {
+  padding-bottom: 40px;
+}
+
