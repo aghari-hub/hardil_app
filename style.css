@@ -374,3 +374,24 @@ footer.footer {
     min-height: 1.6em;
   }
 }
+/* ===== MOBILE-ONLY LEGAL LINKS ===== */
+
+/* Hide menu legal links by default (desktop) */
+.mobile-only-links {
+  display: none;
+}
+
+/* Mobile behavior */
+@media (max-width: 640px) {
+
+  /* Show legal links in menu */
+  .mobile-only-links {
+    display: block;
+  }
+
+  /* Hide footer legal links */
+  .footer-links {
+    display: none;
+  }
+}
+
