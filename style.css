@@ -1,130 +1,283 @@
-/* =========================
-   RESPONSIVE DESIGN UPGRADE
-   ========================= */
+/* =========================================================
+   HarDil – Full Responsive Style Sheet
+   Mobile First · Tablet · Desktop
+========================================================= */
 
-/* Prevent horizontal overflow */
+/* ------------------ RESET & BASE ------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
 html, body {
-  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #020617;
+  color: #e6eef8;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Top bar tweaks for mobile */
-@media (max-width: 768px) {
-  .top-actions {
-    display: none; /* hide links on small screens */
-  }
-
-  .top-app-title {
-    font-size: 16px;
-  }
+/* ------------------ TOP APP BAR ------------------ */
+.top-app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: linear-gradient(90deg, rgba(3,7,23,.88), rgba(8,12,30,.88));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
-/* Drawer full-height & mobile friendly */
-@media (max-width: 600px) {
-  .drawer {
-    width: 85%;
-    left: -100%;
-  }
-
-  .drawer.open {
-    left: 0;
-  }
+.top-app-title {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Hero scaling */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 22px;
-  }
-
-  .hero p {
-    font-size: 13px;
-  }
+.top-actions {
+  display: flex;
+  gap: 8px;
 }
 
-/* Cards spacing on small screens */
-@media (max-width: 600px) {
-  main.app {
-    padding: 10px;
-    padding-bottom: 100px;
-  }
-
-  .card {
-    padding: 10px;
-    border-radius: 12px;
-  }
-
-  .card h2 {
-    font-size: 15px;
-  }
-
-  .section-sub {
-    font-size: 12px;
-  }
+.top-actions a {
+  font-size: 13px;
+  color: rgba(230,238,248,.85);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
 }
 
-/* Grid responsiveness (more refined) */
+.top-actions a:hover {
+  background: rgba(255,255,255,.05);
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.menu-icon:hover {
+  background: rgba(255,255,255,.05);
+}
+
+/* ------------------ DRAWER ------------------ */
+.drawer {
+  position: fixed;
+  inset: 0 auto 0 -100%;
+  width: 280px;
+  background: linear-gradient(180deg, #061126, #0b1530);
+  color: #dbeafe;
+  padding: 14px;
+  z-index: 50;
+  transition: left .3s ease;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.drawer-header strong {
+  font-size: 18px;
+}
+
+.drawer-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.drawer-content h4 {
+  font-size: 13px;
+  color: #93c5fd;
+  margin: 12px 0 6px;
+}
+
+.drawer-content a {
+  display: block;
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.drawer-content a:hover {
+  background: rgba(255,255,255,.05);
+}
+
+/* ------------------ BACKDROP ------------------ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 45;
+  transition: opacity .2s ease;
+}
+
+.backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ------------------ HERO ------------------ */
+.hero {
+  text-align: center;
+  padding: 22px 16px 14px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #a5b4fc;
+  margin-top: 6px;
+}
+
+/* ------------------ MAIN LAYOUT ------------------ */
+main.app {
+  max-width: 1100px;
+  margin: auto;
+  padding: 14px;
+  padding-bottom: 120px;
+}
+
+/* ------------------ CARD ------------------ */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255,255,255,.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+
+.card h2 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: #9fb7ff;
+  margin-bottom: 10px;
+}
+
+/* ------------------ GRID ------------------ */
 .grid {
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-/* App buttons responsive */
-@media (max-width: 480px) {
-  .app-btn {
-    padding: 8px 6px;
-    border-radius: 10px;
-  }
-
-  .app-btn img,
-  .icon-fallback {
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-  }
-
-  .app-btn span {
-    font-size: 11px;
-  }
+/* ------------------ APP BUTTON ------------------ */
+.app-btn {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.04);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
-/* Tablet optimization */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  main.app {
-    max-width: 900px;
-  }
+.app-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.6);
 }
 
-/* Desktop large screens */
+.app-btn img,
+.icon-fallback {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.app-btn span {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+/* ------------------ FALLBACK ICON ------------------ */
+.icon-fallback {
+  background: linear-gradient(135deg,#64748b,#111827);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer.footer {
+  text-align: center;
+  padding: 24px 12px;
+  font-size: 12px;
+  color: #9fb7ff;
+}
+
+/* =================================================
+   RESPONSIVE BREAKPOINTS
+================================================= */
+
+/* Tablets */
+@media (min-width: 480px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Small laptops */
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+  .hero h1 { font-size: 30px; }
+}
+
+/* Large screens */
 @media (min-width: 1200px) {
-  main.app {
-    max-width: 1100px;
-  }
-
-  .grid {
-    gap: 14px;
-  }
+  main.app { max-width: 1200px; }
+  .card { padding: 16px; }
 }
 
-/* Touch-friendly hover fallback */
+/* Touch devices */
 @media (hover: none) {
   .app-btn:hover {
     transform: none;
     box-shadow: none;
   }
-}
-
-/* Footer responsiveness */
-@media (max-width: 600px) {
-  footer.footer {
-    font-size: 11px;
-    padding: 20px 8px;
+  .app-btn:active {
+    transform: scale(.96);
   }
-}
-/* iOS-style safe area support */
-body {
-  padding-bottom: env(safe-area-inset-bottom);
 }
