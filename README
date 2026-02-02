@@ -1,0 +1,53 @@
+# HarDil
+
+**Family First · One Place for Everything**
+
+HarDil is a lightweight web application that offers quick access to commonly used online services in one place. It works as a simple launcher that redirects users directly to official websites across multiple categories.
+
+---
+
+## 🌟 Features
+
+- 📱 Mobile-first & responsive
+- ⚡ Fast and lightweight
+- 🔒 Privacy-friendly (no logins, no payments, no data storage)
+- 🌐 Redirects only to official websites
+- 🧭 Simple, category-based navigation
+
+---
+
+## 📂 Categories
+
+- Social
+- Jobs
+- Meets
+- OTT & Entertainment
+- Music
+- Shopping & Grocery
+- Travel & Rides
+- Food
+- Health
+- Sports
+- Learning
+
+---
+
+## 🛠 Tech Stack
+
+- HTML5
+- CSS3
+- Vanilla JavaScript  
+(No backend, no frameworks)
+
+---
+
+## ⚠ Disclaimer
+
+HarDil only redirects users to third-party official websites.  
+All trademarks and services belong to their respective owners.
+
+---
+
+## 👨‍💻 Credits
+
+**Hari & Dileep**
