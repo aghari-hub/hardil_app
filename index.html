@@ -21,6 +21,7 @@
       }
     } catch (e) {}
   </script>
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
@@ -633,6 +634,11 @@ document.querySelectorAll('.app-btn img').forEach(img => {
     p.prepend(f);
   };
 });
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
 </script>
 
 </body>
